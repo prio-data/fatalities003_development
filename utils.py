@@ -174,17 +174,6 @@ def evaluate(target, para_transformed, retransform=True, b = 1, a = 0):
         stepcols.append('step_pred_' + str(step))
     pred_cols = [f'step_pred_{str(i)}' for i in steps]
 
-    # if evaluate_raw:
-    #     name = wandb.config[f'predstore_{target}']
-    #     # Get predictions
-    #     df = pd.DataFrame.forecasts.read_store(run=run_id, name=name).replace([np.inf, -np.inf], 0)[stepcols]
-    #     # calculate mse by row
-    #     df['mse'] = df.apply(lambda row: mean_squared_error([row['ged_sb_dep']] * 36,
-    #                                                         [row[col] for col in pred_cols]), axis=1)
-    #     wandb.log({'mse': df['mse'].mean()})
-    #     print('mse:', df['mse'].mean())
-
-
     name = wandb.config[f'predstore_{target}_{transform}']
     df = pd.DataFrame.forecasts.read_store(run=run_id, name=name).replace([np.inf, -np.inf], 0)[stepcols]
 
