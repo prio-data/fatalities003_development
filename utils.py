@@ -6,6 +6,8 @@ from pathlib import Path
 from typing import List, Dict, Tuple
 import warnings
 warnings.filterwarnings("ignore")
+import os
+os.environ['WANDB_SILENT'] = 'true'
 
 from sklearn.metrics import mean_squared_error
 from xgboost import XGBRFRegressor
