@@ -1,11 +1,11 @@
 model_config = {
-    'modelname': 'fatalities003_nl_wdi_rf',
-    'algorithm': 'XGBRFRegressor',
-    'n_estimators': 300,
-    'n_jobs': 12,  # Assuming nj is defined somewhere earlier in your code
-    'depvar': "ged_sb_dep",
-    'data_train': 'wdi_short',
-    'queryset': "fatalities003_wdi_short",
+    'modelname': 'fatalities003_nl_joint_broad_hurdle_rf',
+    'algorithm': 'HurdleRegression',
+    'clf_name': 'RFClassifier',
+    'reg_name': 'RFRegressor',
+    'depvar': 'ged_sb_dep',
+    'data_train': 'joint_broad',
+    'queryset': 'fatalities003_joint_broad',
     'preprocessing': 'float_it',
     'level': 'cm',
     'description': '',

@@ -11,8 +11,10 @@ sweep_configuration = {
         "transform": {
             "values": ['log', 'standardize', 'raw', 'normalize']
         },
-        'n_estimators': {'values': [250,100]},
-        'n_jobs': {'values': [12,32]},  # Assuming nj is defined earlier
+        'n_estimators': {'values': [250, 100]},
+        'n_jobs': {'values': [12, 32]},  # Assuming nj is defined earlier
+        "learning_rate": {"values": [0.05, 0.1, 0.2]},
+
         'depvar': {'value': ['ged_sb_dep']},
         'data_train': {'value': 'joint_broad'},
         'queryset': {'value': 'fatalities003_joint_broad'},
