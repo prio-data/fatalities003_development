@@ -16,11 +16,25 @@ from views_forecasts.extensions import *
 from utils import fetch_data, transform_data, get_config_path, get_config_from_path, retrain_transformed_sweep, evaluate
 
 
+PARA_DICT = {
+    'rf': ['transform', 'n_estimators', 'n_jobs', 'learning_rate', 'max_depth', 'min_child_weight', 'subsample', 'colsample_bytree'],
+    'xgb': ['transform', 'n_estimators', 'n_jobs', 'learning_rate', 'max_depth', 'min_child_weight', 'subsample', 'colsample_bytree'],
+    'gbm': ['transform', 'n_estimators', 'n_jobs', 'learning_rate', 'max_depth', 'min_samples_split', 'min_samples_leaf']
+}
+
 def train():
-    wandb.init(config=common_config)
+    run = wandb.init(config=common_config, project=wandb_config['project'], entity=wandb_config['entity'])
     wandb.config.update(model_config, allow_val_change=True)
-    retrain_transformed_sweep(Datasets_transformed)
-    evaluate('calib', para_transformed)
+
+    run_name = ''
+    for para in sweep_paras:
+        run_name += f'{para}_{run.config[para]}_'
+    run_name = run_name.rstrip('_')
+    wandb.run.name = run_name
+
+    retrain_transformed_sweep(Datasets_transformed, sweep_paras)
+    evaluate('calib', para_transformed, by_group=True)
+    run.finish()
 
 
 if __name__ == '__main__':
@@ -37,7 +51,7 @@ if __name__ == '__main__':
     para_transformed = {}
     qslist, Datasets = fetch_data(level)
     for t in transforms:
-        Datasets_transformed[t], para_transformed[t] = transform_data(Datasets, t)
+        Datasets_transformed[t], para_transformed[t] = transform_data(Datasets, t, by_group=True)
 
     common_config_path, wandb_config_path, model_config_path, sweep_config_path = get_config_path(config_path)
     common_config = get_config_from_path(common_config_path, 'common')
@@ -52,6 +66,10 @@ if __name__ == '__main__':
             sweep_config = get_config_from_path(sweep_file, 'sweep')
             model_config = get_config_from_path(model_file, 'model')
 
+            if sweep_file.stem.split('_')[-2] == 'hurdle':
+                continue  # Currently Hurdle models are not supported
+            model = sweep_file.stem.split('_')[-1]
+            sweep_paras = PARA_DICT[model]
             sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
                                    entity=wandb_config['entity'])
             wandb.agent(sweep_id, function=train)

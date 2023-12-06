@@ -22,43 +22,70 @@ from views_forecasts.extensions import *
 
 
 def fetch_data(level: str) -> (Tuple[List[Queryset], List[Dict[str, pd.DataFrame]]]):
-    print('Fetching and transforming data')
+    print('Fetching query sets')
     qslist = ReturnQsList(level)
+    print('Fetching datasets')
     Datasets = fetch_cm_data_from_model_def(qslist)
     return qslist, Datasets
 
 
-def transform_data(Datasets: List[Dict[str, pd.DataFrame]], transform: str, b = 1, a = 0) -> (List[Dict[str, pd.DataFrame]], pd.DataFrame):
+def normalize_retransform(x, min_val, max_val, b=1, a=0):
+    return (x - a) / (b - a) * (max_val - min_val) + min_val
+
+
+def standardize_retransform(x, mean_val, std_val):
+    return x * std_val + mean_val
+
+
+def transform_data(Datasets, transform, b=1, a=0, by_group=False):
     Datasets_transformed = copy.deepcopy(Datasets)
     if transform == 'raw':
         return Datasets_transformed, None
+
     elif transform == 'log':
         for dataset in Datasets_transformed:
-            dataset['df']['ged_sb_dep'] = np.log(dataset['df']['ged_sb_dep']+1) # same as transform.ops.ln
+            dataset['df']['ged_sb_dep'] = np.log(dataset['df']['ged_sb_dep'] + 1)
         return Datasets_transformed, None
+
     elif transform == 'normalize':
-        dict_max_min = {'Name': [], 'max_val': [], 'min_val': []}
+        dict_max_min = {}
         for dataset in Datasets_transformed:
-            min_val = dataset['df']['ged_sb_dep'].min()
-            max_val = dataset['df']['ged_sb_dep'].max()
-            dataset['df']['ged_sb_dep'] = (b - a) * (dataset['df']['ged_sb_dep'] - min_val) / (max_val - min_val) + a
-            dict_max_min['Name'].append(dataset['Name'])
-            dict_max_min['max_val'].append(max_val)
-            dict_max_min['min_val'].append(min_val)
-        df = pd.DataFrame(dict_max_min)
+            if by_group:
+                min_values = dataset['df'].groupby(level='country_id')['ged_sb_dep'].min()
+                max_values = dataset['df'].groupby(level='country_id')['ged_sb_dep'].max()
+
+                dict_max_min[dataset['Name']] = pd.DataFrame({'min_val': min_values, 'max_val': max_values})
+
+            else:
+                min_values = dataset['df']['ged_sb_dep'].min()
+                max_values = dataset['df']['ged_sb_dep'].max()
+                dict_max_min[dataset['Name']] = pd.DataFrame({'min_val': [min_values], 'max_val': [max_values]})
+
+            dataset['df']['ged_sb_dep'] = (b - a) * (dataset['df']['ged_sb_dep'] - min_values) / (
+                        max_values - min_values) + a
+            dataset['df']['ged_sb_dep'].fillna(0, inplace=True)
+        return Datasets_transformed, dict_max_min
+
     elif transform == 'standardize':
-        dict_mean_std = {'Name': [], 'mean': [], 'std': []}
+        dict_mean_std = {}
         for dataset in Datasets_transformed:
-            mean = dataset['df']['ged_sb_dep'].mean()
-            std =  dataset['df']['ged_sb_dep'].std()
-            dataset['df']['ged_sb_dep'] = (dataset['df']['ged_sb_dep'] - mean) / std
-            dict_mean_std['Name'].append(dataset['Name'])
-            dict_mean_std['mean'].append(mean)
-            dict_mean_std['std'].append(std)
-        df = pd.DataFrame(dict_mean_std)
+            if by_group:
+                mean_values = dataset['df'].groupby(level='country_id')['ged_sb_dep'].mean()
+                std_values = dataset['df'].groupby(level='country_id')['ged_sb_dep'].std()
+                dict_mean_std[dataset['Name']] = pd.DataFrame({'mean_val': mean_values, 'std_val': std_values})
+
+
+            else:
+                mean_values = dataset['df']['ged_sb_dep'].mean()
+                std_values = dataset['df']['ged_sb_dep'].std()
+                dict_mean_std[dataset['Name']] = pd.DataFrame({'mean_val': [mean_values], 'std_val': [std_values]})
+
+            dataset['df']['ged_sb_dep'] = (dataset['df']['ged_sb_dep'] - mean_values) / std_values
+            dataset['df']['ged_sb_dep'].fillna(0, inplace=True)
+        return Datasets_transformed, dict_mean_std
+
     else:
         raise ValueError("Wrong transformation, only support 'log', 'normalize', 'standardize'.")
-    return Datasets_transformed, df
 
 
 def get_config_path(config_path: Path) -> Path:
@@ -88,7 +115,7 @@ def get_config_from_path(path: Path, config_name: str) -> Dict:
     return config[config_name]
 
 
-def retrain_transformed_sweep(Datasets_transformed):
+def retrain_transformed_sweep(Datasets_transformed, sweep_paras):
     modelstore = storage.Storage()
     level = wandb.config['level']
     run_id = wandb.config['run_id']
@@ -99,12 +126,16 @@ def retrain_transformed_sweep(Datasets_transformed):
     future_partitioner_dict = wandb.config['future_partitioner_dict']
     force_retrain = wandb.config['force_retrain']
 
-    wandb.config.update({'predstore_calib': level + '_' + wandb.config['modelname'] + '_calib'})
-    wandb.config.update({'predstore_test': level + '_' + wandb.config['modelname'] + '_test'})
+    ## Get a suffix for identification
+    suffix = ''
+    for para in sweep_paras:
+        suffix += f'_{para}_{wandb.config[para]}'
 
-    model = globals()[wandb.config['algorithm']](n_estimators=wandb.config['n_estimators'],
-                                                 learning_rate=wandb.config['learning_rate'],
-                                                 n_jobs=wandb.config['n_jobs'])
+    ## Get all the model parameters by soft coding (transform shouldn't be passed to model)
+    model_paras = [para for para in sweep_paras if para != 'transform']
+    parameters = {para: wandb.config[para] for para in model_paras}
+    print(parameters)
+    model = globals()[wandb.config['algorithm']](**parameters)
 
     ## Training
     print(f'Training model {wandb.config["modelname"]}')
@@ -119,13 +150,11 @@ def retrain_transformed_sweep(Datasets_transformed):
         queryset_name=wandb.config['queryset'],
         partition_name="calib",
         timespan_name="train",
-        storage_name=wandb.config['modelname'] + f'_calib_{transform}',
+        storage_name=wandb.config['modelname'] + '_calib' + suffix,
         author_name="test0",
     )
     wandb.config.update(
-        {f'predstore_calib_{transform}': level + '_' +
-                                         wandb.config['modelname'] +
-                                         f'_calib_{transform}_estimators_{wandb.config["n_estimators"]}_lr_{wandb.config["learning_rate"]}'})
+        {f'predstore_calib_{transform}': level + '_' + wandb.config['modelname'] + '_calib' + suffix})
     print('Getting predictions')
     try:
         predictions_calib = pd.DataFrame.forecasts.read_store(run=run_id,
@@ -136,7 +165,7 @@ def retrain_transformed_sweep(Datasets_transformed):
         predictions_calib.forecasts.set_run(run_id)
         predictions_calib.forecasts.to_store(name=wandb.config[f'predstore_calib_{transform}'])
 
-    print('Test partition ({transform})')
+    print(f'Test partition ({transform})')
     RunResult_test = RunResult.retrain_or_retrieve(
         retrain=force_retrain,
         store=modelstore,
@@ -146,11 +175,11 @@ def retrain_transformed_sweep(Datasets_transformed):
         queryset_name=wandb.config['queryset'],
         partition_name="test",
         timespan_name="train",
-        storage_name=wandb.config['modelname'] + f'_test_{transform}',
+        storage_name=wandb.config['modelname'] + '_test' + suffix,
         author_name="test0",
     )
     wandb.config.update(
-        {f'predstore_test_{transform}': level + '_' + wandb.config['modelname'] + f'_test_{transform}_estimators_{wandb.config["n_estimators"]}_lr_{wandb.config["learning_rate"]}'})
+        {f'predstore_test_{transform}': level + '_' + wandb.config['modelname'] + '_test' + suffix})
     print('Getting predictions')
     try:
         predictions_test = pd.DataFrame.forecasts.read_store(run=run_id,
@@ -163,7 +192,14 @@ def retrain_transformed_sweep(Datasets_transformed):
     print('**************************************************************')
 
 
-def evaluate(target, para_transformed, retransform=True, b = 1, a = 0):
+def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=0):
+    '''
+    :param target: 'calib' or 'test
+    :param para_transformed: the dict that is generated by transform_data
+    :param retransform: transform the data back if True
+    :param retransform_by_group: transform the data back by country_id if True. Make sure it is the same value in transform_data
+    '''
+
     print(f'Evaluating model {wandb.config["modelname"]}')
     if target not in ['calib', 'test']:
         raise ValueError("Wrong target name, only support 'calib' and 'test'.")
@@ -183,20 +219,30 @@ def evaluate(target, para_transformed, retransform=True, b = 1, a = 0):
         if transform == 'log':
             df = np.exp(df) - 1
         elif transform == 'normalize':
-            df_para = para_transformed[transform]
-            df_para_model = df_para[df_para['Name'] == wandb.config['data_train']]
-            max_val = df_para_model['max_val'].iloc[0]
-            min_val = df_para_model['min_val'].iloc[0]
-            df = (df - a) / (b - a) * (max_val - min_val) + min_val
+            df_para_model = para_transformed[transform][wandb.config['data_train']]
+            if by_group:
+                df = df.apply(lambda row: normalize_retransform(row,
+                                                                df_para_model['min_val'].loc[row.name[1]],
+                                                                df_para_model['max_val'].loc[row.name[1]]), axis=1)
+            else:
+                max_val = df_para_model['max_val'].iloc[0]
+                min_val = df_para_model['min_val'].iloc[0]
+                df = (df - a) / (b - a) * (max_val - min_val) + min_val
         elif transform == 'standardize':
-            df_para = para_transformed[transform]
-            df_para_model = df_para[df_para['Name'] == wandb.config['data_train']]
-            mean = df_para_model['mean'].iloc[0]
-            std = df_para_model['std'].iloc[0]
-            df = df * std + mean
+            df_para_model = para_transformed[transform][wandb.config['data_train']]
+
+            if by_group:
+                df = df.apply(lambda row: standardize_retransform(row,
+                                                                  df_para_model['mean_val'].loc[row.name[1]],
+                                                                  df_para_model['std_val'].loc[row.name[1]]), axis=1)
+            else:
+                mean = df_para_model['mean'].iloc[0]
+                std = df_para_model['std'].iloc[0]
+                df = df * std + mean
 
     df['mse'] = df.apply(lambda row: mean_squared_error([row['ged_sb_dep']] * 36,
                                                         [row[col] for col in pred_cols]), axis=1)
 
     print(f'mse_{transform}', df['mse'].mean())
     wandb.log({'mse': df['mse'].mean()})
+    print('**************************************************************')
