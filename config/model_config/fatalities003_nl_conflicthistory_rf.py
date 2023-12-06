@@ -1,9 +1,6 @@
 model_config = {
     'modelname':        'fatalities003_nl_conflicthistory_rf',
     'algorithm': 'XGBRFRegressor',
-    'n_estimators': 100,
-    'n_jobs': 12,
-    'learning_rate': 0.05,
     'depvar':           "ged_sb_dep",
     'data_train':       'conflict_ln',
     'queryset':         "fatalities003_conflict_history",

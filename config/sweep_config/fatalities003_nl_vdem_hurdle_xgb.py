@@ -1,4 +1,4 @@
-sweep_configuration = {
+sweep_config = {
     "name": 'fatalities003_nl_vdem_hurdle_xgb',
     "method": "grid",
     "metric": {

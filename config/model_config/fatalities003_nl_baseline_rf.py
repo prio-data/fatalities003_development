@@ -1,9 +1,6 @@
 model_config = {
     'modelname': 'fatalities003_nl_baseline_rf',
     'algorithm': 'XGBRFRegressor',
-    'n_estimators':100,
-    'n_jobs':12,
-    'learning_rate':0.05,
     'depvar': 'ged_sb_dep',
     'data_train': 'baseline003',
     'queryset': 'fatalities003_baseline',

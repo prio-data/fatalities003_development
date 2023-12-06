@@ -1,4 +1,4 @@
-sweep_configuration = {
+sweep_config = {
     "name": 'fatalities003_nl_conflicthistory_nonlog_hurdle_lgb',
     "method": "grid",
     "metric": {

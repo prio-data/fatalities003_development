@@ -1,4 +1,4 @@
-sweep_configuration = {
+sweep_config = {
     "name": 'fatalities003_nl_topics_rf',
     "method": "grid",
     "metric": {
@@ -11,7 +11,7 @@ sweep_configuration = {
             "values": ['log', 'standardize', 'raw', 'normalize']
         },
         'n_estimators': {'values': [250, 230]},
-        'n_jobs': {'values': [10, 12]},  # Assuming nj is defined earlier
+        'n_jobs': {'values': [12]},
         "learning_rate": {"values": [0.05, 0.1, 0.2]},
         'max_depth': {'values': [12, 13]},
         'min_child_weight': {'values': [12, 13]},

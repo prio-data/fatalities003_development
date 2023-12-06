@@ -1,4 +1,4 @@
-sweep_configuration = {
+sweep_config = {
     "name": 'fatalities003_nl_topics_xgb',
     "method": "grid",
     "metric": {

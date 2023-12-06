@@ -1,4 +1,4 @@
-sweep_configuration = {
+sweep_config = {
     "name": 'fatalities003_nl_joint_broad_hurdle_rf',
     "method": "grid",
     "metric": {
