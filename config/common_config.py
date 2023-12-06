@@ -7,6 +7,6 @@ common_config = {
     'future_partitioner_dict': {"train": (121, 492), "predict": (493, 504)},
     'FutureStart': 508,
     'get_future': False,
-    'force_retrain': True
+    'force_retrain': False
 }
 
