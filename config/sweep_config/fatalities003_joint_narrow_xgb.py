@@ -13,8 +13,11 @@ sweep_configuration = {
         },
         'n_estimators': {'values': [250, 122]},
         "learning_rate": {"values": [0.05, 0.1, 0.2]},
-
-        'n_jobs': {'values': [12, 13]},  # Assuming nj is defined earlier
+        'n_jobs': {'values': [12, 13]},
+        'max_depth': {'values': [12, 13]},
+        'min_child_weight': {'values': [12, 13]},
+        'subsample': {'values': [0.5, 0.7]},
+        'colsample_bytree': {'values': [0.5, 0.7]},
         'depvar': {'value': 'ged_sb_dep'},
         'data_train': {'value': 'joint_narrow'},
         'queryset': {'value': 'fatalities003_joint_narrow'},
