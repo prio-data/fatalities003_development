@@ -129,7 +129,7 @@ def FetchData(run_id):
         Datasets.append(FetchTable((Queryset("fatalities002_imfweo", "country_month")),'imfweo'))
 
     elif run_id == 'Fatalities003':
-        Datasets.append(FetchTable((Queryset("fatalities003_baseline", "country_month")),'baseline002'))
+        Datasets.append(FetchTable((Queryset("fatalities003_baseline", "country_month")),'baseline003'))
         Datasets.append(FetchTable((Queryset("fatalities003_conflict_history_long", "country_month")),'conflictlong_ln'))
         Datasets.append(FetchTable((Queryset("fatalities003_conflict_history", "country_month")),'conflict_ln'))
         Datasets.append(FetchTable((Queryset("fatalities003_conflict_history_nonlog", "country_month")),'conflict_nonlog'))
