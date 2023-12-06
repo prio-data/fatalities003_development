@@ -6,8 +6,7 @@ sweep_configuration = {
         'name': "mse",
     },
     "parameters": {
-        'modelname': {'value': 'fatalities003_nl_wdi_rf'},
-        'algorithm': {'value': 'XGBRFRegressor'},
+
         "transform": {
             "values": ['log', 'standardize', 'raw', 'normalize']
         },
@@ -19,12 +18,6 @@ sweep_configuration = {
         'subsample': {'values': [0.5, 0.7]},
         'colsample_bytree': {'values': [0.5, 0.7]},
 
-        'depvar': {'value': 'ged_sb_dep'},
-        'data_train': {'value': 'wdi_short'},
-        'queryset': {'value': 'fatalities003_wdi_short'},
-        'preprocessing': {'value': 'float_it'},
-        'level': {'value': 'cm'},
-        'description': {'value': ''},
-        'long_description': {'value': ''}
+
     }
 }

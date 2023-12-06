@@ -6,8 +6,7 @@ sweep_configuration = {
         'name': "mse",
     },
     "parameters": {
-        'modelname': {'value': 'fatalities003_joint_narrow_xgb'},
-        'algorithm': {'value': 'XGBRFRegressor'},
+
         "transform": {
             "values": ['log', 'standardize', 'raw', 'normalize']
         },
@@ -18,12 +17,6 @@ sweep_configuration = {
         'min_child_weight': {'values': [12, 13]},
         'subsample': {'values': [0.5, 0.7]},
         'colsample_bytree': {'values': [0.5, 0.7]},
-        'depvar': {'value': 'ged_sb_dep'},
-        'data_train': {'value': 'joint_narrow'},
-        'queryset': {'value': 'fatalities003_joint_narrow'},
-        'preprocessing': {'value': 'float_it'},
-        'level': {'value': 'cm'},
-        'description': {'value': ''},
-        'long_description': {'value': ''}
+
     }
 }

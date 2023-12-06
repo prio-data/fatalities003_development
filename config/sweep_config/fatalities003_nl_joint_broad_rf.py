@@ -6,25 +6,18 @@ sweep_configuration = {
         'name': "mse",
     },
     "parameters": {
-        'modelname': {'value': 'fatalities003_nl_joint_broad_rf'},
-        'algorithm': {'value': 'XGBRFRegressor'},
+
         "transform": {
             "values": ['log', 'standardize', 'raw', 'normalize']
         },
         'n_estimators': {'values': [250, 100]},
-        'n_jobs': {'values': [12, 32]},  # Assuming nj is defined earlier
+        'n_jobs': {'values': [12, 32]},
         "learning_rate": {"values": [0.05, 0.1, 0.2]},
         'max_depth': {'values': [12, 13]},
         'min_child_weight': {'values': [12, 13]},
         'subsample': {'values': [0.5, 0.7]},
         'colsample_bytree': {'values': [0.5, 0.7]},
 
-        'depvar': {'value': ['ged_sb_dep']},
-        'data_train': {'value': 'joint_broad'},
-        'queryset': {'value': 'fatalities003_joint_broad'},
-        'preprocessing': {'value': 'float_it'},
-        'level': {'value': 'cm'},
-        'description': {'value': ''},
-        'long_description': {'value': ''}
+
     }
 }
