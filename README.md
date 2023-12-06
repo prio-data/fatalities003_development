@@ -18,5 +18,5 @@ config
 
 ## 2. Run the code
 ```console
-python SweepExample.py -l cm -c my_config
+python SweepExample.py -l cm -c config
 ```
