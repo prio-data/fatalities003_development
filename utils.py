@@ -10,8 +10,7 @@ import os
 os.environ['WANDB_SILENT'] = 'true'
 
 from sklearn.metrics import mean_squared_error
-from xgboost import XGBRFRegressor, XGBRegressor
-from sklearn.ensemble import GradientBoostingRegressor
+from xgboost import XGBRFRegressor
 
 from viewser import Queryset
 from FetchData import ReturnQsList, fetch_cm_data_from_model_def, RetrieveFromList
