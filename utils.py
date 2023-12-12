@@ -253,5 +253,5 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
             for step in step_preds:
                 fig = plot_cm_map(df, month, step)
 
-                wandb.log({f'month_{month}_step_{step}': wandb.Image(fig)})
+                wandb.log({f'month_{month}_{step}': wandb.Image(fig)})
     print('**************************************************************')
