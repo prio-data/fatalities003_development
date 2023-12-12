@@ -1,18 +1,9 @@
-## To do
-### 1. Clean sweep_config
-### 2. Run on all models
-### 3. Try new sweep values if results are not satisfactory
-### 4. Find a way to store transformed datasets
-
-import numpy as np
 import warnings
 warnings.filterwarnings("ignore")
 import wandb
-import copy
 import argparse
 from pathlib import Path
 
-from views_forecasts.extensions import *
 from utils import fetch_data, transform_data, get_config_path, get_config_from_path, retrain_transformed_sweep, evaluate
 
 
@@ -33,7 +24,7 @@ def train():
     wandb.run.name = run_name
 
     retrain_transformed_sweep(Datasets_transformed, sweep_paras)
-    evaluate('calib', para_transformed, by_group=True)
+    evaluate('calib', para_transformed, by_group=True, plot_map=True)
     run.finish()
 
 
@@ -73,3 +64,6 @@ if __name__ == '__main__':
             sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
                                    entity=wandb_config['entity'])
             wandb.agent(sweep_id, function=train)
+
+            print(f'Finish sweeping over model {sweep_file.stem}')
+        break

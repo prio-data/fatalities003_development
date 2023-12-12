@@ -1,4 +1,4 @@
 wandb_config = {
-    'project': 'training_example_4',
+    'project': 'add_map',
     'entity': 'model-development-and-deployment'
 }
