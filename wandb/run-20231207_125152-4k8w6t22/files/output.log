@@ -1,0 +1,1362 @@
+{'n_estimators': 230, 'n_jobs': 12, 'learning_rate': 0.05, 'max_depth': 12, 'min_child_weight': 13, 'subsample': 0.5, 'colsample_bytree': 0.5}
+Training model fatalities003_nl_topics_rf
+Calibration partition (standardize)
+ * == Performing a run: "fatalities003_nl_topics_rf_calib_transform_standardize_n_estimators_230_n_jobs_12_learning_rate_0.05_max_depth_12_min_child_weight_13_subsample_0.5_colsample_bytree_0.5" == *
+Training model(s)...
+Storing "fatalities003_nl_topics_rf_calib_transform_standardize_n_estimators_230_n_jobs_12_learning_rate_0.05_max_depth_12_min_child_weight_13_subsample_0.5_colsample_bytree_0.5"
+Getting predictions
+pr_56_cm_fatalities003_nl_topics_rf_calib_transform_standardize_n_estimators_230_n_jobs_12_learning_rate_0.05_max_depth_12_min_child_weight_13_subsample_0.5_colsample_bytree_0.5.parquet
+cm_fatalities003_nl_topics_rf_calib_transform_standardize_n_estimators_230_n_jobs_12_learning_rate_0.05_max_depth_12_min_child_weight_13_subsample_0.5_colsample_bytree_0.5 , run Fatalities003 does not exist, predicting
+Test partition (standardize)
+ * == Performing a run: "fatalities003_nl_topics_rf_test_transform_standardize_n_estimators_230_n_jobs_12_learning_rate_0.05_max_depth_12_min_child_weight_13_subsample_0.5_colsample_bytree_0.5" == *
+Training model(s)...
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py", line 73, in <module>
+    sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/wandb_sweep.py", line 110, in sweep
+    sweep_id, warnings = api.upsert_sweep(sweep)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/internal.py", line 129, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 2955, in upsert_sweep
+    response = self.gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 338, in gql
+    ret = self._retry_gql(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/internal/internal_api.py", line 366, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/noorainkazmi/miniforge3/envs/viewser/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt

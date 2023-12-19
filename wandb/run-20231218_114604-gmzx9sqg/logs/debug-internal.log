@@ -1,0 +1,390 @@
+2023-12-18 11:46:04,870 INFO    StreamThr :98857 [internal.py:wandb_internal():86] W&B internal server running at pid: 98857, started at: 2023-12-18 11:46:04.869229
+2023-12-18 11:46:04,873 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: status
+2023-12-18 11:46:04,885 INFO    WriterThread:98857 [datastore.py:open_for_write():85] open: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/run-gmzx9sqg.wandb
+2023-12-18 11:46:04,886 DEBUG   SenderThread:98857 [sender.py:send():380] send: header
+2023-12-18 11:46:04,911 DEBUG   SenderThread:98857 [sender.py:send():380] send: run
+2023-12-18 11:46:05,433 INFO    SenderThread:98857 [dir_watcher.py:__init__():211] watching files in: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files
+2023-12-18 11:46:05,433 INFO    SenderThread:98857 [sender.py:_start_run_threads():1124] run started: gmzx9sqg with start time 1702896364.868834
+2023-12-18 11:46:05,451 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: check_version
+2023-12-18 11:46:05,452 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: check_version
+2023-12-18 11:46:05,550 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: run_start
+2023-12-18 11:46:05,556 DEBUG   HandlerThread:98857 [system_info.py:__init__():32] System info init
+2023-12-18 11:46:05,557 DEBUG   HandlerThread:98857 [system_info.py:__init__():47] System info init done
+2023-12-18 11:46:05,557 INFO    HandlerThread:98857 [system_monitor.py:start():194] Starting system monitor
+2023-12-18 11:46:05,557 INFO    SystemMonitor:98857 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-12-18 11:46:05,557 INFO    HandlerThread:98857 [system_monitor.py:probe():214] Collecting system info
+2023-12-18 11:46:05,557 INFO    SystemMonitor:98857 [interfaces.py:start():190] Started cpu monitoring
+2023-12-18 11:46:05,558 DEBUG   HandlerThread:98857 [system_info.py:probe():196] Probing system
+2023-12-18 11:46:05,558 INFO    SystemMonitor:98857 [interfaces.py:start():190] Started disk monitoring
+2023-12-18 11:46:05,559 INFO    SystemMonitor:98857 [interfaces.py:start():190] Started gpuapple monitoring
+2023-12-18 11:46:05,561 INFO    SystemMonitor:98857 [interfaces.py:start():190] Started memory monitoring
+2023-12-18 11:46:05,563 INFO    SystemMonitor:98857 [interfaces.py:start():190] Started network monitoring
+2023-12-18 11:46:05,568 DEBUG   HandlerThread:98857 [system_info.py:_probe_git():181] Probing git
+2023-12-18 11:46:05,591 DEBUG   HandlerThread:98857 [system_info.py:_probe_git():189] Probing git done
+2023-12-18 11:46:05,591 DEBUG   HandlerThread:98857 [system_info.py:probe():244] Probing system done
+2023-12-18 11:46:05,592 DEBUG   HandlerThread:98857 [system_monitor.py:probe():223] {'os': 'macOS-13.5-arm64-arm-64bit', 'python': '3.9.18', 'heartbeatAt': '2023-12-18T10:46:05.558071', 'startedAt': '2023-12-18T10:46:04.846665', 'docker': None, 'cuda': None, 'args': ('-l', 'cm', '-c', 'mse_rank'), 'state': 'running', 'program': '/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py', 'codePathLocal': 'SweepExample.py', 'codePath': 'SweepExample.py', 'git': {'remote': 'https://github.com/prio-data/weights-and-biases.git', 'commit': 'f89fc4704693632baa29d8f466ce3e14d8b86462'}, 'email': '142994595+nskazmi@users.noreply.github.com', 'root': '/Users/noorainkazmi/Documents/GitHub/weights-and-biases', 'host': 'Noorains-MacBook-Air.local', 'username': 'noorainkazmi', 'executable': '/Users/noorainkazmi/miniforge3/envs/viewser/bin/python', 'cpu_count': 8, 'cpu_count_logical': 8, 'disk': {'/': {'total': 460.4317207336426, 'used': 119.3248176574707}}, 'gpuapple': {'type': 'arm', 'vendor': 'Apple'}, 'memory': {'total': 16.0}}
+2023-12-18 11:46:05,592 INFO    HandlerThread:98857 [system_monitor.py:probe():224] Finished collecting system info
+2023-12-18 11:46:05,592 INFO    HandlerThread:98857 [system_monitor.py:probe():227] Publishing system info
+2023-12-18 11:46:05,592 DEBUG   HandlerThread:98857 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-12-18 11:46:05,592 DEBUG   HandlerThread:98857 [system_info.py:_save_pip():68] Saving pip packages done
+2023-12-18 11:46:05,593 DEBUG   HandlerThread:98857 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2023-12-18 11:46:06,439 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/requirements.txt
+2023-12-18 11:46:06,439 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/conda-environment.yaml
+2023-12-18 11:46:07,992 DEBUG   HandlerThread:98857 [system_info.py:_save_conda():87] Saving conda packages done
+2023-12-18 11:46:07,993 INFO    HandlerThread:98857 [system_monitor.py:probe():229] Finished publishing system info
+2023-12-18 11:46:07,995 DEBUG   SenderThread:98857 [sender.py:send():380] send: files
+2023-12-18 11:46:07,995 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-metadata.json with policy now
+2023-12-18 11:46:07,997 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-18 11:46:07,997 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-18 11:46:07,997 DEBUG   SenderThread:98857 [sender.py:send():380] send: telemetry
+2023-12-18 11:46:07,998 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: stop_status
+2023-12-18 11:46:08,273 DEBUG   SenderThread:98857 [sender.py:send():380] send: config
+2023-12-18 11:46:08,273 DEBUG   SenderThread:98857 [sender.py:send():380] send: telemetry
+2023-12-18 11:46:08,273 DEBUG   SenderThread:98857 [sender.py:send():380] send: run
+2023-12-18 11:46:08,448 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/conda-environment.yaml
+2023-12-18 11:46:08,448 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/config.yaml
+2023-12-18 11:46:08,448 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-metadata.json
+2023-12-18 11:46:08,468 INFO    SenderThread:98857 [sender.py:send_run():1002] updated run: gmzx9sqg
+2023-12-18 11:46:08,593 INFO    wandb-upload_0:98857 [upload_job.py:push():131] Uploaded file /var/folders/qx/vpttxp096k9bhf2r8qcpdxlm0000gn/T/tmpzeazkldfwandb/6iafjggv-wandb-metadata.json
+2023-12-18 11:46:09,455 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/output.log
+2023-12-18 11:46:10,625 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: status_report
+2023-12-18 11:46:11,462 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/output.log
+2023-12-18 11:46:11,658 DEBUG   SenderThread:98857 [sender.py:send():380] send: config
+2023-12-18 11:46:13,466 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/output.log
+2023-12-18 11:46:15,474 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/output.log
+2023-12-18 11:46:16,600 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: status_report
+2023-12-18 11:46:17,486 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/output.log
+2023-12-18 11:46:18,336 DEBUG   SenderThread:98857 [sender.py:send():380] send: config
+2023-12-18 11:46:21,499 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/output.log
+2023-12-18 11:46:21,995 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: status_report
+2023-12-18 11:46:23,003 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-18 11:46:23,004 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-18 11:46:23,005 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: stop_status
+2023-12-18 11:46:23,508 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/output.log
+2023-12-18 11:46:25,519 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/output.log
+2023-12-18 11:46:27,310 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: status_report
+2023-12-18 11:46:28,231 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:28,231 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:28,231 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:28,232 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:28,535 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:29,195 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:29,196 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:29,196 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:29,196 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:29,539 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/output.log
+2023-12-18 11:46:29,539 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:30,163 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:30,163 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:30,163 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:30,163 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:30,542 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:31,153 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:31,154 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:31,154 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:31,155 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:31,547 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:32,113 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:32,113 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:32,113 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:32,113 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:32,552 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:33,030 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:33,030 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:33,030 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:33,031 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: status_report
+2023-12-18 11:46:33,031 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:33,558 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:34,022 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:34,022 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:34,022 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:34,023 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:34,563 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:34,938 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:34,938 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:34,938 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:34,939 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:35,568 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:35,866 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:35,867 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:35,867 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:35,867 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:36,569 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:36,844 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:36,844 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:36,844 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:36,845 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:37,570 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:37,813 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:37,813 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:37,813 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:37,814 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:38,018 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-18 11:46:38,270 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: status_report
+2023-12-18 11:46:38,270 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-18 11:46:38,471 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: stop_status
+2023-12-18 11:46:38,575 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:38,575 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/config.yaml
+2023-12-18 11:46:38,807 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:38,808 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:38,808 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:38,808 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:39,580 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:39,724 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:39,724 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:39,724 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:39,725 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:40,585 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:40,668 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:40,668 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:40,668 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:40,669 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:41,590 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:41,626 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:41,627 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:41,627 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:41,627 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:42,550 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:42,551 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:42,551 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:42,552 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:42,595 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:43,495 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:43,496 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:43,496 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:43,496 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: status_report
+2023-12-18 11:46:43,497 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:43,601 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:44,469 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:44,470 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:44,470 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:44,470 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:44,606 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:45,428 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:45,428 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:45,429 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:45,429 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:45,611 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:46,380 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:46,381 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:46,381 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:46,381 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:46,616 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:47,343 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:47,343 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:47,343 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:47,343 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:47,621 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:48,266 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:48,267 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:48,267 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:48,268 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:48,626 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:49,253 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:49,254 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:49,254 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:49,254 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: status_report
+2023-12-18 11:46:49,254 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:49,631 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:50,208 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:50,208 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:50,208 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:50,208 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:50,636 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:51,205 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:51,206 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:51,206 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:51,207 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:51,640 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:52,155 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:52,156 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:52,156 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:52,156 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:52,645 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:53,082 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:53,082 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-18 11:46:53,082 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:53,082 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:53,083 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:53,155 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-18 11:46:53,156 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: stop_status
+2023-12-18 11:46:53,650 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:54,080 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:54,081 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:54,081 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:54,081 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:54,655 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:55,026 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:55,027 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:55,027 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:55,027 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: status_report
+2023-12-18 11:46:55,027 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:55,661 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:55,973 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:55,973 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:55,973 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:55,974 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:56,666 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:56,943 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:56,943 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:56,943 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:56,944 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:57,671 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:57,917 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:57,917 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:57,917 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:57,918 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:58,673 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:58,892 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:58,892 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:58,892 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:58,893 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:46:59,676 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:46:59,810 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:46:59,811 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:46:59,811 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:46:59,811 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:47:00,681 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:47:00,787 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:47:00,787 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:47:00,787 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:47:00,787 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: status_report
+2023-12-18 11:47:00,788 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:47:01,683 INFO    Thread-12 :98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:47:01,720 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-18 11:47:01,720 DEBUG   SenderThread:98857 [sender.py:send():380] send: history
+2023-12-18 11:47:01,720 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: summary_record
+2023-12-18 11:47:01,721 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:47:01,721 DEBUG   SenderThread:98857 [sender.py:send():380] send: telemetry
+2023-12-18 11:47:01,721 DEBUG   SenderThread:98857 [sender.py:send():380] send: exit
+2023-12-18 11:47:01,721 INFO    SenderThread:98857 [sender.py:send_exit():585] handling exit code: 0
+2023-12-18 11:47:01,721 INFO    SenderThread:98857 [sender.py:send_exit():587] handling runtime: 56
+2023-12-18 11:47:01,721 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:47:01,721 INFO    SenderThread:98857 [sender.py:send_exit():593] send defer
+2023-12-18 11:47:01,722 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:01,722 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 0
+2023-12-18 11:47:01,722 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:01,722 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 0
+2023-12-18 11:47:01,722 INFO    SenderThread:98857 [sender.py:transition_state():613] send defer: 1
+2023-12-18 11:47:01,722 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:01,722 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 1
+2023-12-18 11:47:01,722 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:01,722 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 1
+2023-12-18 11:47:01,722 INFO    SenderThread:98857 [sender.py:transition_state():613] send defer: 2
+2023-12-18 11:47:01,722 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:01,722 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 2
+2023-12-18 11:47:01,722 INFO    HandlerThread:98857 [system_monitor.py:finish():203] Stopping system monitor
+2023-12-18 11:47:01,722 DEBUG   SystemMonitor:98857 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-12-18 11:47:01,722 DEBUG   SystemMonitor:98857 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2023-12-18 11:47:01,722 DEBUG   SystemMonitor:98857 [system_monitor.py:_start():183] Publishing last batch of metrics
+2023-12-18 11:47:01,722 INFO    HandlerThread:98857 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-18 11:47:01,722 INFO    HandlerThread:98857 [interfaces.py:finish():202] Joined disk monitor
+2023-12-18 11:47:01,723 INFO    HandlerThread:98857 [interfaces.py:finish():202] Joined gpuapple monitor
+2023-12-18 11:47:01,723 INFO    HandlerThread:98857 [interfaces.py:finish():202] Joined memory monitor
+2023-12-18 11:47:01,723 INFO    HandlerThread:98857 [interfaces.py:finish():202] Joined network monitor
+2023-12-18 11:47:01,723 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:01,723 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 2
+2023-12-18 11:47:01,723 INFO    SenderThread:98857 [sender.py:transition_state():613] send defer: 3
+2023-12-18 11:47:01,723 DEBUG   SenderThread:98857 [sender.py:send():380] send: telemetry
+2023-12-18 11:47:01,723 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:01,723 DEBUG   SenderThread:98857 [sender.py:send():380] send: stats
+2023-12-18 11:47:01,723 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 3
+2023-12-18 11:47:01,723 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:01,723 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 3
+2023-12-18 11:47:01,723 INFO    SenderThread:98857 [sender.py:transition_state():613] send defer: 4
+2023-12-18 11:47:01,723 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:01,723 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 4
+2023-12-18 11:47:01,723 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:01,723 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 4
+2023-12-18 11:47:01,723 INFO    SenderThread:98857 [sender.py:transition_state():613] send defer: 5
+2023-12-18 11:47:01,723 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:01,723 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 5
+2023-12-18 11:47:01,724 DEBUG   SenderThread:98857 [sender.py:send():380] send: summary
+2023-12-18 11:47:01,724 INFO    SenderThread:98857 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-18 11:47:01,724 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:01,724 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 5
+2023-12-18 11:47:01,724 INFO    SenderThread:98857 [sender.py:transition_state():613] send defer: 6
+2023-12-18 11:47:01,724 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:01,724 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 6
+2023-12-18 11:47:01,724 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:01,724 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 6
+2023-12-18 11:47:01,726 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: status_report
+2023-12-18 11:47:01,951 INFO    SenderThread:98857 [sender.py:transition_state():613] send defer: 7
+2023-12-18 11:47:01,951 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:01,951 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 7
+2023-12-18 11:47:01,951 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:01,951 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 7
+2023-12-18 11:47:02,616 INFO    SenderThread:98857 [sender.py:transition_state():613] send defer: 8
+2023-12-18 11:47:02,617 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:02,617 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 8
+2023-12-18 11:47:02,618 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:02,618 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 8
+2023-12-18 11:47:02,618 INFO    SenderThread:98857 [sender.py:transition_state():613] send defer: 9
+2023-12-18 11:47:02,619 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:02,619 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 9
+2023-12-18 11:47:02,620 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:02,621 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 9
+2023-12-18 11:47:02,621 INFO    SenderThread:98857 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-12-18 11:47:02,690 INFO    SenderThread:98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/output.log
+2023-12-18 11:47:02,691 INFO    SenderThread:98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:47:02,691 INFO    SenderThread:98857 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/config.yaml
+2023-12-18 11:47:02,692 INFO    SenderThread:98857 [dir_watcher.py:finish():388] scan: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files
+2023-12-18 11:47:02,692 INFO    SenderThread:98857 [dir_watcher.py:finish():402] scan save: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/requirements.txt requirements.txt
+2023-12-18 11:47:02,693 INFO    SenderThread:98857 [dir_watcher.py:finish():402] scan save: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/output.log output.log
+2023-12-18 11:47:02,698 INFO    SenderThread:98857 [dir_watcher.py:finish():402] scan save: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/config.yaml config.yaml
+2023-12-18 11:47:02,703 INFO    SenderThread:98857 [dir_watcher.py:finish():402] scan save: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json wandb-summary.json
+2023-12-18 11:47:02,707 INFO    SenderThread:98857 [dir_watcher.py:finish():402] scan save: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/conda-environment.yaml conda-environment.yaml
+2023-12-18 11:47:02,712 INFO    SenderThread:98857 [dir_watcher.py:finish():402] scan save: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-metadata.json wandb-metadata.json
+2023-12-18 11:47:02,713 INFO    SenderThread:98857 [sender.py:transition_state():613] send defer: 10
+2023-12-18 11:47:02,716 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:02,716 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 10
+2023-12-18 11:47:02,717 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:02,717 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 10
+2023-12-18 11:47:02,717 INFO    SenderThread:98857 [file_pusher.py:finish():175] shutting down file pusher
+2023-12-18 11:47:02,725 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-18 11:47:02,725 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: poll_exit
+2023-12-18 11:47:03,093 INFO    wandb-upload_1:98857 [upload_job.py:push():131] Uploaded file /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/output.log
+2023-12-18 11:47:03,182 INFO    wandb-upload_0:98857 [upload_job.py:push():131] Uploaded file /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/requirements.txt
+2023-12-18 11:47:03,217 INFO    wandb-upload_3:98857 [upload_job.py:push():131] Uploaded file /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/wandb-summary.json
+2023-12-18 11:47:03,217 INFO    wandb-upload_4:98857 [upload_job.py:push():131] Uploaded file /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/conda-environment.yaml
+2023-12-18 11:47:03,312 INFO    wandb-upload_2:98857 [upload_job.py:push():131] Uploaded file /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/files/config.yaml
+2023-12-18 11:47:03,513 INFO    Thread-11 :98857 [sender.py:transition_state():613] send defer: 11
+2023-12-18 11:47:03,514 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:03,514 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 11
+2023-12-18 11:47:03,515 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:03,515 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 11
+2023-12-18 11:47:03,515 INFO    SenderThread:98857 [file_pusher.py:join():181] waiting for file pusher
+2023-12-18 11:47:03,516 INFO    SenderThread:98857 [sender.py:transition_state():613] send defer: 12
+2023-12-18 11:47:03,516 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:03,516 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 12
+2023-12-18 11:47:03,516 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:03,517 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 12
+2023-12-18 11:47:03,517 INFO    SenderThread:98857 [file_stream.py:finish():595] file stream finish called
+2023-12-18 11:47:03,704 INFO    SenderThread:98857 [file_stream.py:finish():599] file stream finish is done
+2023-12-18 11:47:03,705 INFO    SenderThread:98857 [sender.py:transition_state():613] send defer: 13
+2023-12-18 11:47:03,705 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:03,705 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 13
+2023-12-18 11:47:03,706 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:03,706 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 13
+2023-12-18 11:47:03,706 INFO    SenderThread:98857 [sender.py:transition_state():613] send defer: 14
+2023-12-18 11:47:03,707 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: defer
+2023-12-18 11:47:03,707 DEBUG   SenderThread:98857 [sender.py:send():380] send: final
+2023-12-18 11:47:03,707 INFO    HandlerThread:98857 [handler.py:handle_request_defer():172] handle defer: 14
+2023-12-18 11:47:03,708 DEBUG   SenderThread:98857 [sender.py:send():380] send: footer
+2023-12-18 11:47:03,708 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: defer
+2023-12-18 11:47:03,708 INFO    SenderThread:98857 [sender.py:send_request_defer():609] handle sender defer: 14
+2023-12-18 11:47:03,710 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-18 11:47:03,711 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: poll_exit
+2023-12-18 11:47:03,712 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-18 11:47:03,713 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: server_info
+2023-12-18 11:47:03,713 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: get_summary
+2023-12-18 11:47:03,714 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: server_info
+2023-12-18 11:47:03,714 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: sampled_history
+2023-12-18 11:47:03,720 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: job_info
+2023-12-18 11:47:03,885 DEBUG   SenderThread:98857 [sender.py:send_request():407] send_request: job_info
+2023-12-18 11:47:03,887 DEBUG   HandlerThread:98857 [handler.py:handle_request():146] handle_request: shutdown
+2023-12-18 11:47:03,887 INFO    HandlerThread:98857 [handler.py:finish():866] shutting down handler
+2023-12-18 11:47:04,726 INFO    WriterThread:98857 [datastore.py:close():294] close: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231218_114604-gmzx9sqg/run-gmzx9sqg.wandb
+2023-12-18 11:47:04,891 INFO    SenderThread:98857 [sender.py:finish():1536] shutting down sender
+2023-12-18 11:47:04,891 INFO    SenderThread:98857 [file_pusher.py:finish():175] shutting down file pusher
+2023-12-18 11:47:04,892 INFO    SenderThread:98857 [file_pusher.py:join():181] waiting for file pusher

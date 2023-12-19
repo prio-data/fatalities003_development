@@ -1,0 +1,23 @@
+{'clf_name': 'LGBMClassifier', 'reg_name': 'LGBMRegressor'}
+Training model fatalities003_nl_joint_narrow_hurdle_lgb
+Calibration partition (log)
+ * == Performing a run: "fatalities003_nl_joint_narrow_hurdle_lgb_calib_transform_log_clf_name_LGBMClassifier_reg_name_LGBMRegressor" == *
+Training model(s)...
+Reordering feature dimension. Save memory by setting the outcome feature as the first column in your dataframe.
+Storing "fatalities003_nl_joint_narrow_hurdle_lgb_calib_transform_log_clf_name_LGBMClassifier_reg_name_LGBMRegressor"
+Getting predictions
+pr_56_cm_fatalities003_nl_joint_narrow_hurdle_lgb_calib_transform_log_clf_name_LGBMClassifier_reg_name_LGBMRegressor.parquet
+cm_fatalities003_nl_joint_narrow_hurdle_lgb_calib_transform_log_clf_name_LGBMClassifier_reg_name_LGBMRegressor , run Fatalities003 does not exist, predicting
+Test partition (log)
+ * == Performing a run: "fatalities003_nl_joint_narrow_hurdle_lgb_test_transform_log_clf_name_LGBMClassifier_reg_name_LGBMRegressor" == *
+Training model(s)...
+Reordering feature dimension. Save memory by setting the outcome feature as the first column in your dataframe.
+Storing "fatalities003_nl_joint_narrow_hurdle_lgb_test_transform_log_clf_name_LGBMClassifier_reg_name_LGBMRegressor"
+Getting predictions
+pr_56_cm_fatalities003_nl_joint_narrow_hurdle_lgb_test_transform_log_clf_name_LGBMClassifier_reg_name_LGBMRegressor.parquet
+cm_fatalities003_nl_joint_narrow_hurdle_lgb_test_transform_log_clf_name_LGBMClassifier_reg_name_LGBMRegressor , run Fatalities003 does not exist, predicting
+**************************************************************
+Evaluating model fatalities003_nl_joint_narrow_hurdle_lgb
+pr_56_cm_fatalities003_nl_joint_narrow_hurdle_lgb_calib_transform_log_clf_name_LGBMClassifier_reg_name_LGBMRegressor.parquet
+mse_log 1.0927681841650376
+**************************************************************

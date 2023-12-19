@@ -1,0 +1,3 @@
+{'clf_name': 'LGBMClassifier', 'reg_name': 'LGBMRegressor'}
+Training model fatalities003_nl_conflicthistory_nonlog_hurdle_lgb
+Calibration partition (standardize)

@@ -1,3 +1,26 @@
+from views_forecasts.extensions import *
+from views_runs.run_result import RunResult
+from views_partitioning.data_partitioner import DataPartitioner
+from views_runs import storage, StepshiftedModels
+from FetchData import ReturnQsList, fetch_cm_data_from_model_def, RetrieveFromList
+from viewser import Queryset
+from lightgbm import LGBMClassifier, LGBMRegressor
+from xgboost import XGBRFRegressor, XGBRFClassifier
+from xgboost import XGBClassifier
+from xgboost import XGBRegressor
+from sklearn.ensemble import HistGradientBoostingClassifier
+from sklearn.ensemble import HistGradientBoostingRegressor
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingClassifier, GradientBoostingRegressor
+from sklearn.utils.validation import check_X_y, check_array, check_is_fitted
+from sklearn.utils.estimator_checks import check_estimator
+from sklearn.base import BaseEstimator
+from sklearn.linear_model import LinearRegression, LogisticRegression
+from xgboost import XGBRFRegressor
+from sklearn.metrics import mean_squared_error
+from ViewsEstimators import *
+import os
 import wandb
 import copy
 import numpy as np
@@ -6,19 +29,7 @@ from pathlib import Path
 from typing import List, Dict, Tuple
 import warnings
 warnings.filterwarnings("ignore")
-import os
 os.environ['WANDB_SILENT'] = 'true'
-
-from sklearn.metrics import mean_squared_error
-from xgboost import XGBRFRegressor
-
-from viewser import Queryset
-from FetchData import ReturnQsList, fetch_cm_data_from_model_def, RetrieveFromList
-from views_runs import storage, StepshiftedModels
-from views_partitioning.data_partitioner import DataPartitioner
-from views_runs.run_result import RunResult
-from views_forecasts.extensions import *
-
 
 
 def fetch_data(level: str) -> (Tuple[List[Queryset], List[Dict[str, pd.DataFrame]]]):
@@ -44,25 +55,30 @@ def transform_data(Datasets, transform, b=1, a=0, by_group=False):
 
     elif transform == 'log':
         for dataset in Datasets_transformed:
-            dataset['df']['ged_sb_dep'] = np.log(dataset['df']['ged_sb_dep'] + 1)
+            dataset['df']['ged_sb_dep'] = np.log(
+                dataset['df']['ged_sb_dep'] + 1)
         return Datasets_transformed, None
 
     elif transform == 'normalize':
         dict_max_min = {}
         for dataset in Datasets_transformed:
             if by_group:
-                min_values = dataset['df'].groupby(level='country_id')['ged_sb_dep'].min()
-                max_values = dataset['df'].groupby(level='country_id')['ged_sb_dep'].max()
+                min_values = dataset['df'].groupby(level='country_id')[
+                    'ged_sb_dep'].min()
+                max_values = dataset['df'].groupby(level='country_id')[
+                    'ged_sb_dep'].max()
 
-                dict_max_min[dataset['Name']] = pd.DataFrame({'min_val': min_values, 'max_val': max_values})
+                dict_max_min[dataset['Name']] = pd.DataFrame(
+                    {'min_val': min_values, 'max_val': max_values})
 
             else:
                 min_values = dataset['df']['ged_sb_dep'].min()
                 max_values = dataset['df']['ged_sb_dep'].max()
-                dict_max_min[dataset['Name']] = pd.DataFrame({'min_val': [min_values], 'max_val': [max_values]})
+                dict_max_min[dataset['Name']] = pd.DataFrame(
+                    {'min_val': [min_values], 'max_val': [max_values]})
 
             dataset['df']['ged_sb_dep'] = (b - a) * (dataset['df']['ged_sb_dep'] - min_values) / (
-                        max_values - min_values) + a
+                max_values - min_values) + a
             dataset['df']['ged_sb_dep'].fillna(0, inplace=True)
         return Datasets_transformed, dict_max_min
 
@@ -70,22 +86,27 @@ def transform_data(Datasets, transform, b=1, a=0, by_group=False):
         dict_mean_std = {}
         for dataset in Datasets_transformed:
             if by_group:
-                mean_values = dataset['df'].groupby(level='country_id')['ged_sb_dep'].mean()
-                std_values = dataset['df'].groupby(level='country_id')['ged_sb_dep'].std()
-                dict_mean_std[dataset['Name']] = pd.DataFrame({'mean_val': mean_values, 'std_val': std_values})
-
+                mean_values = dataset['df'].groupby(level='country_id')[
+                    'ged_sb_dep'].mean()
+                std_values = dataset['df'].groupby(level='country_id')[
+                    'ged_sb_dep'].std()
+                dict_mean_std[dataset['Name']] = pd.DataFrame(
+                    {'mean_val': mean_values, 'std_val': std_values})
 
             else:
                 mean_values = dataset['df']['ged_sb_dep'].mean()
                 std_values = dataset['df']['ged_sb_dep'].std()
-                dict_mean_std[dataset['Name']] = pd.DataFrame({'mean_val': [mean_values], 'std_val': [std_values]})
+                dict_mean_std[dataset['Name']] = pd.DataFrame(
+                    {'mean_val': [mean_values], 'std_val': [std_values]})
 
-            dataset['df']['ged_sb_dep'] = (dataset['df']['ged_sb_dep'] - mean_values) / std_values
+            dataset['df']['ged_sb_dep'] = (
+                dataset['df']['ged_sb_dep'] - mean_values) / std_values
             dataset['df']['ged_sb_dep'].fillna(0, inplace=True)
         return Datasets_transformed, dict_mean_std
 
     else:
-        raise ValueError("Wrong transformation, only support 'log', 'normalize', 'standardize'.")
+        raise ValueError(
+            "Wrong transformation, only support 'log', 'normalize', 'standardize'.")
 
 
 def get_config_path(config_path: Path) -> Path:
@@ -95,20 +116,25 @@ def get_config_path(config_path: Path) -> Path:
     sweep_config_path = config_path / 'sweep_config'
 
     if not common_config_path.is_file():
-        raise FileNotFoundError(f'The common configuration file {common_config_path} does not exist.')
+        raise FileNotFoundError(
+            f'The common configuration file {common_config_path} does not exist.')
     if not wandb_config_path.is_file():
-        raise FileNotFoundError(f'The common configuration file {wandb_config_path} does not exist.')
+        raise FileNotFoundError(
+            f'The common configuration file {wandb_config_path} does not exist.')
     if not model_config_path.exists() or not model_config_path.is_dir():
-        raise FileNotFoundError(f'The directory {model_config_path} does not exist or is not a directory.')
+        raise FileNotFoundError(
+            f'The directory {model_config_path} does not exist or is not a directory.')
     if not sweep_config_path.exists() or not sweep_config_path.is_dir():
-        raise FileNotFoundError(f'The directory {sweep_config_path} does not exist or is not a directory.')
+        raise FileNotFoundError(
+            f'The directory {sweep_config_path} does not exist or is not a directory.')
 
     return common_config_path, wandb_config_path, model_config_path, sweep_config_path
 
 
 def get_config_from_path(path: Path, config_name: str) -> Dict:
     if config_name not in ['common', 'wandb', 'sweep', 'model']:
-        raise ValueError("Wrong configuration name, only support 'common', 'wandb', 'sweep', 'model'.")
+        raise ValueError(
+            "Wrong configuration name, only support 'common', 'wandb', 'sweep', 'model'.")
     config = {}
     exec(path.read_text(), config)
     config_name = config_name + '_config'
@@ -126,18 +152,18 @@ def retrain_transformed_sweep(Datasets_transformed, sweep_paras):
     future_partitioner_dict = wandb.config['future_partitioner_dict']
     force_retrain = wandb.config['force_retrain']
 
-    ## Get a suffix for identification
+    # Get a suffix for identification
     suffix = ''
     for para in sweep_paras:
         suffix += f'_{para}_{wandb.config[para]}'
 
-    ## Get all the model parameters by soft coding (transform shouldn't be passed to model)
+    # Get all the model parameters by soft coding (transform shouldn't be passed to model)
     model_paras = [para for para in sweep_paras if para != 'transform']
     parameters = {para: wandb.config[para] for para in model_paras}
     print(parameters)
     model = globals()[wandb.config['algorithm']](**parameters)
 
-    ## Training
+    # Training
     print(f'Training model {wandb.config["modelname"]}')
 
     print(f'Calibration partition ({transform})')
@@ -145,8 +171,10 @@ def retrain_transformed_sweep(Datasets_transformed, sweep_paras):
         retrain=force_retrain,
         store=modelstore,
         partitioner=DataPartitioner({"calib": calib_partitioner_dict}),
-        stepshifted_models=StepshiftedModels(model, steps, wandb.config['depvar']),
-        dataset=RetrieveFromList(Datasets_transformed[transform], wandb.config['data_train']),
+        stepshifted_models=StepshiftedModels(
+            model, steps, wandb.config['depvar']),
+        dataset=RetrieveFromList(
+            Datasets_transformed[transform], wandb.config['data_train']),
         queryset_name=wandb.config['queryset'],
         partition_name="calib",
         timespan_name="train",
@@ -160,18 +188,23 @@ def retrain_transformed_sweep(Datasets_transformed, sweep_paras):
         predictions_calib = pd.DataFrame.forecasts.read_store(run=run_id,
                                                               name=wandb.config[f'predstore_calib_{transform}'])
     except KeyError:
-        print(wandb.config[f'predstore_calib_{transform}'], ', run', run_id, 'does not exist, predicting')
-        predictions_calib = RunResult_calib.run.predict("calib", "predict", RunResult_calib.data)
+        print(wandb.config[f'predstore_calib_{transform}'],
+              ', run', run_id, 'does not exist, predicting')
+        predictions_calib = RunResult_calib.run.predict(
+            "calib", "predict", RunResult_calib.data)
         predictions_calib.forecasts.set_run(run_id)
-        predictions_calib.forecasts.to_store(name=wandb.config[f'predstore_calib_{transform}'])
+        predictions_calib.forecasts.to_store(
+            name=wandb.config[f'predstore_calib_{transform}'])
 
     print(f'Test partition ({transform})')
     RunResult_test = RunResult.retrain_or_retrieve(
         retrain=force_retrain,
         store=modelstore,
         partitioner=DataPartitioner({"test": test_partitioner_dict}),
-        stepshifted_models=StepshiftedModels(model, steps, wandb.config['depvar']),
-        dataset=RetrieveFromList(Datasets_transformed[transform], wandb.config['data_train']),
+        stepshifted_models=StepshiftedModels(
+            model, steps, wandb.config['depvar']),
+        dataset=RetrieveFromList(
+            Datasets_transformed[transform], wandb.config['data_train']),
         queryset_name=wandb.config['queryset'],
         partition_name="test",
         timespan_name="train",
@@ -185,10 +218,13 @@ def retrain_transformed_sweep(Datasets_transformed, sweep_paras):
         predictions_test = pd.DataFrame.forecasts.read_store(run=run_id,
                                                              name=wandb.config[f'predstore_test_{transform}'])
     except KeyError:
-        print(wandb.config[f'predstore_test_{transform}'], ', run', run_id, 'does not exist, predicting')
-        predictions_test = RunResult_test.run.predict("test", "predict", RunResult_test.data)
+        print(wandb.config[f'predstore_test_{transform}'],
+              ', run', run_id, 'does not exist, predicting')
+        predictions_test = RunResult_test.run.predict(
+            "test", "predict", RunResult_test.data)
         predictions_test.forecasts.set_run(run_id)
-        predictions_test.forecasts.to_store(name=wandb.config[f'predstore_test_{transform}'])
+        predictions_test.forecasts.to_store(
+            name=wandb.config[f'predstore_test_{transform}'])
     print('**************************************************************')
 
 
@@ -213,7 +249,8 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
     pred_cols = [f'step_pred_{str(i)}' for i in steps]
 
     name = wandb.config[f'predstore_{target}_{transform}']
-    df = pd.DataFrame.forecasts.read_store(run=run_id, name=name).replace([np.inf, -np.inf], 0)[stepcols]
+    df = pd.DataFrame.forecasts.read_store(run=run_id, name=name).replace([
+        np.inf, -np.inf], 0)[stepcols]
 
     if retransform:
         if transform == 'log':
@@ -244,5 +281,14 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
                                                         [row[col] for col in pred_cols]), axis=1)
 
     print(f'mse_{transform}', df['mse'].mean())
-    wandb.log({'mse': df['mse'].mean()})
+
+    # wandb.log({'mse': df['mse'].mean()})
+    # for col in pred_cols:
+    #     wandb.log({f'mse_step_{col}': df['mse'][col]})
+    for col in pred_cols:
+        mse_values = df.apply(lambda row: mean_squared_error(
+            [row['ged_sb_dep']] * 36, [row[col]] * 36), axis=1)
+        # Log the mean MSE for the column
+        wandb.log({f'mse_{col}': mse_values.mean()})
+
     print('**************************************************************')

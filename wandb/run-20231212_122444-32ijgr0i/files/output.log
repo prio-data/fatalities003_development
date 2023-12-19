@@ -1,0 +1,23 @@
+{'n_estimators': 250, 'n_jobs': 12, 'learning_rate': 0.1}
+Training model fatalities003_joint_narrow_xgb
+Calibration partition (log)
+ * == Performing a run: "fatalities003_joint_narrow_xgb_calib_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.1" == *
+Training model(s)...
+Reordering feature dimension. Save memory by setting the outcome feature as the first column in your dataframe.
+Storing "fatalities003_joint_narrow_xgb_calib_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.1"
+Getting predictions
+pr_56_cm_fatalities003_joint_narrow_xgb_calib_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.1.parquet
+cm_fatalities003_joint_narrow_xgb_calib_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.1 , run Fatalities003 does not exist, predicting
+Reordering feature dimension. Save memory by setting the outcome feature as the first column in your dataframe.
+Test partition (log)
+ * == Performing a run: "fatalities003_joint_narrow_xgb_test_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.1" == *
+Training model(s)...
+Storing "fatalities003_joint_narrow_xgb_test_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.1"
+Getting predictions
+pr_56_cm_fatalities003_joint_narrow_xgb_test_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.1.parquet
+cm_fatalities003_joint_narrow_xgb_test_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.1 , run Fatalities003 does not exist, predicting
+**************************************************************
+Evaluating model fatalities003_joint_narrow_xgb
+pr_56_cm_fatalities003_joint_narrow_xgb_calib_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.1.parquet
+mse_log 1.925335970500507
+**************************************************************

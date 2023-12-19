@@ -1,0 +1,18 @@
+wandb_version: 1
+
+colsample_bytree:
+  value: 0.5
+learning_rate:
+  value: 0.05
+max_depth:
+  value: 12
+min_child_weight:
+  value: 13
+n_estimators:
+  value: 250
+n_jobs:
+  value: 12
+subsample:
+  value: 0.5
+transform:
+  value: log

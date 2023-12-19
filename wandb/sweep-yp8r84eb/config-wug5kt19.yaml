@@ -1,0 +1,8 @@
+wandb_version: 1
+
+clf_name:
+  value: RFClassifier
+reg_name:
+  value: RFRegressor
+transform:
+  value: raw

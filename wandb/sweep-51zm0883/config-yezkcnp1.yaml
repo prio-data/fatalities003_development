@@ -1,0 +1,8 @@
+wandb_version: 1
+
+clf_name:
+  value: LGBMClassifier
+reg_name:
+  value: LGBMRegressor
+transform:
+  value: normalize

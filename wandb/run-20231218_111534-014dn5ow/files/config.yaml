@@ -1,0 +1,158 @@
+wandb_version: 1
+
+clf_name:
+  desc: null
+  value: XGBClassifier
+reg_name:
+  desc: null
+  value: XGBRegressor
+transform:
+  desc: null
+  value: log
+level:
+  desc: null
+  value: cm
+run_id:
+  desc: null
+  value: Fatalities003
+steps:
+  desc: null
+  value:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  - 36
+calib_partitioner_dict:
+  desc: null
+  value:
+    train:
+    - 121
+    - 396
+    predict:
+    - 397
+    - 444
+test_partitioner_dict:
+  desc: null
+  value:
+    train:
+    - 121
+    - 444
+    predict:
+    - 445
+    - 492
+future_partitioner_dict:
+  desc: null
+  value:
+    train:
+    - 121
+    - 492
+    predict:
+    - 493
+    - 504
+FutureStart:
+  desc: null
+  value: 508
+get_future:
+  desc: null
+  value: false
+force_retrain:
+  desc: null
+  value: false
+_wandb:
+  desc: null
+  value:
+    python_version: 3.9.18
+    cli_version: 0.16.0
+    framework: lightgbm
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1702894534.585244
+    t:
+      1:
+      - 5
+      - 6
+      - 8
+      - 53
+      - 54
+      - 55
+      2:
+      - 5
+      - 6
+      - 8
+      - 53
+      - 54
+      - 55
+      3:
+      - 2
+      - 16
+      - 17
+      - 23
+      - 37
+      4: 3.9.18
+      5: 0.16.0
+      8:
+      - 4
+      - 5
+      13: darwin-arm64
+modelname:
+  desc: null
+  value: fatalities003_nl_vdem_hurdle_xgb
+algorithm:
+  desc: null
+  value: HurdleRegression
+depvar:
+  desc: null
+  value: ged_sb_dep
+data_train:
+  desc: null
+  value: vdem_short
+queryset:
+  desc: null
+  value: fatalities003_vdem_short
+preprocessing:
+  desc: null
+  value: float_it
+description:
+  desc: null
+  value: ''
+long_description:
+  desc: null
+  value: ''
+predstore_calib_log:
+  desc: null
+  value: cm_fatalities003_nl_vdem_hurdle_xgb_calib_transform_log_clf_name_XGBClassifier_reg_name_XGBRegressor
+predstore_test_log:
+  desc: null
+  value: cm_fatalities003_nl_vdem_hurdle_xgb_test_transform_log_clf_name_XGBClassifier_reg_name_XGBRegressor

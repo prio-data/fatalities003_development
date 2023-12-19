@@ -1,0 +1,17 @@
+{'clf_name': 'XGBClassifier', 'reg_name': 'XGBRegressor'}
+Training model fatalities003_nl_vdem_hurdle_xgb
+Calibration partition (standardize)
+ * == Performing a run: "fatalities003_nl_vdem_hurdle_xgb_calib_transform_standardize_clf_name_XGBClassifier_reg_name_XGBRegressor" == *
+Training model(s)...
+Storing "fatalities003_nl_vdem_hurdle_xgb_calib_transform_standardize_clf_name_XGBClassifier_reg_name_XGBRegressor"
+Getting predictions
+pr_56_cm_fatalities003_nl_vdem_hurdle_xgb_calib_transform_standardize_clf_name_XGBClassifier_reg_name_XGBRegressor.parquet
+Test partition (standardize)
+ * == Performing a run: "fatalities003_nl_vdem_hurdle_xgb_test_transform_standardize_clf_name_XGBClassifier_reg_name_XGBRegressor" == *
+Training model(s)...
+Storing "fatalities003_nl_vdem_hurdle_xgb_test_transform_standardize_clf_name_XGBClassifier_reg_name_XGBRegressor"
+Getting predictions
+pr_56_cm_fatalities003_nl_vdem_hurdle_xgb_test_transform_standardize_clf_name_XGBClassifier_reg_name_XGBRegressor.parquet
+**************************************************************
+Evaluating model fatalities003_nl_vdem_hurdle_xgb
+pr_56_cm_fatalities003_nl_vdem_hurdle_xgb_calib_transform_standardize_clf_name_XGBClassifier_reg_name_XGBRegressor.parquet

@@ -1,0 +1,2 @@
+
+{'clf_name': 'XGBClassifier', 'reg_name': 'XGBRegressor'}

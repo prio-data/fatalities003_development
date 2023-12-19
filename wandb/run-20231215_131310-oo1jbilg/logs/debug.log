@@ -1,0 +1,37 @@
+2023-12-15 13:13:10,454 INFO    Thread-13 :91743 [wandb_setup.py:_flush():76] Current SDK version is 0.16.0
+2023-12-15 13:13:10,455 INFO    Thread-13 :91743 [wandb_setup.py:_flush():76] Configure stats pid to 91743
+2023-12-15 13:13:10,455 INFO    Thread-13 :91743 [wandb_setup.py:_flush():76] Loading settings from /Users/noorainkazmi/.config/wandb/settings
+2023-12-15 13:13:10,455 INFO    Thread-13 :91743 [wandb_setup.py:_flush():76] Loading settings from /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/settings
+2023-12-15 13:13:10,455 INFO    Thread-13 :91743 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'silent': 'true', 'entity': 'model-development-and-deployment', 'project': 'mse_rank_2', 'root_dir': '/Users/noorainkazmi/Documents/GitHub/weights-and-biases', 'sweep_id': 'zpzi5tuq', 'run_id': 'oo1jbilg', 'sweep_param_path': '/Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/sweep-zpzi5tuq/config-oo1jbilg.yaml'}
+2023-12-15 13:13:10,455 INFO    Thread-13 :91743 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-12-15 13:13:10,455 INFO    Thread-13 :91743 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'SweepExample.py', 'program_abspath': '/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py', 'program': '/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py'}
+2023-12-15 13:13:10,455 WARNING Thread-13 :91743 [wandb_setup.py:_flush():76] [34m[1mwandb[0m: [33mWARNING[0m Ignored wandb.init() arg project when running a sweep.
+2023-12-15 13:13:10,455 WARNING Thread-13 :91743 [wandb_setup.py:_flush():76] [34m[1mwandb[0m: [33mWARNING[0m Ignored wandb.init() arg entity when running a sweep.
+2023-12-15 13:13:10,455 INFO    Thread-13 :91743 [wandb_init.py:_log_setup():524] Logging user logs to /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231215_131310-oo1jbilg/logs/debug.log
+2023-12-15 13:13:10,456 INFO    Thread-13 :91743 [wandb_init.py:_log_setup():525] Logging internal logs to /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231215_131310-oo1jbilg/logs/debug-internal.log
+2023-12-15 13:13:10,456 INFO    Thread-13 :91743 [wandb_init.py:init():564] calling init triggers
+2023-12-15 13:13:10,456 INFO    Thread-13 :91743 [wandb_init.py:init():571] wandb.init called with sweep_config: {'clf_name': 'RFClassifier', 'reg_name': 'RFRegressor', 'transform': 'log'}
+config: {'level': 'cm', 'run_id': 'Fatalities003', 'steps': [1, 3, 6, 12, 36], 'calib_partitioner_dict': {'train': (121, 396), 'predict': (397, 444)}, 'test_partitioner_dict': {'train': (121, 444), 'predict': (445, 492)}, 'future_partitioner_dict': {'train': (121, 492), 'predict': (493, 504)}, 'FutureStart': 508, 'get_future': False, 'force_retrain': False}
+2023-12-15 13:13:10,456 INFO    Thread-13 :91743 [wandb_init.py:init():614] starting backend
+2023-12-15 13:13:10,456 INFO    Thread-13 :91743 [wandb_init.py:init():618] setting up manager
+2023-12-15 13:13:10,464 INFO    Thread-13 :91743 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2023-12-15 13:13:10,465 INFO    Thread-13 :91743 [wandb_init.py:init():624] backend started and connected
+2023-12-15 13:13:10,474 INFO    Thread-13 :91743 [wandb_run.py:_config_callback():1342] config_cb None None {'clf_name': 'RFClassifier', 'reg_name': 'RFRegressor', 'transform': 'log'}
+2023-12-15 13:13:10,478 INFO    Thread-13 :91743 [wandb_init.py:init():716] updated telemetry
+2023-12-15 13:13:10,501 INFO    Thread-13 :91743 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2023-12-15 13:13:10,945 INFO    Thread-13 :91743 [wandb_run.py:_on_init():2254] communicating current version
+2023-12-15 13:13:11,037 INFO    Thread-13 :91743 [wandb_run.py:_on_init():2263] got version response upgrade_message: "wandb version 0.16.1 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-12-15 13:13:11,037 INFO    Thread-13 :91743 [wandb_init.py:init():800] starting run threads in backend
+2023-12-15 13:13:13,310 INFO    Thread-13 :91743 [wandb_run.py:_console_start():2233] atexit reg
+2023-12-15 13:13:13,310 INFO    Thread-13 :91743 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2023-12-15 13:13:13,310 INFO    Thread-13 :91743 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2023-12-15 13:13:13,310 INFO    Thread-13 :91743 [wandb_run.py:_redirect():2178] Redirects installed.
+2023-12-15 13:13:13,311 INFO    Thread-13 :91743 [wandb_init.py:init():841] run started, returning control to user process
+2023-12-15 13:13:13,311 INFO    Thread-13 :91743 [wandb_run.py:_config_callback():1342] config_cb None None {'modelname': 'fatalities003_nl_joint_broad_hurdle_rf', 'algorithm': 'HurdleRegression', 'depvar': 'ged_sb_dep', 'data_train': 'joint_broad', 'queryset': 'fatalities003_joint_broad', 'preprocessing': 'float_it', 'level': 'cm', 'description': '', 'long_description': ''}
+2023-12-15 13:14:03,792 INFO    Thread-13 :91743 [wandb_run.py:_config_callback():1342] config_cb None None {'predstore_calib_log': 'cm_fatalities003_nl_joint_broad_hurdle_rf_calib_transform_log_clf_name_RFClassifier_reg_name_RFRegressor'}
+2023-12-15 13:15:10,916 INFO    Thread-13 :91743 [wandb_run.py:_config_callback():1342] config_cb None None {'predstore_test_log': 'cm_fatalities003_nl_joint_broad_hurdle_rf_test_transform_log_clf_name_RFClassifier_reg_name_RFRegressor'}
+2023-12-15 13:15:17,682 INFO    Thread-13 :91743 [wandb_run.py:_finish():1962] finishing run model-development-and-deployment/mse_rank_2/oo1jbilg
+2023-12-15 13:15:17,682 INFO    Thread-13 :91743 [wandb_run.py:_atexit_cleanup():2202] got exitcode: 1
+2023-12-15 13:15:17,683 INFO    Thread-13 :91743 [wandb_run.py:_restore():2185] restore
+2023-12-15 13:15:17,683 INFO    Thread-13 :91743 [wandb_run.py:_restore():2191] restore done

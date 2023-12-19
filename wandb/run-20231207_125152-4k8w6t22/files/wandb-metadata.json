@@ -1,0 +1,42 @@
+{
+    "os": "macOS-13.5-arm64-arm-64bit",
+    "python": "3.9.18",
+    "heartbeatAt": "2023-12-07T11:51:53.589888",
+    "startedAt": "2023-12-07T11:51:52.878038",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "-l",
+        "cm",
+        "-c",
+        "config"
+    ],
+    "state": "running",
+    "program": "/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py",
+    "codePathLocal": "SweepExample.py",
+    "codePath": "SweepExample.py",
+    "git": {
+        "remote": "https://github.com/prio-data/weights-and-biases.git",
+        "commit": "f89fc4704693632baa29d8f466ce3e14d8b86462"
+    },
+    "email": "142994595+nskazmi@users.noreply.github.com",
+    "root": "/Users/noorainkazmi/Documents/GitHub/weights-and-biases",
+    "host": "Noorains-MacBook-Air.local",
+    "username": "noorainkazmi",
+    "executable": "/Users/noorainkazmi/miniforge3/envs/viewser/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 8,
+    "disk": {
+        "/": {
+            "total": 460.4317207336426,
+            "used": 115.12648010253906
+        }
+    },
+    "gpuapple": {
+        "type": "arm",
+        "vendor": "Apple"
+    },
+    "memory": {
+        "total": 16.0
+    }
+}

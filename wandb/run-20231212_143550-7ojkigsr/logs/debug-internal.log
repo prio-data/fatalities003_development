@@ -1,0 +1,447 @@
+2023-12-12 14:35:50,992 INFO    StreamThr :63543 [internal.py:wandb_internal():86] W&B internal server running at pid: 63543, started at: 2023-12-12 14:35:50.991079
+2023-12-12 14:35:50,995 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status
+2023-12-12 14:35:51,004 INFO    WriterThread:63543 [datastore.py:open_for_write():85] open: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/run-7ojkigsr.wandb
+2023-12-12 14:35:51,004 DEBUG   SenderThread:63543 [sender.py:send():380] send: header
+2023-12-12 14:35:51,017 DEBUG   SenderThread:63543 [sender.py:send():380] send: run
+2023-12-12 14:35:51,521 INFO    SenderThread:63543 [dir_watcher.py:__init__():211] watching files in: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files
+2023-12-12 14:35:51,522 INFO    SenderThread:63543 [sender.py:_start_run_threads():1124] run started: 7ojkigsr with start time 1702388150.990744
+2023-12-12 14:35:51,537 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: check_version
+2023-12-12 14:35:51,537 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: check_version
+2023-12-12 14:35:51,644 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: run_start
+2023-12-12 14:35:51,652 DEBUG   HandlerThread:63543 [system_info.py:__init__():32] System info init
+2023-12-12 14:35:51,653 DEBUG   HandlerThread:63543 [system_info.py:__init__():47] System info init done
+2023-12-12 14:35:51,653 INFO    HandlerThread:63543 [system_monitor.py:start():194] Starting system monitor
+2023-12-12 14:35:51,653 INFO    SystemMonitor:63543 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-12-12 14:35:51,653 INFO    HandlerThread:63543 [system_monitor.py:probe():214] Collecting system info
+2023-12-12 14:35:51,654 DEBUG   HandlerThread:63543 [system_info.py:probe():196] Probing system
+2023-12-12 14:35:51,654 INFO    SystemMonitor:63543 [interfaces.py:start():190] Started cpu monitoring
+2023-12-12 14:35:51,654 INFO    SystemMonitor:63543 [interfaces.py:start():190] Started disk monitoring
+2023-12-12 14:35:51,660 INFO    SystemMonitor:63543 [interfaces.py:start():190] Started gpuapple monitoring
+2023-12-12 14:35:51,662 INFO    SystemMonitor:63543 [interfaces.py:start():190] Started memory monitoring
+2023-12-12 14:35:51,663 INFO    SystemMonitor:63543 [interfaces.py:start():190] Started network monitoring
+2023-12-12 14:35:51,667 DEBUG   HandlerThread:63543 [system_info.py:_probe_git():181] Probing git
+2023-12-12 14:35:51,698 DEBUG   HandlerThread:63543 [system_info.py:_probe_git():189] Probing git done
+2023-12-12 14:35:51,699 DEBUG   HandlerThread:63543 [system_info.py:probe():244] Probing system done
+2023-12-12 14:35:51,699 DEBUG   HandlerThread:63543 [system_monitor.py:probe():223] {'os': 'macOS-13.5-arm64-arm-64bit', 'python': '3.9.18', 'heartbeatAt': '2023-12-12T13:35:51.654558', 'startedAt': '2023-12-12T13:35:50.970280', 'docker': None, 'cuda': None, 'args': ('-l', 'cm', '-c', 'mse_rank'), 'state': 'running', 'program': '/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py', 'codePathLocal': 'SweepExample.py', 'codePath': 'SweepExample.py', 'git': {'remote': 'https://github.com/prio-data/weights-and-biases.git', 'commit': 'f89fc4704693632baa29d8f466ce3e14d8b86462'}, 'email': '142994595+nskazmi@users.noreply.github.com', 'root': '/Users/noorainkazmi/Documents/GitHub/weights-and-biases', 'host': 'Noorains-MacBook-Air.local', 'username': 'noorainkazmi', 'executable': '/Users/noorainkazmi/miniforge3/envs/viewser/bin/python', 'cpu_count': 8, 'cpu_count_logical': 8, 'disk': {'/': {'total': 460.4317207336426, 'used': 115.73466110229492}}, 'gpuapple': {'type': 'arm', 'vendor': 'Apple'}, 'memory': {'total': 16.0}}
+2023-12-12 14:35:51,699 INFO    HandlerThread:63543 [system_monitor.py:probe():224] Finished collecting system info
+2023-12-12 14:35:51,699 INFO    HandlerThread:63543 [system_monitor.py:probe():227] Publishing system info
+2023-12-12 14:35:51,699 DEBUG   HandlerThread:63543 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-12-12 14:35:51,699 DEBUG   HandlerThread:63543 [system_info.py:_save_pip():68] Saving pip packages done
+2023-12-12 14:35:51,700 DEBUG   HandlerThread:63543 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2023-12-12 14:35:52,526 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/requirements.txt
+2023-12-12 14:35:52,526 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/conda-environment.yaml
+2023-12-12 14:35:53,945 DEBUG   HandlerThread:63543 [system_info.py:_save_conda():87] Saving conda packages done
+2023-12-12 14:35:53,945 INFO    HandlerThread:63543 [system_monitor.py:probe():229] Finished publishing system info
+2023-12-12 14:35:53,947 DEBUG   SenderThread:63543 [sender.py:send():380] send: files
+2023-12-12 14:35:53,947 INFO    SenderThread:63543 [sender.py:_save_file():1380] saving file wandb-metadata.json with policy now
+2023-12-12 14:35:53,949 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:35:53,949 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:35:53,949 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:35:54,239 DEBUG   SenderThread:63543 [sender.py:send():380] send: telemetry
+2023-12-12 14:35:54,239 DEBUG   SenderThread:63543 [sender.py:send():380] send: config
+2023-12-12 14:35:54,239 DEBUG   SenderThread:63543 [sender.py:send():380] send: telemetry
+2023-12-12 14:35:54,239 DEBUG   SenderThread:63543 [sender.py:send():380] send: run
+2023-12-12 14:35:54,452 INFO    SenderThread:63543 [sender.py:send_run():1002] updated run: 7ojkigsr
+2023-12-12 14:35:54,533 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/config.yaml
+2023-12-12 14:35:54,533 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/conda-environment.yaml
+2023-12-12 14:35:54,534 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/wandb-metadata.json
+2023-12-12 14:35:54,534 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/output.log
+2023-12-12 14:35:54,550 INFO    wandb-upload_0:63543 [upload_job.py:push():131] Uploaded file /var/folders/qx/vpttxp096k9bhf2r8qcpdxlm0000gn/T/tmpvxyu8o7lwandb/ef1pmkhq-wandb-metadata.json
+2023-12-12 14:35:56,460 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:35:56,539 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/output.log
+2023-12-12 14:36:01,478 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:36:06,501 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:36:08,950 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:36:08,951 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:36:08,951 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:36:12,191 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:36:17,210 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:36:22,233 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:36:22,686 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/config.yaml
+2023-12-12 14:36:23,954 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:36:23,955 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:36:23,955 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:36:28,187 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:36:33,208 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:36:38,232 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:36:38,954 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:36:38,954 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:36:38,956 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:36:44,201 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:36:49,231 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:36:51,668 DEBUG   SystemMonitor:63543 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-12-12 14:36:51,669 DEBUG   SenderThread:63543 [sender.py:send():380] send: telemetry
+2023-12-12 14:36:51,669 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:36:53,957 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:36:53,958 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:36:53,960 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:36:55,129 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:36:55,830 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/config.yaml
+2023-12-12 14:37:00,351 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:37:05,374 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:37:08,962 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:37:08,962 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:37:08,963 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:37:11,358 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:37:16,375 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:37:21,401 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:37:21,674 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:37:23,967 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:37:23,968 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:37:23,968 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:37:27,311 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:37:32,326 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:37:37,344 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:37:38,973 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:37:38,973 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:37:38,973 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:37:43,259 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:37:48,278 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:37:51,680 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:37:53,688 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:37:53,972 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:37:53,977 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:37:53,977 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:37:59,203 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:38:04,223 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:38:08,978 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:38:08,978 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:38:08,979 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:38:09,240 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:38:14,262 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:38:19,286 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:38:21,686 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:38:23,978 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:38:23,982 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:38:23,982 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:38:24,297 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:38:29,330 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:38:34,352 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:38:38,979 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:38:38,987 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:38:38,987 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:38:40,252 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:38:45,276 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:38:50,299 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:38:51,691 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:38:53,984 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:38:53,989 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:38:53,989 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:38:56,164 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:39:01,182 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:39:06,200 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:39:08,989 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:39:08,991 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:39:08,991 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:39:11,216 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:39:16,247 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:39:21,264 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:39:21,695 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:39:23,993 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:39:23,993 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:39:23,994 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:39:26,309 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:39:31,331 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:39:36,352 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:39:38,997 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:39:39,002 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:39:39,002 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:39:41,387 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:39:46,406 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:39:48,541 DEBUG   SenderThread:63543 [sender.py:send():380] send: config
+2023-12-12 14:39:49,706 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/output.log
+2023-12-12 14:39:51,697 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:39:51,698 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:39:51,713 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/output.log
+2023-12-12 14:39:53,999 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:39:54,007 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:39:54,009 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:39:57,258 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:40:01,762 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/output.log
+2023-12-12 14:40:02,950 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:40:03,776 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/config.yaml
+2023-12-12 14:40:08,157 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:40:09,000 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:40:09,011 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:40:09,012 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:40:13,223 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:40:18,255 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:40:21,699 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:40:23,710 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:40:24,005 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:40:24,017 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:40:24,017 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:40:29,252 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:40:34,266 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:40:39,009 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:40:39,022 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:40:39,022 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:40:40,261 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:40:45,284 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:40:50,297 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:40:51,704 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:40:54,012 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:40:54,026 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:40:54,027 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:40:56,219 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:41:01,234 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:41:06,255 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:41:09,017 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:41:09,028 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:41:09,028 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:41:11,358 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:41:16,378 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:41:21,394 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:41:21,709 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:41:24,023 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:41:24,032 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:41:24,033 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:41:27,249 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:41:32,268 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:41:37,286 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:41:39,027 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:41:39,037 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:41:39,038 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:41:43,276 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:41:48,293 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:41:51,715 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:41:53,724 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:41:54,032 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:41:54,042 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:41:54,042 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:41:59,434 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:42:04,455 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:42:09,032 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:42:09,047 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:42:09,048 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:42:10,339 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:42:15,363 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:42:20,385 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:42:21,721 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:42:24,035 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:42:24,051 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:42:24,052 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:42:26,262 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:42:31,284 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:42:36,303 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:42:39,039 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:42:39,053 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:42:39,054 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:42:41,376 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:42:46,390 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:42:51,415 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:42:51,726 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:42:54,042 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:42:54,057 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:42:54,058 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:42:57,413 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:43:02,431 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:43:07,454 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:43:09,043 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:43:09,062 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:43:09,062 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:43:12,522 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:43:17,545 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:43:21,729 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:43:22,730 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:43:24,048 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:43:24,062 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:43:24,063 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:43:28,306 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:43:33,318 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:43:38,333 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:43:39,053 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:43:39,066 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:43:39,066 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:43:44,321 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:43:49,340 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:43:51,732 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:43:54,058 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:43:54,071 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:43:54,071 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:43:55,302 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:44:00,325 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:44:05,356 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:44:09,063 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:44:09,076 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:44:09,076 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:44:11,282 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:44:16,299 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:44:21,314 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:44:21,738 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:44:24,068 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:44:24,078 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:44:24,078 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:44:27,282 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:44:32,308 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:44:37,326 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:44:39,072 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:44:39,079 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:44:39,079 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:44:42,327 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:44:47,356 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:44:51,751 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:44:52,756 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:44:54,077 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:44:54,084 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:44:54,084 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:44:58,425 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:45:03,436 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:45:08,478 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:45:09,079 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:45:09,089 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:45:09,089 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:45:14,317 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:45:16,062 DEBUG   SenderThread:63543 [sender.py:send():380] send: config
+2023-12-12 14:45:16,259 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/output.log
+2023-12-12 14:45:18,273 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/output.log
+2023-12-12 14:45:19,710 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:45:20,290 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/output.log
+2023-12-12 14:45:20,291 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/config.yaml
+2023-12-12 14:45:21,747 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:45:24,080 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:45:24,099 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 14:45:24,099 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: stop_status
+2023-12-12 14:45:25,324 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:45:28,317 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/output.log
+2023-12-12 14:45:30,323 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/output.log
+2023-12-12 14:45:31,073 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:45:31,616 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-12 14:45:31,617 DEBUG   SenderThread:63543 [sender.py:send():380] send: history
+2023-12-12 14:45:31,617 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: summary_record
+2023-12-12 14:45:31,617 INFO    SenderThread:63543 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-12 14:45:31,618 DEBUG   SenderThread:63543 [sender.py:send():380] send: telemetry
+2023-12-12 14:45:31,618 DEBUG   SenderThread:63543 [sender.py:send():380] send: exit
+2023-12-12 14:45:31,618 INFO    SenderThread:63543 [sender.py:send_exit():585] handling exit code: 0
+2023-12-12 14:45:31,618 INFO    SenderThread:63543 [sender.py:send_exit():587] handling runtime: 579
+2023-12-12 14:45:31,618 INFO    SenderThread:63543 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-12 14:45:31,618 INFO    SenderThread:63543 [sender.py:send_exit():593] send defer
+2023-12-12 14:45:31,618 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:31,618 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 0
+2023-12-12 14:45:31,618 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:31,618 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 0
+2023-12-12 14:45:31,618 INFO    SenderThread:63543 [sender.py:transition_state():613] send defer: 1
+2023-12-12 14:45:31,618 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:31,618 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 1
+2023-12-12 14:45:31,618 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:31,618 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 1
+2023-12-12 14:45:31,618 INFO    SenderThread:63543 [sender.py:transition_state():613] send defer: 2
+2023-12-12 14:45:31,618 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:31,618 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 2
+2023-12-12 14:45:31,618 INFO    HandlerThread:63543 [system_monitor.py:finish():203] Stopping system monitor
+2023-12-12 14:45:31,619 DEBUG   SystemMonitor:63543 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2023-12-12 14:45:31,619 DEBUG   SystemMonitor:63543 [system_monitor.py:_start():183] Publishing last batch of metrics
+2023-12-12 14:45:31,619 INFO    HandlerThread:63543 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-12 14:45:31,619 INFO    HandlerThread:63543 [interfaces.py:finish():202] Joined disk monitor
+2023-12-12 14:45:31,619 INFO    HandlerThread:63543 [interfaces.py:finish():202] Joined gpuapple monitor
+2023-12-12 14:45:31,619 INFO    HandlerThread:63543 [interfaces.py:finish():202] Joined memory monitor
+2023-12-12 14:45:31,619 INFO    HandlerThread:63543 [interfaces.py:finish():202] Joined network monitor
+2023-12-12 14:45:31,619 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:31,619 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 2
+2023-12-12 14:45:31,619 INFO    SenderThread:63543 [sender.py:transition_state():613] send defer: 3
+2023-12-12 14:45:31,619 DEBUG   SenderThread:63543 [sender.py:send():380] send: stats
+2023-12-12 14:45:31,620 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:31,620 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 3
+2023-12-12 14:45:31,620 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:31,620 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 3
+2023-12-12 14:45:31,620 INFO    SenderThread:63543 [sender.py:transition_state():613] send defer: 4
+2023-12-12 14:45:31,620 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:31,620 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 4
+2023-12-12 14:45:31,620 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:31,620 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 4
+2023-12-12 14:45:31,620 INFO    SenderThread:63543 [sender.py:transition_state():613] send defer: 5
+2023-12-12 14:45:31,620 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:31,620 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 5
+2023-12-12 14:45:31,620 DEBUG   SenderThread:63543 [sender.py:send():380] send: summary
+2023-12-12 14:45:31,620 INFO    SenderThread:63543 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-12-12 14:45:31,620 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:31,620 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 5
+2023-12-12 14:45:31,620 INFO    SenderThread:63543 [sender.py:transition_state():613] send defer: 6
+2023-12-12 14:45:31,620 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:31,620 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 6
+2023-12-12 14:45:31,620 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:31,620 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 6
+2023-12-12 14:45:31,622 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 14:45:31,845 INFO    SenderThread:63543 [sender.py:transition_state():613] send defer: 7
+2023-12-12 14:45:31,845 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:31,845 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 7
+2023-12-12 14:45:31,846 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:31,846 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 7
+2023-12-12 14:45:32,330 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/config.yaml
+2023-12-12 14:45:32,331 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/wandb-summary.json
+2023-12-12 14:45:32,623 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-12 14:45:33,877 INFO    SenderThread:63543 [sender.py:transition_state():613] send defer: 8
+2023-12-12 14:45:33,878 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: poll_exit
+2023-12-12 14:45:33,878 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:33,878 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 8
+2023-12-12 14:45:33,879 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:33,879 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 8
+2023-12-12 14:45:33,879 INFO    SenderThread:63543 [sender.py:transition_state():613] send defer: 9
+2023-12-12 14:45:33,880 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:33,880 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 9
+2023-12-12 14:45:33,880 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:33,880 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 9
+2023-12-12 14:45:33,880 INFO    SenderThread:63543 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-12-12 14:45:34,336 INFO    Thread-12 :63543 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/output.log
+2023-12-12 14:45:34,337 INFO    SenderThread:63543 [dir_watcher.py:finish():388] scan: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files
+2023-12-12 14:45:34,338 INFO    SenderThread:63543 [dir_watcher.py:finish():402] scan save: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/requirements.txt requirements.txt
+2023-12-12 14:45:34,338 INFO    SenderThread:63543 [dir_watcher.py:finish():402] scan save: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/output.log output.log
+2023-12-12 14:45:34,344 INFO    SenderThread:63543 [dir_watcher.py:finish():402] scan save: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/config.yaml config.yaml
+2023-12-12 14:45:34,349 INFO    SenderThread:63543 [dir_watcher.py:finish():402] scan save: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/wandb-summary.json wandb-summary.json
+2023-12-12 14:45:34,353 INFO    SenderThread:63543 [dir_watcher.py:finish():402] scan save: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/conda-environment.yaml conda-environment.yaml
+2023-12-12 14:45:34,357 INFO    SenderThread:63543 [dir_watcher.py:finish():402] scan save: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/wandb-metadata.json wandb-metadata.json
+2023-12-12 14:45:34,357 INFO    SenderThread:63543 [sender.py:transition_state():613] send defer: 10
+2023-12-12 14:45:34,361 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:34,361 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 10
+2023-12-12 14:45:34,361 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:34,361 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 10
+2023-12-12 14:45:34,362 INFO    SenderThread:63543 [file_pusher.py:finish():175] shutting down file pusher
+2023-12-12 14:45:34,629 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-12 14:45:34,629 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: poll_exit
+2023-12-12 14:45:34,851 INFO    wandb-upload_0:63543 [upload_job.py:push():131] Uploaded file /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/requirements.txt
+2023-12-12 14:45:34,859 INFO    wandb-upload_1:63543 [upload_job.py:push():131] Uploaded file /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/output.log
+2023-12-12 14:45:34,882 INFO    wandb-upload_3:63543 [upload_job.py:push():131] Uploaded file /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/wandb-summary.json
+2023-12-12 14:45:34,883 INFO    wandb-upload_2:63543 [upload_job.py:push():131] Uploaded file /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/config.yaml
+2023-12-12 14:45:34,884 INFO    wandb-upload_4:63543 [upload_job.py:push():131] Uploaded file /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/files/conda-environment.yaml
+2023-12-12 14:45:35,086 INFO    Thread-11 :63543 [sender.py:transition_state():613] send defer: 11
+2023-12-12 14:45:35,087 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:35,087 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 11
+2023-12-12 14:45:35,087 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:35,088 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 11
+2023-12-12 14:45:35,088 INFO    SenderThread:63543 [file_pusher.py:join():181] waiting for file pusher
+2023-12-12 14:45:35,088 INFO    SenderThread:63543 [sender.py:transition_state():613] send defer: 12
+2023-12-12 14:45:35,088 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:35,088 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 12
+2023-12-12 14:45:35,089 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:35,089 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 12
+2023-12-12 14:45:35,089 INFO    SenderThread:63543 [file_stream.py:finish():595] file stream finish called
+2023-12-12 14:45:35,632 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-12 14:45:35,659 INFO    SenderThread:63543 [file_stream.py:finish():599] file stream finish is done
+2023-12-12 14:45:35,659 INFO    SenderThread:63543 [sender.py:transition_state():613] send defer: 13
+2023-12-12 14:45:35,660 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: poll_exit
+2023-12-12 14:45:35,660 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:35,660 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 13
+2023-12-12 14:45:35,661 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:35,661 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 13
+2023-12-12 14:45:35,661 INFO    SenderThread:63543 [sender.py:transition_state():613] send defer: 14
+2023-12-12 14:45:35,662 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 14:45:35,662 DEBUG   SenderThread:63543 [sender.py:send():380] send: final
+2023-12-12 14:45:35,662 INFO    HandlerThread:63543 [handler.py:handle_request_defer():172] handle defer: 14
+2023-12-12 14:45:35,663 DEBUG   SenderThread:63543 [sender.py:send():380] send: footer
+2023-12-12 14:45:35,663 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: defer
+2023-12-12 14:45:35,663 INFO    SenderThread:63543 [sender.py:send_request_defer():609] handle sender defer: 14
+2023-12-12 14:45:35,664 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-12 14:45:35,665 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: poll_exit
+2023-12-12 14:45:35,666 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 14:45:35,667 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: server_info
+2023-12-12 14:45:35,667 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: get_summary
+2023-12-12 14:45:35,667 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: server_info
+2023-12-12 14:45:35,668 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: sampled_history
+2023-12-12 14:45:35,672 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: job_info
+2023-12-12 14:45:35,836 DEBUG   SenderThread:63543 [sender.py:send_request():407] send_request: job_info
+2023-12-12 14:45:35,838 DEBUG   HandlerThread:63543 [handler.py:handle_request():146] handle_request: shutdown
+2023-12-12 14:45:35,838 INFO    HandlerThread:63543 [handler.py:finish():866] shutting down handler
+2023-12-12 14:45:36,676 INFO    WriterThread:63543 [datastore.py:close():294] close: /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_143550-7ojkigsr/run-7ojkigsr.wandb
+2023-12-12 14:45:36,838 INFO    SenderThread:63543 [sender.py:finish():1536] shutting down sender
+2023-12-12 14:45:36,838 INFO    SenderThread:63543 [file_pusher.py:finish():175] shutting down file pusher
+2023-12-12 14:45:36,839 INFO    SenderThread:63543 [file_pusher.py:join():181] waiting for file pusher

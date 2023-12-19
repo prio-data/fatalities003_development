@@ -1,0 +1,21 @@
+{'clf_name': 'LGBMClassifier', 'reg_name': 'LGBMRegressor'}
+Training model fatalities003_nl_conflicthistory_hurdle_lgb
+Calibration partition (standardize)
+ * == Performing a run: "fatalities003_nl_conflicthistory_hurdle_lgb_calib_transform_standardize_clf_name_LGBMClassifier_reg_name_LGBMRegressor" == *
+Training model(s)...
+Reordering feature dimension. Save memory by setting the outcome feature as the first column in your dataframe.
+Storing "fatalities003_nl_conflicthistory_hurdle_lgb_calib_transform_standardize_clf_name_LGBMClassifier_reg_name_LGBMRegressor"
+Getting predictions
+pr_56_cm_fatalities003_nl_conflicthistory_hurdle_lgb_calib_transform_standardize_clf_name_LGBMClassifier_reg_name_LGBMRegressor.parquet
+Test partition (standardize)
+ * == Performing a run: "fatalities003_nl_conflicthistory_hurdle_lgb_test_transform_standardize_clf_name_LGBMClassifier_reg_name_LGBMRegressor" == *
+Training model(s)...
+Reordering feature dimension. Save memory by setting the outcome feature as the first column in your dataframe.
+Storing "fatalities003_nl_conflicthistory_hurdle_lgb_test_transform_standardize_clf_name_LGBMClassifier_reg_name_LGBMRegressor"
+Getting predictions
+pr_56_cm_fatalities003_nl_conflicthistory_hurdle_lgb_test_transform_standardize_clf_name_LGBMClassifier_reg_name_LGBMRegressor.parquet
+**************************************************************
+Evaluating model fatalities003_nl_conflicthistory_hurdle_lgb
+pr_56_cm_fatalities003_nl_conflicthistory_hurdle_lgb_calib_transform_standardize_clf_name_LGBMClassifier_reg_name_LGBMRegressor.parquet
+mse_standardize 256370.95914712362
+**************************************************************

@@ -1,0 +1,21 @@
+{'n_estimators': 100, 'n_jobs': 12, 'learning_rate': 0.05}
+Training model fatalities003_nl_baseline_rf
+Calibration partition (standardize)
+ * == Performing a run: "fatalities003_nl_baseline_rf_calib_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05" == *
+Training model(s)...
+Storing "fatalities003_nl_baseline_rf_calib_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05"
+Getting predictions
+pr_56_cm_fatalities003_nl_baseline_rf_calib_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05.parquet
+cm_fatalities003_nl_baseline_rf_calib_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05 , run Fatalities003 does not exist, predicting
+Test partition (standardize)
+ * == Performing a run: "fatalities003_nl_baseline_rf_test_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05" == *
+Training model(s)...
+Storing "fatalities003_nl_baseline_rf_test_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05"
+Getting predictions
+pr_56_cm_fatalities003_nl_baseline_rf_test_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05.parquet
+cm_fatalities003_nl_baseline_rf_test_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05 , run Fatalities003 does not exist, predicting
+**************************************************************
+Evaluating model fatalities003_nl_baseline_rf
+pr_56_cm_fatalities003_nl_baseline_rf_calib_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05.parquet
+mse_standardize 274173.5669612438
+**************************************************************

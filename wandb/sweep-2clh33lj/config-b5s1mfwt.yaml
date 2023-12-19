@@ -1,0 +1,8 @@
+wandb_version: 1
+
+clf_name:
+  value: XGBClassifier
+reg_name:
+  value: XGBRegressor
+transform:
+  value: standardize

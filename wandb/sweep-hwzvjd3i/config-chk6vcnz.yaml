@@ -1,0 +1,10 @@
+wandb_version: 1
+
+learning_rate:
+  value: 0.05
+n_estimators:
+  value: 250
+n_jobs:
+  value: 12
+transform:
+  value: log

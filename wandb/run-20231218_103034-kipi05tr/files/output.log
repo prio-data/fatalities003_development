@@ -1,0 +1,21 @@
+{'clf_name': 'RFClassifier', 'reg_name': 'RFRegressor'}
+Training model fatalities003_nl_joint_broad_hurdle_rf
+Calibration partition (normalize)
+ * == Performing a run: "fatalities003_nl_joint_broad_hurdle_rf_calib_transform_normalize_clf_name_RFClassifier_reg_name_RFRegressor" == *
+Training model(s)...
+Reordering feature dimension. Save memory by setting the outcome feature as the first column in your dataframe.
+Storing "fatalities003_nl_joint_broad_hurdle_rf_calib_transform_normalize_clf_name_RFClassifier_reg_name_RFRegressor"
+Getting predictions
+pr_56_cm_fatalities003_nl_joint_broad_hurdle_rf_calib_transform_normalize_clf_name_RFClassifier_reg_name_RFRegressor.parquet
+Test partition (normalize)
+ * == Performing a run: "fatalities003_nl_joint_broad_hurdle_rf_test_transform_normalize_clf_name_RFClassifier_reg_name_RFRegressor" == *
+Training model(s)...
+Reordering feature dimension. Save memory by setting the outcome feature as the first column in your dataframe.
+Storing "fatalities003_nl_joint_broad_hurdle_rf_test_transform_normalize_clf_name_RFClassifier_reg_name_RFRegressor"
+Getting predictions
+pr_56_cm_fatalities003_nl_joint_broad_hurdle_rf_test_transform_normalize_clf_name_RFClassifier_reg_name_RFRegressor.parquet
+**************************************************************
+Evaluating model fatalities003_nl_joint_broad_hurdle_rf
+pr_56_cm_fatalities003_nl_joint_broad_hurdle_rf_calib_transform_normalize_clf_name_RFClassifier_reg_name_RFRegressor.parquet
+mse_normalize 195185.68412680316
+**************************************************************

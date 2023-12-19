@@ -1,0 +1,19 @@
+{'n_estimators': 250, 'n_jobs': 12, 'learning_rate': 0.05, 'max_depth': 12, 'min_child_weight': 12, 'subsample': 0.5, 'colsample_bytree': 0.5}
+Training model fatalities003_nl_topics_rf
+Calibration partition (log)
+ * == Performing a run: "fatalities003_nl_topics_rf_calib_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.05_max_depth_12_min_child_weight_12_subsample_0.5_colsample_bytree_0.5" == *
+Model object named "fatalities003_nl_topics_rf_calib_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.05_max_depth_12_min_child_weight_12_subsample_0.5_colsample_bytree_0.5" with equivalent metadata already exists.
+Fetching "fatalities003_nl_topics_rf_calib_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.05_max_depth_12_min_child_weight_12_subsample_0.5_colsample_bytree_0.5" from storage
+Getting predictions
+pr_56_cm_fatalities003_nl_topics_rf_calib_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.05_max_depth_12_min_child_weight_12_subsample_0.5_colsample_bytree_0.5.parquet
+Test partition (log)
+ * == Performing a run: "fatalities003_nl_topics_rf_test_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.05_max_depth_12_min_child_weight_12_subsample_0.5_colsample_bytree_0.5" == *
+Model object named "fatalities003_nl_topics_rf_test_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.05_max_depth_12_min_child_weight_12_subsample_0.5_colsample_bytree_0.5" with equivalent metadata already exists.
+Fetching "fatalities003_nl_topics_rf_test_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.05_max_depth_12_min_child_weight_12_subsample_0.5_colsample_bytree_0.5" from storage
+Getting predictions
+pr_56_cm_fatalities003_nl_topics_rf_test_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.05_max_depth_12_min_child_weight_12_subsample_0.5_colsample_bytree_0.5.parquet
+**************************************************************
+Evaluating model fatalities003_nl_topics_rf
+pr_56_cm_fatalities003_nl_topics_rf_calib_transform_log_n_estimators_250_n_jobs_12_learning_rate_0.05_max_depth_12_min_child_weight_12_subsample_0.5_colsample_bytree_0.5.parquet
+mse_log 230580.82818511606
+**************************************************************

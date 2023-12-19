@@ -1,0 +1,35 @@
+2023-12-12 10:33:13,055 INFO    Thread-23 :55607 [wandb_setup.py:_flush():76] Current SDK version is 0.16.0
+2023-12-12 10:33:13,056 INFO    Thread-23 :55607 [wandb_setup.py:_flush():76] Configure stats pid to 55607
+2023-12-12 10:33:13,056 INFO    Thread-23 :55607 [wandb_setup.py:_flush():76] Loading settings from /Users/noorainkazmi/.config/wandb/settings
+2023-12-12 10:33:13,056 INFO    Thread-23 :55607 [wandb_setup.py:_flush():76] Loading settings from /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/settings
+2023-12-12 10:33:13,056 INFO    Thread-23 :55607 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'silent': 'true', 'entity': 'model-development-and-deployment', 'project': 'mse_rank_1', 'root_dir': '/Users/noorainkazmi/Documents/GitHub/weights-and-biases', 'sweep_id': 'f35nxe2e', 'run_id': 'rmb9gxl4', 'sweep_param_path': '/Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/sweep-f35nxe2e/config-rmb9gxl4.yaml'}
+2023-12-12 10:33:13,056 INFO    Thread-23 :55607 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-12-12 10:33:13,056 INFO    Thread-23 :55607 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'SweepExample.py', 'program_abspath': '/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py', 'program': '/Users/noorainkazmi/Documents/GitHub/weights-and-biases/SweepExample.py'}
+2023-12-12 10:33:13,056 WARNING Thread-23 :55607 [wandb_setup.py:_flush():76] [34m[1mwandb[0m: [33mWARNING[0m Ignored wandb.init() arg project when running a sweep.
+2023-12-12 10:33:13,056 WARNING Thread-23 :55607 [wandb_setup.py:_flush():76] [34m[1mwandb[0m: [33mWARNING[0m Ignored wandb.init() arg entity when running a sweep.
+2023-12-12 10:33:13,057 INFO    Thread-23 :55607 [wandb_init.py:_log_setup():524] Logging user logs to /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_103313-rmb9gxl4/logs/debug.log
+2023-12-12 10:33:13,057 INFO    Thread-23 :55607 [wandb_init.py:_log_setup():525] Logging internal logs to /Users/noorainkazmi/Documents/GitHub/weights-and-biases/wandb/run-20231212_103313-rmb9gxl4/logs/debug-internal.log
+2023-12-12 10:33:13,057 INFO    Thread-23 :55607 [wandb_init.py:init():564] calling init triggers
+2023-12-12 10:33:13,057 INFO    Thread-23 :55607 [wandb_init.py:init():571] wandb.init called with sweep_config: {'learning_rate': 0.05, 'n_estimators': 80, 'n_jobs': 12, 'transform': 'log'}
+config: {'level': 'cm', 'run_id': 'Fatalities003', 'steps': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36], 'calib_partitioner_dict': {'train': (121, 396), 'predict': (397, 444)}, 'test_partitioner_dict': {'train': (121, 444), 'predict': (445, 492)}, 'future_partitioner_dict': {'train': (121, 492), 'predict': (493, 504)}, 'FutureStart': 508, 'get_future': False, 'force_retrain': False}
+2023-12-12 10:33:13,057 INFO    Thread-23 :55607 [wandb_init.py:init():614] starting backend
+2023-12-12 10:33:13,057 INFO    Thread-23 :55607 [wandb_init.py:init():618] setting up manager
+2023-12-12 10:33:13,067 INFO    Thread-23 :55607 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2023-12-12 10:33:13,068 INFO    Thread-23 :55607 [wandb_init.py:init():624] backend started and connected
+2023-12-12 10:33:13,076 INFO    Thread-23 :55607 [wandb_run.py:_config_callback():1342] config_cb None None {'learning_rate': 0.05, 'n_estimators': 80, 'n_jobs': 12, 'transform': 'log'}
+2023-12-12 10:33:13,078 INFO    Thread-23 :55607 [wandb_init.py:init():716] updated telemetry
+2023-12-12 10:33:13,096 INFO    Thread-23 :55607 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2023-12-12 10:33:13,549 INFO    Thread-23 :55607 [wandb_run.py:_on_init():2254] communicating current version
+2023-12-12 10:33:13,645 INFO    Thread-23 :55607 [wandb_run.py:_on_init():2263] got version response upgrade_message: "wandb version 0.16.1 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-12-12 10:33:13,646 INFO    Thread-23 :55607 [wandb_init.py:init():800] starting run threads in backend
+2023-12-12 10:33:15,903 INFO    Thread-23 :55607 [wandb_run.py:_console_start():2233] atexit reg
+2023-12-12 10:33:15,903 INFO    Thread-23 :55607 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2023-12-12 10:33:15,903 INFO    Thread-23 :55607 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2023-12-12 10:33:15,903 INFO    Thread-23 :55607 [wandb_run.py:_redirect():2178] Redirects installed.
+2023-12-12 10:33:15,903 INFO    Thread-23 :55607 [wandb_init.py:init():841] run started, returning control to user process
+2023-12-12 10:33:15,904 INFO    Thread-23 :55607 [wandb_run.py:_config_callback():1342] config_cb None None {'modelname': 'fatalities003_nl_topics_xgb', 'algorithm': 'XGBRegressor', 'depvar': 'ged_sb_dep', 'data_train': 'topics_003', 'queryset': 'fatalities003_topics', 'preprocessing': 'float_it', 'level': 'cm', 'description': '', 'long_description': ''}
+2023-12-12 10:33:15,904 INFO    Thread-23 :55607 [wandb_run.py:_finish():1962] finishing run model-development-and-deployment/mse_rank_1/rmb9gxl4
+2023-12-12 10:33:15,904 INFO    Thread-23 :55607 [wandb_run.py:_atexit_cleanup():2202] got exitcode: 1
+2023-12-12 10:33:15,904 INFO    Thread-23 :55607 [wandb_run.py:_restore():2185] restore
+2023-12-12 10:33:15,904 INFO    Thread-23 :55607 [wandb_run.py:_restore():2191] restore done

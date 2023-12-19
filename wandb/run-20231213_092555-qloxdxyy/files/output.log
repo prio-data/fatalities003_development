@@ -1,0 +1,21 @@
+{'clf_name': 'RFClassifier', 'reg_name': 'RFRegressor'}
+Training model fatalities003_nl_joint_broad_hurdle_rf
+Calibration partition (raw)
+ * == Performing a run: "fatalities003_nl_joint_broad_hurdle_rf_calib_transform_raw_clf_name_RFClassifier_reg_name_RFRegressor" == *
+Model object named "fatalities003_nl_joint_broad_hurdle_rf_calib_transform_raw_clf_name_RFClassifier_reg_name_RFRegressor" with equivalent metadata already exists.
+Fetching "fatalities003_nl_joint_broad_hurdle_rf_calib_transform_raw_clf_name_RFClassifier_reg_name_RFRegressor" from storage
+Getting predictions
+pr_56_cm_fatalities003_nl_joint_broad_hurdle_rf_calib_transform_raw_clf_name_RFClassifier_reg_name_RFRegressor.parquet
+Test partition (raw)
+ * == Performing a run: "fatalities003_nl_joint_broad_hurdle_rf_test_transform_raw_clf_name_RFClassifier_reg_name_RFRegressor" == *
+Training model(s)...
+Reordering feature dimension. Save memory by setting the outcome feature as the first column in your dataframe.
+Storing "fatalities003_nl_joint_broad_hurdle_rf_test_transform_raw_clf_name_RFClassifier_reg_name_RFRegressor"
+Getting predictions
+pr_56_cm_fatalities003_nl_joint_broad_hurdle_rf_test_transform_raw_clf_name_RFClassifier_reg_name_RFRegressor.parquet
+cm_fatalities003_nl_joint_broad_hurdle_rf_test_transform_raw_clf_name_RFClassifier_reg_name_RFRegressor , run Fatalities003 does not exist, predicting
+**************************************************************
+Evaluating model fatalities003_nl_joint_broad_hurdle_rf
+pr_56_cm_fatalities003_nl_joint_broad_hurdle_rf_calib_transform_raw_clf_name_RFClassifier_reg_name_RFRegressor.parquet
+mse_raw 327383.38957165944
+**************************************************************

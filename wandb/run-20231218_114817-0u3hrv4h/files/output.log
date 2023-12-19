@@ -1,0 +1,19 @@
+{'clf_name': 'LGBMClassifier', 'reg_name': 'LGBMRegressor'}
+Training model fatalities003_nl_joint_narrow_hurdle_lgb
+Calibration partition (normalize)
+ * == Performing a run: "fatalities003_nl_joint_narrow_hurdle_lgb_calib_transform_normalize_clf_name_LGBMClassifier_reg_name_LGBMRegressor" == *
+Model object named "fatalities003_nl_joint_narrow_hurdle_lgb_calib_transform_normalize_clf_name_LGBMClassifier_reg_name_LGBMRegressor" with equivalent metadata already exists.
+Fetching "fatalities003_nl_joint_narrow_hurdle_lgb_calib_transform_normalize_clf_name_LGBMClassifier_reg_name_LGBMRegressor" from storage
+Getting predictions
+pr_56_cm_fatalities003_nl_joint_narrow_hurdle_lgb_calib_transform_normalize_clf_name_LGBMClassifier_reg_name_LGBMRegressor.parquet
+Test partition (normalize)
+ * == Performing a run: "fatalities003_nl_joint_narrow_hurdle_lgb_test_transform_normalize_clf_name_LGBMClassifier_reg_name_LGBMRegressor" == *
+Model object named "fatalities003_nl_joint_narrow_hurdle_lgb_test_transform_normalize_clf_name_LGBMClassifier_reg_name_LGBMRegressor" with equivalent metadata already exists.
+Fetching "fatalities003_nl_joint_narrow_hurdle_lgb_test_transform_normalize_clf_name_LGBMClassifier_reg_name_LGBMRegressor" from storage
+Getting predictions
+pr_56_cm_fatalities003_nl_joint_narrow_hurdle_lgb_test_transform_normalize_clf_name_LGBMClassifier_reg_name_LGBMRegressor.parquet
+**************************************************************
+Evaluating model fatalities003_nl_joint_narrow_hurdle_lgb
+pr_56_cm_fatalities003_nl_joint_narrow_hurdle_lgb_calib_transform_normalize_clf_name_LGBMClassifier_reg_name_LGBMRegressor.parquet
+mse_normalize 0.9129688047899487
+**************************************************************

@@ -1,0 +1,23 @@
+{'n_estimators': 100, 'n_jobs': 12, 'learning_rate': 0.05}
+Training model fatalities003_nl_conflicthistory_long_xgb
+Calibration partition (standardize)
+ * == Performing a run: "fatalities003_nl_conflicthistory_long_xgb_calib_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05" == *
+Training model(s)...
+Reordering feature dimension. Save memory by setting the outcome feature as the first column in your dataframe.
+Storing "fatalities003_nl_conflicthistory_long_xgb_calib_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05"
+Getting predictions
+pr_56_cm_fatalities003_nl_conflicthistory_long_xgb_calib_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05.parquet
+cm_fatalities003_nl_conflicthistory_long_xgb_calib_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05 , run Fatalities003 does not exist, predicting
+Test partition (standardize)
+ * == Performing a run: "fatalities003_nl_conflicthistory_long_xgb_test_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05" == *
+Training model(s)...
+Reordering feature dimension. Save memory by setting the outcome feature as the first column in your dataframe.
+Storing "fatalities003_nl_conflicthistory_long_xgb_test_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05"
+Getting predictions
+pr_56_cm_fatalities003_nl_conflicthistory_long_xgb_test_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05.parquet
+cm_fatalities003_nl_conflicthistory_long_xgb_test_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05 , run Fatalities003 does not exist, predicting
+**************************************************************
+Evaluating model fatalities003_nl_conflicthistory_long_xgb
+pr_56_cm_fatalities003_nl_conflicthistory_long_xgb_calib_transform_standardize_n_estimators_100_n_jobs_12_learning_rate_0.05.parquet
+mse_standardize 283595.75979326054
+**************************************************************
