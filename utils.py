@@ -1,3 +1,4 @@
+from new_metrics import *
 from views_forecasts.extensions import *
 from views_runs.run_result import RunResult
 from views_partitioning.data_partitioner import DataPartitioner
