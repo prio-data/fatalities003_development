@@ -25,9 +25,9 @@ def train():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Method for sweeping on W&B')
-    parser.add_argument('-l', metavar='level', type=str, required=True, choices=['cm', 'pgm'])
-    parser.add_argument('-c', metavar='config', type=str, required=True, help='Path to the configuration directory')
-    parser.add_argument('-m', metavar='modelname', type=str, required=False, help='Name of the model to implement')
+    parser.add_argument('-l', metavar='level', required=True, choices=['cm', 'pgm'])
+    parser.add_argument('-c', metavar='config', required=True, help='Path to the configuration directory')
+    parser.add_argument('-m', metavar='modelname', help='Name of the model to implement')
     args = parser.parse_args()
 
     level = args.l
@@ -36,12 +36,8 @@ if __name__ == '__main__':
 
     # Fetch and transform data
     transforms = ['raw', 'log', 'normalize', 'standardize']
-    Datasets_transformed = {}
-    para_transformed = {}
     qslist, Datasets = i_fetch_data(level)
-
-    for t in transforms:
-        Datasets_transformed[t], para_transformed[t] = transform_data(Datasets, t, level, by_group=True)
+    Datasets_transformed, para_transformed = transform_data(Datasets, transforms, level, by_group=True)
 
     # Get config path and config file
     common_config_path, wandb_config_path, model_config_path, sweep_config_path = get_config_path(config_path)
@@ -71,4 +67,4 @@ if __name__ == '__main__':
             wandb.agent(sweep_id, function=train)
 
             print(f'Finish sweeping over model {sweep_file.stem}')
-
+            print('**************************************************************')

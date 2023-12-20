@@ -46,59 +46,68 @@ def standardize_retransform(x, mean_val, std_val):
     return x * std_val + mean_val
 
 
-def transform_data(Datasets, transform, level, b=1, a=0, by_group=False):
+def transform_data(Datasets, transforms, level, b=1, a=0, by_group=False):
+    Datasets_transformed = {}
+    para_transformed = {}
+
     if level == 'cm':
         target = 'country_id'
     elif level == 'pgm':
         target = 'priogrid_gid'
 
-    Datasets_transformed = copy.deepcopy(Datasets)
-    if transform == 'raw':
-        return Datasets_transformed, None
+    for transform in transforms:
+        Datasets_copy = copy.deepcopy(Datasets)
+        if transform == 'raw':
+            Datasets_transformed[transform] = Datasets_copy
+            para_transformed[transform] = None
 
-    elif transform == 'log':
-        for dataset in Datasets_transformed:
-            dataset['df']['ged_sb_dep'] = np.log(dataset['df']['ged_sb_dep'] + 1)
-        return Datasets_transformed, None
+        elif transform == 'log':
+            for dataset in Datasets_copy:
+                dataset['df']['ged_sb_dep'] = np.log(dataset['df']['ged_sb_dep'] + 1)
+            Datasets_transformed[transform] = Datasets_copy
+            para_transformed[transform] = None
 
-    elif transform == 'normalize':
-        dict_max_min = {}
-        for dataset in Datasets_transformed:
-            if by_group:
-                min_values = dataset['df'].groupby(level=target)['ged_sb_dep'].min()
-                max_values = dataset['df'].groupby(level=target)['ged_sb_dep'].max()
+        elif transform == 'normalize':
+            dict_max_min = {}
+            for dataset in Datasets_copy:
+                if by_group:
+                    min_values = dataset['df'].groupby(level=target)['ged_sb_dep'].min()
+                    max_values = dataset['df'].groupby(level=target)['ged_sb_dep'].max()
 
-                dict_max_min[dataset['Name']] = pd.DataFrame({'min_val': min_values, 'max_val': max_values})
+                    dict_max_min[dataset['Name']] = pd.DataFrame({'min_val': min_values, 'max_val': max_values})
 
-            else:
-                min_values = dataset['df']['ged_sb_dep'].min()
-                max_values = dataset['df']['ged_sb_dep'].max()
-                dict_max_min[dataset['Name']] = pd.DataFrame({'min_val': [min_values], 'max_val': [max_values]})
+                else:
+                    min_values = dataset['df']['ged_sb_dep'].min()
+                    max_values = dataset['df']['ged_sb_dep'].max()
+                    dict_max_min[dataset['Name']] = pd.DataFrame({'min_val': [min_values], 'max_val': [max_values]})
 
-            dataset['df']['ged_sb_dep'] = (b - a) * (dataset['df']['ged_sb_dep'] - min_values) / (
-                        max_values - min_values) + a
-            dataset['df']['ged_sb_dep'].fillna(0, inplace=True)
-        return Datasets_transformed, dict_max_min
+                dataset['df']['ged_sb_dep'] = (b - a) * (dataset['df']['ged_sb_dep'] - min_values) / (
+                            max_values - min_values) + a
+                dataset['df']['ged_sb_dep'].fillna(0, inplace=True)
+            Datasets_transformed[transform] = Datasets_copy
+            para_transformed[transform] = dict_max_min
 
-    elif transform == 'standardize':
-        dict_mean_std = {}
-        for dataset in Datasets_transformed:
-            if by_group:
-                mean_values = dataset['df'].groupby(level=target)['ged_sb_dep'].mean()
-                std_values = dataset['df'].groupby(level=target)['ged_sb_dep'].std()
-                dict_mean_std[dataset['Name']] = pd.DataFrame({'mean_val': mean_values, 'std_val': std_values})
+        elif transform == 'standardize':
+            dict_mean_std = {}
+            for dataset in Datasets_copy:
+                if by_group:
+                    mean_values = dataset['df'].groupby(level=target)['ged_sb_dep'].mean()
+                    std_values = dataset['df'].groupby(level=target)['ged_sb_dep'].std()
+                    dict_mean_std[dataset['Name']] = pd.DataFrame({'mean_val': mean_values, 'std_val': std_values})
 
-            else:
-                mean_values = dataset['df']['ged_sb_dep'].mean()
-                std_values = dataset['df']['ged_sb_dep'].std()
-                dict_mean_std[dataset['Name']] = pd.DataFrame({'mean_val': [mean_values], 'std_val': [std_values]})
+                else:
+                    mean_values = dataset['df']['ged_sb_dep'].mean()
+                    std_values = dataset['df']['ged_sb_dep'].std()
+                    dict_mean_std[dataset['Name']] = pd.DataFrame({'mean_val': [mean_values], 'std_val': [std_values]})
 
-            dataset['df']['ged_sb_dep'] = (dataset['df']['ged_sb_dep'] - mean_values) / std_values
-            dataset['df']['ged_sb_dep'].fillna(0, inplace=True)
-        return Datasets_transformed, dict_mean_std
+                dataset['df']['ged_sb_dep'] = (dataset['df']['ged_sb_dep'] - mean_values) / std_values
+                dataset['df']['ged_sb_dep'].fillna(0, inplace=True)
+            Datasets_transformed[transform] = Datasets_copy
+            para_transformed[transform] = dict_mean_std
 
-    else:
-        raise ValueError("Wrong transformation, only support 'log', 'normalize', 'standardize'.")
+        else:
+            raise ValueError("Wrong transformation, only support 'log', 'normalize', 'standardize'.")
+    return Datasets_transformed, para_transformed
 
 
 def get_config_path(config_path: Path) -> Path:
@@ -200,7 +209,6 @@ def retrain_transformed_sweep(Datasets_transformed, model_paras):
         predictions_test = RunResult_test.run.predict("test", "predict", RunResult_test.data)
         predictions_test.forecasts.set_run(run_id)
         predictions_test.forecasts.to_store(name=wandb.config[f'predstore_test_{transform}'])
-    print('**************************************************************')
 
 
 def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=0, plot_map=False):
@@ -269,4 +277,3 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
                 elif level == 'pgm':
                     fig = plot_pgm_map(df, month, step)
                 wandb.log({f'month_{month}_{step}': wandb.Image(fig)})
-    print('**************************************************************')
