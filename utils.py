@@ -6,28 +6,37 @@ import warnings
 warnings.filterwarnings("ignore")
 import os
 os.environ['WANDB_SILENT'] = 'true'
+from diskcache import Cache
+cache = Cache(size_limit=100000000000)
 
 from sklearn.metrics import mean_squared_error
-from xgboost import XGBRFRegressor, XGBRegressor
+from xgboost import XGBRegressor, XGBClassifier
+from xgboost import XGBRFRegressor, XGBRFClassifier
 from sklearn.ensemble import GradientBoostingRegressor
-
+from lightgbm import LGBMClassifier, LGBMRegressor
 
 from viewser import Queryset
-from FetchData import ReturnQsList, fetch_cm_data_from_model_def, RetrieveFromList
 from views_runs import storage, StepshiftedModels
 from views_partitioning.data_partitioner import DataPartitioner
 from views_runs.run_result import RunResult
 from views_forecasts.extensions import *
+from FetchData import ReturnQsList, fetch_cm_data_from_model_def, fetch_pgm_data_from_model_def, RetrieveFromList
+from utils_map import plot_cm_map, plot_pgm_map
 
-from utils_map import plot_cm_map
 
 def fetch_data(level: str) -> (Tuple[List[Queryset], List[Dict[str, pd.DataFrame]]]):
     print('Fetching query sets')
     qslist = ReturnQsList(level)
     print('Fetching datasets')
-    Datasets = fetch_cm_data_from_model_def(qslist)
+    if level == 'cm':
+        Datasets = fetch_cm_data_from_model_def(qslist)
+    elif level == 'pgm':
+        Datasets = fetch_pgm_data_from_model_def(qslist)
     return qslist, Datasets
 
+@cache.memoize(typed=True, expire=None, tag='data')
+def i_fetch_data(level):
+    return fetch_data(level)
 
 def normalize_retransform(x, min_val, max_val, b=1, a=0):
     return (x - a) / (b - a) * (max_val - min_val) + min_val
@@ -37,7 +46,12 @@ def standardize_retransform(x, mean_val, std_val):
     return x * std_val + mean_val
 
 
-def transform_data(Datasets, transform, b=1, a=0, by_group=False):
+def transform_data(Datasets, transform, level, b=1, a=0, by_group=False):
+    if level == 'cm':
+        target = 'country_id'
+    elif level == 'pgm':
+        target = 'priogrid_gid'
+
     Datasets_transformed = copy.deepcopy(Datasets)
     if transform == 'raw':
         return Datasets_transformed, None
@@ -51,8 +65,8 @@ def transform_data(Datasets, transform, b=1, a=0, by_group=False):
         dict_max_min = {}
         for dataset in Datasets_transformed:
             if by_group:
-                min_values = dataset['df'].groupby(level='country_id')['ged_sb_dep'].min()
-                max_values = dataset['df'].groupby(level='country_id')['ged_sb_dep'].max()
+                min_values = dataset['df'].groupby(level=target)['ged_sb_dep'].min()
+                max_values = dataset['df'].groupby(level=target)['ged_sb_dep'].max()
 
                 dict_max_min[dataset['Name']] = pd.DataFrame({'min_val': min_values, 'max_val': max_values})
 
@@ -70,10 +84,9 @@ def transform_data(Datasets, transform, b=1, a=0, by_group=False):
         dict_mean_std = {}
         for dataset in Datasets_transformed:
             if by_group:
-                mean_values = dataset['df'].groupby(level='country_id')['ged_sb_dep'].mean()
-                std_values = dataset['df'].groupby(level='country_id')['ged_sb_dep'].std()
+                mean_values = dataset['df'].groupby(level=target)['ged_sb_dep'].mean()
+                std_values = dataset['df'].groupby(level=target)['ged_sb_dep'].std()
                 dict_mean_std[dataset['Name']] = pd.DataFrame({'mean_val': mean_values, 'std_val': std_values})
-
 
             else:
                 mean_values = dataset['df']['ged_sb_dep'].mean()
@@ -115,9 +128,8 @@ def get_config_from_path(path: Path, config_name: str) -> Dict:
     return config[config_name]
 
 
-def retrain_transformed_sweep(Datasets_transformed, sweep_paras):
+def retrain_transformed_sweep(Datasets_transformed, model_paras):
     modelstore = storage.Storage()
-    level = wandb.config['level']
     run_id = wandb.config['run_id']
     steps = wandb.config['steps']
     transform = wandb.config['transform']
@@ -126,18 +138,17 @@ def retrain_transformed_sweep(Datasets_transformed, sweep_paras):
     future_partitioner_dict = wandb.config['future_partitioner_dict']
     force_retrain = wandb.config['force_retrain']
 
-    ## Get a suffix for identification
-    suffix = ''
-    for para in sweep_paras:
+    # Get a suffix for identification
+    suffix = f'_transform_{wandb.config["transform"]}'
+    for para in model_paras:
         suffix += f'_{para}_{wandb.config[para]}'
 
-    ## Get all the model parameters (transform shouldn't be passed to model)
-    model_paras = [para for para in sweep_paras if para != 'transform']
+    # Get all the model parameters (transform shouldn't be passed to model)
     parameters = {para: wandb.config[para] for para in model_paras}
     print(parameters)
     model = globals()[wandb.config['algorithm']](**parameters)
 
-    ## Training
+    # Training
     print(f'Training model {wandb.config["modelname"]}')
 
     print(f'Calibration partition ({transform})')
@@ -154,7 +165,7 @@ def retrain_transformed_sweep(Datasets_transformed, sweep_paras):
         author_name="test0",
     )
     wandb.config.update(
-        {f'predstore_calib_{transform}': level + '_' + wandb.config['modelname'] + '_calib' + suffix})
+        {f'predstore_calib_{transform}': wandb.config['modelname'] + '_calib' + suffix})
     print('Getting predictions')
     try:
         predictions_calib = pd.DataFrame.forecasts.read_store(run=run_id,
@@ -179,7 +190,7 @@ def retrain_transformed_sweep(Datasets_transformed, sweep_paras):
         author_name="test0",
     )
     wandb.config.update(
-        {f'predstore_test_{transform}': level + '_' + wandb.config['modelname'] + '_test' + suffix})
+        {f'predstore_test_{transform}': wandb.config['modelname'] + '_test' + suffix})
     print('Getting predictions')
     try:
         predictions_test = pd.DataFrame.forecasts.read_store(run=run_id,
@@ -194,7 +205,7 @@ def retrain_transformed_sweep(Datasets_transformed, sweep_paras):
 
 def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=0, plot_map=False):
     '''
-    :param target: 'calib' or 'test
+    :param target: 'calib' or 'test'
     :param para_transformed: the dict that is generated by transform_data
     :param retransform: transform the data back if True
     :param retransform_by_group: transform the data back by country_id if True. Make sure it is the same value in transform_data
@@ -207,6 +218,7 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
     transform = wandb.config['transform']
     steps = wandb.config['steps']
     run_id = wandb.config['run_id']
+    level = wandb.config['level']
     stepcols = [wandb.config['depvar']]
     for step in steps:
         stepcols.append('step_pred_' + str(step))
@@ -243,15 +255,18 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
     df['mse'] = df.apply(lambda row: mean_squared_error([row['ged_sb_dep']] * 36,
                                                         [row[col] for col in pred_cols]), axis=1)
 
-    # print(f'mse_{transform}', df['mse'].mean())
+    print('mse', df['mse'].mean())
     wandb.log({'mse': df['mse'].mean()})
 
     if plot_map:
         months = df.index.levels[0].tolist()
-        step_preds = [f'step_pred_{i}' for i in range(1, 37)]
-        for month in [397]:
+        step_preds = [f'step_pred_{i}' for i in steps]
+        # Temporarily only predict the first month
+        for month in [months[0]]:
             for step in step_preds:
-                fig = plot_cm_map(df, month, step)
-
+                if level == 'cm':
+                    fig = plot_cm_map(df, month, step)
+                elif level == 'pgm':
+                    fig = plot_pgm_map(df, month, step)
                 wandb.log({f'month_{month}_{step}': wandb.Image(fig)})
     print('**************************************************************')

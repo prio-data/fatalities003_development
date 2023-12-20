@@ -25,12 +25,12 @@ def report(df):
 
 def get_pgm_querysets():
 
-    qs_baseline = (Queryset("fatalities002_pgm_baseline", "priogrid_month")
+    qs_baseline = (Queryset("fatalities003_pgm_baseline", "priogrid_month")
 
                    # target variable
-                   .with_column(Column("ln_ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
+                   .with_column(Column("ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
                                 .transform.missing.replace_na()
-                                .transform.ops.ln()
+                                # .transform.ops.ln()
                                 )
 
                    # timelag 0 of target variable
@@ -101,21 +101,21 @@ def get_pgm_querysets():
                             """)
                    )
 
-    data = qs_baseline.publish().fetch()
+    qs_baseline.publish()
 
-    report(data)
+    # report(data)
 
     # conflictlong
 
     # With acled2_cm version, ln versions of predictors
     # log variables
 
-    qs_conflict_long = (Queryset("fatalities002_pgm_conflictlong", "priogrid_month")
+    qs_conflict_long = (Queryset("fatalities003_pgm_conflictlong", "priogrid_month")
 
                         # target variable
-                        .with_column(Column("ln_ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
+                        .with_column(Column("ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
                                      .transform.missing.replace_na()
-                                     .transform.ops.ln()
+                                     # .transform.ops.ln()
                                      )
 
                         # timelags 0 of conflict variables, ged_best versions
@@ -283,18 +283,18 @@ def get_pgm_querysets():
                                   """)
                         )
 
-    data = qs_conflict_long.publish().fetch()
-
-    report(data)
+    qs_conflict_long.publish()
+    #
+    # report(data)
 
     # ESCWA drought vulnerability
 
-    qs_escwa_drought = (Queryset("fatalities002_pgm_escwa_drought", "priogrid_month")
+    qs_escwa_drought = (Queryset("fatalities003_pgm_escwa_drought", "priogrid_month")
 
                         # target variable
-                        .with_column(Column("ln_ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
+                        .with_column(Column("ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
                                      .transform.missing.replace_na()
-                                     .transform.ops.ln()
+                                     # .transform.ops.ln()
                                      )
 
                         # timelag 0 of target variable
@@ -457,21 +457,21 @@ def get_pgm_querysets():
                                   """)
                         )
 
-    data = qs_escwa_drought.publish().fetch()
-
-    report(data)
+    qs_escwa_drought.publish()
+    #
+    # report(data)
 
     # NATSOC
 
     # GED, baseline, ln versions of predictors
     # log variables
 
-    qs_natsoc = (Queryset("fatalities002_pgm_natsoc", "priogrid_month")
+    qs_natsoc = (Queryset("fatalities003_pgm_natsoc", "priogrid_month")
 
                  # target variable
-                 .with_column(Column("ln_ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
+                 .with_column(Column("ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
                               .transform.missing.replace_na()
-                              .transform.ops.ln()
+                              # .transform.ops.ln()
                               )
 
                  # timelag 0 of target variable
@@ -630,9 +630,9 @@ def get_pgm_querysets():
                            """)
                  )
 
-    data = qs_natsoc.publish().fetch()
-
-    report(data)
+    qs_natsoc.publish()
+    #
+    # report(data)
 
     # Broad
 
@@ -642,12 +642,12 @@ def get_pgm_querysets():
     n_nearest = 1
     power = 0.0
 
-    qs_broad = (Queryset("fatalities002_pgm_broad", "priogrid_month")
+    qs_broad = (Queryset("fatalities003_pgm_broad", "priogrid_month")
 
                 # target variable
-                .with_column(Column("ln_ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
+                .with_column(Column("ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
                              .transform.missing.replace_na()
-                             .transform.ops.ln()
+                             # .transform.ops.ln()
                              )
 
                 # timelags 0 of conflict variables, ged_best versions
@@ -798,19 +798,19 @@ def get_pgm_querysets():
                           """)
                 )
 
-    data = qs_broad.publish().fetch()
-
-    report(data)
+    qs_broad.publish()
+    #
+    # report(data)
 
     # Paola's conflict history
 
     # Define query for pgm level, attribute unique name to queryset
 
-    qs_conf_history = (Queryset("fatalities002_pgm_conflict_history", "priogrid_month")
+    qs_conf_history = (Queryset("fatalities003_pgm_conflict_history", "priogrid_month")
 
                        # target variable
-                       .with_column(Column("ln_ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
-                                    .transform.ops.ln()
+                       .with_column(Column("ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
+                                    # .transform.ops.ln()
                                     .transform.missing.fill()
                                     )
 
@@ -1054,17 +1054,17 @@ def get_pgm_querysets():
                                  """)
                        )
 
-    data = qs_conf_history.publish().fetch()
-
-    report(data)
+    qs_conf_history.publish()
+    #
+    # report(data)
 
     # Conflict_treelag_d_1_d_2
 
-    qs_treelag = (Queryset("fatalities002_pgm_conflict_treelag", "priogrid_month")
+    qs_treelag = (Queryset("fatalities003_pgm_conflict_treelag", "priogrid_month")
                   # target variable
-                  .with_column(Column("ln_ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
+                  .with_column(Column("ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
                                .transform.missing.replace_na()
-                               .transform.ops.ln()
+                               # .transform.ops.ln()
                                )
 
                   # dichotomous version, primarily for downsampling....
@@ -1103,17 +1103,17 @@ def get_pgm_querysets():
                                )
                   )
 
-    data = qs_treelag.publish().fetch()
-
-    report(data)
+    qs_treelag.publish()
+    #
+    # report(data)
 
     # Spacetime distances
 
-    qs_sptime_dist = (Queryset("fatalities002_pgm_conflict_sptime_dist", "priogrid_month")
+    qs_sptime_dist = (Queryset("fatalities003_pgm_conflict_sptime_dist", "priogrid_month")
                       # target variable
-                      .with_column(Column("ln_ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
+                      .with_column(Column("ged_sb_dep", from_table="ged2_pgm", from_column="ged_sb_best_sum_nokgi")
                                    .transform.missing.replace_na()
-                                   .transform.ops.ln()
+                                   # .transform.ops.ln()
                                    )
 
                       # dichotomous version, primarily for downsampling....
@@ -1177,9 +1177,9 @@ def get_pgm_querysets():
                                    )
                       )
 
-    data = qs_sptime_dist.publish().fetch()
+    qs_sptime_dist.publish()
 
-    report(data)
+    # report(data)
 
     qslist = [
               qs_baseline,
