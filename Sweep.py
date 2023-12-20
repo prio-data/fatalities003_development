@@ -71,4 +71,4 @@ if __name__ == '__main__':
             wandb.agent(sweep_id, function=train)
 
             print(f'Finish sweeping over model {sweep_file.stem}')
-        break
+
