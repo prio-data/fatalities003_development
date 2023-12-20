@@ -81,7 +81,7 @@ def get_cm_querysets():
                              """)
                    )
 
-    # data = qs_baseline.publish().fetch()
+    qs_baseline.publish()
 
     # print(f"fatalities003_baseline; "
     #       f"A dataset with {len(data.columns)} columns, with "
@@ -149,7 +149,7 @@ def get_cm_querysets():
                              """)
                    )
 
-    # data =  qs_baseline_nonlog.publish().fetch()
+    qs_baseline_nonlog.publish()
 
     # print(f"fatalities003_baseline_nonlog; "
     #       f"A dataset with {len(data.columns)} columns, with "
@@ -777,7 +777,7 @@ def get_cm_querysets():
                                 """)
                       )
 
-    # data = qs_topics_stub.publish().fetch()
+    qs_topics_stub.publish()
 
     # print(f"fatalities003_topics_stub; "
     #       f"A dataset with {len(data.columns)} columns, with "
@@ -905,7 +905,7 @@ def get_cm_querysets():
                                   """)
                         )
 
-    # data = qs_aquastat_stub.publish().fetch()
+    qs_aquastat_stub.publish()
 
     # print(f"fatalities003_aquastat_stub; "
     #       f"A dataset with {len(data.columns)} columns, with "
@@ -1120,7 +1120,7 @@ def get_cm_querysets():
                                   """)
                         )
 
-    # data = qs_conflict_stub.publish().fetch()
+    qs_conflict_stub.publish()
 
     # print(f"fatalities003_cm_conflict_history_stub; "
     #       f"A dataset with {len(data.columns)} columns, with "
@@ -1405,7 +1405,7 @@ def get_cm_querysets():
                                  """)
                        )
 
-    # data = qs_conflict_ext.publish().fetch()
+    qs_conflict_ext.publish()
 
     # print(f"fatalities003_cm_conflict_history_ext; "
     #       f"A dataset with {len(data.columns)} columns, with "
@@ -1891,7 +1891,7 @@ def get_cm_querysets():
                                     """)
                           )
 
-    # data = qs_vdem_short_stub.publish().fetch()
+    qs_vdem_short_stub.publish()
 
     # print(f"fatalities003_vdem_short_stub; "
     #       f"A dataset with {len(data.columns)} columns, with "
@@ -2132,7 +2132,7 @@ def get_cm_querysets():
 
                          )
 
-    # data = qs_wdi_short_stub.publish().fetch()
+    qs_wdi_short_stub.publish()
 
     # print(f"fatalities003_wdi_short_stub; "
     #       f"A dataset with {len(data.columns)} columns, with "
@@ -2152,7 +2152,7 @@ def get_cm_querysets():
                        .with_column(Column("ged_sb_dep", from_table="ged2_cm", from_column="ged_sb_best_sum_nokgi")
                                     # .transform.ops.ln()
                                     .transform.missing.fill()
-                                        .transform.missing.replace_na()
+                                    .transform.missing.replace_na()
                                     )
 
                        .with_column(Column("gleditsch_ward", from_table="country", from_column="gwcode")
@@ -2484,7 +2484,7 @@ def get_cm_querysets():
                                  """)
                        )
 
-    # data = qs_joint_narrow.publish().fetch()
+    qs_joint_narrow.publish()
 
     # print(f"fatalities003_joint_narrow; "
     #       f"A dataset with {len(data.columns)} columns, with "
@@ -3429,7 +3429,7 @@ def get_cm_querysets():
                                      """)
                            )
 
-    # data = qs_joint_broad_stub.publish().fetch()
+    qs_joint_broad_stub.publish()
 
     # print(f"fatalities003_joint_broad_stub; "
     #       f"A dataset with {len(data.columns)} columns, with "
@@ -3818,7 +3818,7 @@ def get_cm_querysets():
                                 """)
                       )
 
-    # data = qs_imfweo_stub.publish().fetch()
+    qs_imfweo_stub.publish()
 
     # print(f"fatalities003_imfweo_stub; "
     #       f"A dataset with {len(data.columns)} columns, with "
@@ -3843,7 +3843,7 @@ def get_cm_querysets():
 
     qs_topics.operations = qs_baseline.operations[0:] + qs_topics_stub.operations[0:]
 
-    # data = qs_topics.publish().fetch()
+    qs_topics.publish()
 
     ###################################################################################################################
     # Aquastat model and baseline
@@ -3877,7 +3877,7 @@ def get_cm_querysets():
     
     qs_conflict.operations = qs_baseline.operations[0:] + qs_conflict_stub.operations[0:]
 
-    # data = qs_conflict.publish().fetch()
+    qs_conflict.publish()
     
     ###################################################################################################################
     # Conflict history model and baseline, nonlog formulation
@@ -3894,7 +3894,7 @@ def get_cm_querysets():
     
     qs_conflict_nonlog.operations = qs_baseline_nonlog.operations[0:] + qs_conflict_stub.operations[0:]
 
-    # data = qs_conflict_nonlog.publish().fetch()
+    qs_conflict_nonlog.publish()
 
 
 
@@ -3912,7 +3912,7 @@ def get_cm_querysets():
 
     qs_conflict_long.operations = qs_conflict.operations[0:] + qs_conflict_ext.operations[0:]
 
-    # data = qs_conflict_long.publish().fetch()
+    qs_conflict_long.publish()
 
     ###################################################################################################################
     # Vdem short model and baseline
@@ -3928,7 +3928,7 @@ def get_cm_querysets():
 
     qs_vdem_short.operations = qs_baseline.operations[0:] + qs_vdem_short_stub.operations[0:]
 
-    # data = qs_vdem_short.publish().fetch()
+    qs_vdem_short.publish()
 
     ###################################################################################################################
     # WDI short model and baseline
@@ -3944,7 +3944,7 @@ def get_cm_querysets():
 
     qs_wdi_short.operations = qs_baseline.operations[0:] + qs_wdi_short_stub.operations[0:]
 
-    # data = qs_wdi_short.publish().fetch()
+    qs_wdi_short.publish()
 
     ###################################################################################################################
     # joint broad model and baseline
@@ -3960,7 +3960,7 @@ def get_cm_querysets():
 
     qs_joint_broad.operations = qs_baseline.operations[0:] + qs_joint_broad_stub.operations[0:]
 
-    # data = qs_joint_broad.publish().fetch()
+    qs_joint_broad.publish()
      
 
 
@@ -3978,7 +3978,7 @@ def get_cm_querysets():
 
     qs_joint_broad_nonlog.operations = qs_baseline_nonlog.operations[0:] + qs_joint_broad_stub.operations[0:]
 
-    # data = qs_joint_broad_nonlog.publish().fetch()
+    qs_joint_broad_nonlog.publish()
      
 
     ###################################################################################################################
@@ -4051,7 +4051,7 @@ def get_cm_querysets():
         + qs_vdem_short_stub.operations[0:] \
         + qs_aquastat_stub.operations[0:]
 
-    # data = qs_all_features.publish()
+    qs_all_features.publish()
 
     ###################################################################################################################
     # Collecting combined queryset objects in a list

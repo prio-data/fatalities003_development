@@ -136,7 +136,7 @@ def DefineEnsembleModels(level):
 #            'algorithm':        FixedFirstSplitRegression(ones_name='LGBMClassifier', zeros_name='LGBMRegressor',onset_indicator = ''),
 #            'depvar':           'ln_ged_sb_dep',
 #            'data_train':       'baseline002',
-#            'queryset':         'fatalities002_baseline',
+#            'queryset':         'fatalities003_baseline',
 #            'preprocessing':    'float_it',
 #            'level':            'cm',
 #            'description':      'Baseline model with a few conflict history features as well as log population, random forests regression model.',
@@ -399,7 +399,7 @@ def DefineEnsembleModels(level):
         model = {
             'modelname':        'fatalities003_faoprices_rf',
             'algorithm':        XGBRFRegressor(n_estimators=300, n_jobs=nj),
-            'depvar':           'ln_ged_sb_dep',
+            'depvar':           'ged_sb_dep',
             'data_train':       'faoprices',
             'queryset':         'fatalities003_faoprices',
             'preprocessing':    'float_it',
@@ -412,7 +412,7 @@ def DefineEnsembleModels(level):
         model = {
             'modelname':        'fatalities003_imfweo_rf',
             'algorithm':        XGBRFRegressor(n_estimators=300, n_jobs=nj),
-            'depvar':           "ln_ged_sb_dep",
+            'depvar':           "ged_sb_dep",
             'data_train':       'imfweo',
             'queryset':         'fatalities003_imfweo',
             'preprocessing':    'float_it',
@@ -425,7 +425,7 @@ def DefineEnsembleModels(level):
         model = {
             'modelname':        'fat_hh20_Markov_glm',
             'algorithm':        'Rscript',
-            'depvar':           "ln_ged_sb_dep",
+            'depvar':           "ged_sb_dep",
             'data_train':       'joint_narrow',
             'queryset':         'fatalities003_joint_narrow',
             'preprocessing':    'float_it',
@@ -438,7 +438,7 @@ def DefineEnsembleModels(level):
         model = {
             'modelname':        'fat_hh20_Markov_rf',
             'algorithm':        'Rscript',
-            'depvar':           "ln_ged_sb_dep",
+            'depvar':           "ged_sb_dep",
             'data_train':       'joint_narrow',
             'queryset':         'fatalities003_joint_narrow',
             'preprocessing':    'float_it',
@@ -473,24 +473,23 @@ def DefineEnsembleModels(level):
                                               clf_params=clf_lgbm_params, reg_params=reg_lgbm_params)
 
         model = {
-            'modelname': 'fatalities002_pgm_baseline_lgbm',
+            'modelname': 'fatalities003_pgm_baseline_lgbm',
             'algorithm': lgbm_regressor,
-            'depvar': "ln_ged_sb_dep",
-            'queryset': 'fatalities002_pgm_baseline',
+            'depvar': "ged_sb_dep",
+            'queryset': 'fatalities003_pgm_baseline',
             'data_train': 'baseline',
             'level':            'pgm',
             'preprocessing': 'float_it',
             'description':      '',
             'long_description':      ''
-
         }
         ModelList.append(model)
 
         model = {
-            'modelname': 'fatalities002_pgm_conflictlong_lgbm',
+            'modelname': 'fatalities003_pgm_conflictlong_lgbm',
             'algorithm': lgbm_regressor,
-            'depvar': "ln_ged_sb_dep",
-            'queryset': 'fatalities002_pgm_conflictlong',
+            'depvar': "ged_sb_dep",
+            'queryset': 'fatalities003_pgm_conflictlong',
             'data_train': 'conflictlong',
             'level':            'pgm',
             'preprocessing': 'float_it',
@@ -501,10 +500,10 @@ def DefineEnsembleModels(level):
         ModelList.append(model)
 
         model = {
-            'modelname': 'fatalities002_pgm_conflictlong_hurdle_lgbm',
+            'modelname': 'fatalities003_pgm_conflictlong_hurdle_lgbm',
             'algorithm': hur_lgbm_regressor,
             'depvar': "ln_ged_sb_dep",
-            'queryset': 'fatalities002_pgm_conflictlong',
+            'queryset': 'fatalities003_pgm_conflictlong',
             'data_train': 'conflictlong',
             'level':            'pgm',
             'preprocessing': 'float_it',
@@ -515,10 +514,10 @@ def DefineEnsembleModels(level):
         ModelList.append(model)
 
         model = {
-            'modelname': 'fatalities002_pgm_escwa_drought_hurdle_lgbm',
+            'modelname': 'fatalities003_pgm_escwa_drought_hurdle_lgbm',
             'algorithm': hur_lgbm_regressor,
-            'depvar': "ln_ged_sb_dep",
-            'queryset': 'fatalities002_pgm_escwa_drought',
+            'depvar': "ged_sb_dep",
+            'queryset': 'fatalities003_pgm_escwa_drought',
             'data_train': 'escwa_drought',
             'level':            'pgm',
             'preprocessing': 'float_it',
@@ -529,10 +528,10 @@ def DefineEnsembleModels(level):
         ModelList.append(model)
 
         model = {
-            'modelname': 'fatalities002_pgm_escwa_drought_lgbm',
+            'modelname': 'fatalities003_pgm_escwa_drought_lgbm',
             'algorithm': lgbm_regressor,
-            'depvar': "ln_ged_sb_dep",
-            'queryset': 'fatalities002_pgm_escwa_drought',
+            'depvar': "ged_sb_dep",
+            'queryset': 'fatalities003_pgm_escwa_drought',
             'data_train': 'escwa_drought',
             'level':            'pgm',
             'preprocessing': 'float_it',
@@ -543,10 +542,10 @@ def DefineEnsembleModels(level):
         ModelList.append(model)
 
         model = {
-            'modelname': 'fatalities002_pgm_natsoc_hurdle_lgbm',
+            'modelname': 'fatalities003_pgm_natsoc_hurdle_lgbm',
             'algorithm': hur_lgbm_regressor,
-            'depvar': "ln_ged_sb_dep",
-            'queryset': 'fatalities002_pgm_natsoc',
+            'depvar': "ged_sb_dep",
+            'queryset': 'fatalities003_pgm_natsoc',
             'data_train': 'natsoc',
             'level':            'pgm',
             'preprocessing': 'float_it',
@@ -557,10 +556,10 @@ def DefineEnsembleModels(level):
         ModelList.append(model)
 
         model = {
-            'modelname': 'fatalities002_pgm_natsoc_lgbm',
+            'modelname': 'fatalities003_pgm_natsoc_lgbm',
             'algorithm': lgbm_regressor,
-            'depvar': "ln_ged_sb_dep",
-            'queryset': 'fatalities002_pgm_natsoc',
+            'depvar': "ged_sb_dep",
+            'queryset': 'fatalities003_pgm_natsoc',
             'data_train': 'natsoc',
             'level':            'pgm',
             'preprocessing': 'float_it',
@@ -571,10 +570,10 @@ def DefineEnsembleModels(level):
         ModelList.append(model)
 
         model = {
-            'modelname': 'fatalities002_pgm_broad_hurdle_lgbm',
+            'modelname': 'fatalities003_pgm_broad_hurdle_lgbm',
             'algorithm': hur_lgbm_regressor,
-            'depvar': "ln_ged_sb_dep",
-            'queryset': 'fatalities002_pgm_broad',
+            'depvar': "ged_sb_dep",
+            'queryset': 'fatalities003_pgm_broad',
             'data_train': 'broad',
             'level':            'pgm',
             'preprocessing': 'float_it',
@@ -585,10 +584,10 @@ def DefineEnsembleModels(level):
         ModelList.append(model)
 
         model = {
-            'modelname': 'fatalities002_pgm_broad_lgbm',
+            'modelname': 'fatalities003_pgm_broad_lgbm',
             'algorithm': lgbm_regressor,
-            'depvar': "ln_ged_sb_dep",
-            'queryset': 'fatalities002_pgm_broad',
+            'depvar': "ged_sb_dep",
+            'queryset': 'fatalities003_pgm_broad',
             'data_train': 'broad',
             'level':            'pgm',
             'preprocessing': 'float_it',
@@ -599,11 +598,11 @@ def DefineEnsembleModels(level):
         ModelList.append(model)
 
         model = {
-            'modelname': 'fatalities002_pgm_conflict_history_xgb',
+            'modelname': 'fatalities003_pgm_conflict_history_xgb',
             'algorithm': xgb_regressor,
-            'depvar': "ln_ged_sb_dep",
-            'queryset': 'fatalities002_pgm_conflict_history',
-            'data_train': 'conflicthist',
+            'depvar': "ged_sb_dep",
+            'queryset': 'fatalities003_pgm_conflict_history',
+            'data_train': 'conflict_hist',
             'level':            'pgm',
             'preprocessing': 'float_it',
             'description':      '',
@@ -614,11 +613,11 @@ def DefineEnsembleModels(level):
         ModelList.append(model)
 
         model = {
-            'modelname': 'fatalities002_pgm_conflict_treelag_hurdle',
+            'modelname': 'fatalities003_pgm_conflict_treelag_hurdle',
             'algorithm': hur_regressor,
-            'depvar': "ln_ged_sb_dep",
-            'queryset': 'fatalities002_pgm_conflict_treelag',
-            'data_train': 'conflicttreelag',
+            'depvar': "ged_sb_dep",
+            'queryset': 'fatalities003_pgm_conflict_treelag',
+            'data_train': 'conflict_treelag',
             'level':            'pgm',
             'preprocessing': 'float_it',
             'description':      '',
@@ -628,11 +627,11 @@ def DefineEnsembleModels(level):
         ModelList.append(model)
 
         model = {
-            'modelname': 'fatalities002_pgm_conflict_sptime_dist_hurdle',
+            'modelname': 'fatalities003_pgm_conflict_sptime_dist_hurdle',
             'algorithm': hur_regressor,
-            'depvar': "ln_ged_sb_dep",
-            'queryset': 'fatalities002_pgm_conflict_sptime_dist',
-            'data_train': 'conflictsptime_dist',
+            'depvar': "ged_sb_dep",
+            'queryset': 'fatalities003_pgm_conflict_sptime_dist',
+            'data_train': 'conflict_sptime_dist',
             'level':            'pgm',
             'preprocessing': 'float_it',
             'description':      '',

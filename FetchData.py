@@ -135,7 +135,7 @@ def FetchData(run_id):
         Datasets.append(FetchTable((Queryset("fatalities003_conflict_history_nonlog", "country_month")),'conflict_nonlog'))
         Datasets.append(FetchTable((Queryset("fatalities003_wdi_short", "country_month")),'wdi_short'))
         Datasets.append(FetchTable((Queryset("fatalities003_vdem_short", "country_month")),'vdem_short'))
-        Datasets.append(FetchTable((Queryset("fatalities003_topics", "country_month")),'topics_002'))
+        Datasets.append(FetchTable((Queryset("fatalities003_topics", "country_month")),'topics_003'))
         Datasets.append(FetchTable((Queryset("fatalities003_joint_broad", "country_month")),'joint_broad'))
         Datasets.append(FetchTable((Queryset("fatalities003_joint_broad_nonlog", "country_month")),'joint_broad_nonlog'))
         Datasets.append(FetchTable((Queryset("fatalities003_joint_narrow", "country_month")),'joint_narrow'))
@@ -312,7 +312,7 @@ def fetch_cm_data_from_model_def(qslist):
 
 
 def FetchData_pgm(run_id):
-    print('Fetching data using querysets; returns as list of dictionaries containing datasets')
+    # print('Fetching data using querysets; returns as list of dictionaries containing datasets')
     Datasets = []
     if run_id == 'Fatalities001':
         Datasets.append(FetchTable((Queryset("hh_fat_pgm_baseline", "priogrid_month")),'baseline'))
@@ -324,7 +324,16 @@ def FetchData_pgm(run_id):
         Datasets.append(FetchTable((Queryset("jim_pgm_conflict_treelag_d_1_d_2", "priogrid_month")),'conf_treelag'))
         Datasets.append(FetchTable((Queryset("jim_pgm_conflict_target_sptime_dist_nu1_10_001", "priogrid_month")),'conf_sptime_dist'))
 
-        return(Datasets)
+    if run_id == 'Fatalities003':
+        Datasets.append(FetchTable((Queryset("fatalities003_pgm_baseline", "priogrid_month")), 'baseline'))
+        Datasets.append(FetchTable((Queryset("fatalities003_pgm_conflictlong", "priogrid_month")), 'conflictlong'))
+        Datasets.append(FetchTable((Queryset("fatalities003_pgm_escwa_drought", "priogrid_month")), 'escwa_drought'))
+        Datasets.append(FetchTable((Queryset("fatalities003_pgm_natsoc", "priogrid_month")), 'natsoc'))
+        Datasets.append(FetchTable((Queryset("fatalities003_pgm_broad", "priogrid_month")), 'broad'))
+        Datasets.append(FetchTable((Queryset("fatalities003_pgm_conflict_history", "priogrid_month")), 'conflict_hist'))
+        Datasets.append(FetchTable((Queryset("fatalities003_pgm_conflict_treelag", "priogrid_month")), 'conflict_treelag'))
+        Datasets.append(FetchTable((Queryset("fatalities003_pgm_conflict_sptime_dist", "priogrid_month")),'conflict_sptime_dist'))
+    return(Datasets)
 
 
 def fetch_pgm_data_from_model_def(qslist):
@@ -347,7 +356,7 @@ def fetch_pgm_data_from_model_def(qslist):
         if model_qs not in defined_querysets:
             raise Exception(f'queryset',model_qs,'is not defined in the imported queryset definitions file')
 
-        Datasets.append(FetchTable((Queryset(model_qs, "country_month")), qs_short_names[model_qs]))
+        Datasets.append(FetchTable((Queryset(model_qs, "priogrid_month")), qs_short_names[model_qs]))
 
     return Datasets
 
