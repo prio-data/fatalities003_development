@@ -28,10 +28,9 @@ def log_transform_raw_data(df):
 
 
 def standardize_raw_data(df):
-    df_filled = np.nan_to_num(df, False)
-    mean_val = df_filled.mean()
-    std_val = df_filled.std()
-    standardized_df = np.nan_to_num((df_filled - mean_val) / std_val, False)
+    mean_val = df.mean()
+    std_val = df.std()
+    standardized_df = (df - mean_val) / std_val
     return standardized_df
 
 
@@ -315,6 +314,8 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
     #         [log_transform_raw_data(row[col]) for col in pred_cols]), axis=1)
     # except Exception as e:
     #     traceback.print_exc()
+
+    # +++++++++++++++++++LOG
     df = pd.DataFrame.forecasts.read_store(run=run_id, name=name).replace([
         np.inf, -np.inf], 0)[stepcols]
 # raw Outcomes evaluation - converting predictions to raw
@@ -347,16 +348,43 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
     df = np.log(df+1)
     df.fillna(0, inplace=True)
     df['mse_log'] = df.apply(lambda row: mean_squared_error(
-        [row['ged_sb_dep']] * 36,
-        [row[col] for col in pred_cols]), axis=1)
-
-    # try:
-    #     df['mse_standardize'] = df.apply(lambda row: mean_squared_error(
-    #         [standardize_raw_data(row['ged_sb_dep'])] * 36,
-    #         [standardize_raw_data(row[col]) for col in pred_cols]), axis=1)
-    # except Exception as e:
-    #     traceback.print_exc()
+        [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
 
     print(f'mse_log_{transform}', df['mse_log'].mean())
     wandb.log({'mse_log': df['mse_log'].mean()})
-    # wandb.log({'mse_standardize': df['mse_standardize'].mean()})
+
+# ++++++++++++++++++++++++++++ STANDARDIZE
+
+    df = pd.DataFrame.forecasts.read_store(run=run_id, name=name).replace([
+        np.inf, -np.inf], 0)[stepcols]
+    # raw Outcomes evaluation - converting predictions to raw
+    if retransform:
+        if transform == 'log':
+            df = np.exp(df) - 1
+        elif transform == 'normalize':
+            df_para_model = para_transformed[transform][wandb.config['data_train']]
+            if by_group:
+                df = df.apply(lambda row: normalize_retransform(row,
+                                                                df_para_model['min_val'].loc[row.name[1]],
+                                                                df_para_model['max_val'].loc[row.name[1]]), axis=1)
+            else:
+                max_val = df_para_model['max_val'].iloc[0]
+                min_val = df_para_model['min_val'].iloc[0]
+                df = (df - a) / (b - a) * (max_val - min_val) + min_val
+        elif transform == 'standardize':
+            df_para_model = para_transformed[transform][wandb.config['data_train']]
+
+            if by_group:
+                df = df.apply(lambda row: standardize_retransform(row,
+                                                                  df_para_model['mean_val'].loc[row.name[1]],
+                                                                  df_para_model['std_val'].loc[row.name[1]]), axis=1)
+            else:
+                mean = df_para_model['mean'].iloc[0]
+                std = df_para_model['std'].iloc[0]
+                df = df * std + mean
+    df = standardize_raw_data(df)
+    df['mse_standardize'] = df.apply(lambda row: mean_squared_error(
+        [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
+
+    print(f'mse_standardize_{transform}', df['mse_standardize'].mean())
+    wandb.log({'mse_standardize': df['mse_standardize'].mean()})
