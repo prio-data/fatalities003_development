@@ -18,6 +18,26 @@ from typing import List, Dict, Tuple
 import warnings
 import traceback
 
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import HistGradientBoostingRegressor
+from sklearn.ensemble import HistGradientBoostingClassifier
+from sklearn.ensemble import AdaBoostRegressor
+from sklearn import linear_model
+from sklearn.metrics import mean_squared_error
+from sklearn import preprocessing
+from sklearn.linear_model import ElasticNet
+from sklearn.datasets import make_regression
+
+from xgboost import XGBRegressor
+from xgboost import XGBClassifier
+from xgboost import XGBRFRegressor, XGBRFClassifier
+
+from lightgbm import LGBMClassifier, LGBMRegressor
+
+from ViewsEstimators import *
+
 warnings.filterwarnings("ignore")
 os.environ['WANDB_SILENT'] = 'true'
 
