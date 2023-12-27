@@ -16,9 +16,11 @@ warnings.filterwarnings("ignore")
 
 
 PARA_DICT = {
-    'rf': ['transform', 'n_estimators', 'n_jobs', 'learning_rate'],
-    'xgb': ['transform', 'n_estimators', 'n_jobs', 'learning_rate'],
-    'gbm': ['transform', 'n_estimators', 'n_jobs', 'learning_rate', 'max_depth', 'min_samples_split', 'min_samples_leaf']
+    'rf': ['transform', 'clf_name', 'reg_name'],
+    'xgb': ['transform', 'clf_name', 'reg_name'],
+    'gbm': ['transform', 'clf_name', 'reg_name'],
+    'lgb': ['transform', 'clf_name', 'reg_name']
+
 }
 
 
@@ -72,8 +74,8 @@ if __name__ == '__main__':
             sweep_config = get_config_from_path(sweep_file, 'sweep')
             model_config = get_config_from_path(model_file, 'model')
 
-            if sweep_file.stem.split('_')[-2] == 'hurdle':
-                continue  # Currently Hurdle models are not supported
+            # if sweep_file.stem.split('_')[-2] == 'hurdle':
+            #     continue  # Currently Hurdle models are not supported
             model = sweep_file.stem.split('_')[-1]
             sweep_paras = PARA_DICT[model]
             sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
