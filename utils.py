@@ -7,7 +7,7 @@ warnings.filterwarnings("ignore")
 import os
 os.environ['WANDB_SILENT'] = 'true'
 from diskcache import Cache
-cache = Cache(size_limit=100000000000)
+cache = Cache('./cache', size_limit=100000000000)
 
 from sklearn.metrics import mean_squared_error
 from xgboost import XGBRegressor, XGBClassifier
@@ -36,6 +36,7 @@ def fetch_data(level: str) -> (Tuple[List[Queryset], List[Dict[str, pd.DataFrame
 
 @cache.memoize(typed=True, expire=None, tag='data')
 def i_fetch_data(level):
+    print('Not from the cache.')
     return fetch_data(level)
 
 def normalize_retransform(x, min_val, max_val, b=1, a=0):
@@ -106,7 +107,7 @@ def transform_data(Datasets, transforms, level, b=1, a=0, by_group=False):
             para_transformed[transform] = dict_mean_std
 
         else:
-            raise ValueError("Wrong transformation, only support 'log', 'normalize', 'standardize'.")
+            raise ValueError("Wrong transformation, only support 'raw', 'log', 'normalize', 'standardize'.")
     return Datasets_transformed, para_transformed
 
 

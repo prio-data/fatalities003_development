@@ -624,9 +624,9 @@ def get_pgm_querysets():
 
                  .with_theme("fatalities")
                  .describe("""Fatalities natural and social geography, pgm level
-     
+
                            Predicting ln(fatalities) using natural and social geography features
-    
+
                            """)
                  )
 
@@ -792,9 +792,9 @@ def get_pgm_querysets():
 
                 .with_theme("fatalities")
                 .describe("""fatalities broad model, pgm level
-    
+
                           Predicting ln(ged_best_sb), broad model
-    
+
                           """)
                 )
 
@@ -1048,9 +1048,9 @@ def get_pgm_querysets():
 
                        .with_theme("fatalities")
                        .describe("""Fatalities conflict history
-    
+
                                  Predicting ln(fatalities) using conflict predictors
-    
+
                                  """)
                        )
 
