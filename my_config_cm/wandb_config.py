@@ -1,4 +1,4 @@
 wandb_config = {
-    'project': 'cm_example_1',
+    'project': 'add_plot_cm',
     'entity': 'model-development-and-deployment'
 }

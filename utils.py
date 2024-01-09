@@ -21,7 +21,7 @@ from views_partitioning.data_partitioner import DataPartitioner
 from views_runs.run_result import RunResult
 from views_forecasts.extensions import *
 from FetchData import ReturnQsList, fetch_cm_data_from_model_def, fetch_pgm_data_from_model_def, RetrieveFromList
-from utils_map import plot_cm_map, plot_pgm_map
+from utils_map import GeoPlotter
 
 
 def fetch_data(level: str) -> (Tuple[List[Queryset], List[Dict[str, pd.DataFrame]]]):
@@ -36,7 +36,6 @@ def fetch_data(level: str) -> (Tuple[List[Queryset], List[Dict[str, pd.DataFrame
 
 @cache.memoize(typed=True, expire=None, tag='data')
 def i_fetch_data(level):
-    print('Not from the cache.')
     return fetch_data(level)
 
 def normalize_retransform(x, min_val, max_val, b=1, a=0):
@@ -268,13 +267,14 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
     wandb.log({'mse': df['mse'].mean()})
 
     if plot_map:
+        plotter = GeoPlotter()
         months = df.index.levels[0].tolist()
         step_preds = [f'step_pred_{i}' for i in steps]
         # Temporarily only predict the first month
         for month in [months[0]]:
             for step in step_preds:
                 if level == 'cm':
-                    fig = plot_cm_map(df, month, step)
+                    fig = plotter.plot_cm_map(df, month, step, transform)
                 elif level == 'pgm':
-                    fig = plot_pgm_map(df, month, step)
+                    fig = plotter.plot_pgm_map(df, month, step, transform)
                 wandb.log({f'month_{month}_{step}': wandb.Image(fig)})

@@ -1,4 +1,4 @@
 wandb_config = {
-    'project': 'pgm_example_2',
+    'project': 'add_plot_pgm',
     'entity': 'model-development-and-deployment'
 }
