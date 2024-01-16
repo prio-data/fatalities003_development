@@ -15,12 +15,19 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
-PARA_DICT = {
-    'rf': ['transform', 'clf_name', 'reg_name'],
-    'xgb': ['transform', 'clf_name', 'reg_name'],
-    'gbm': ['transform', 'clf_name', 'reg_name'],
-    'lgb': ['transform', 'clf_name', 'reg_name']
+# PARA_DICT = {
+#     'rf': ['transform', 'clf_name', 'reg_name'],
+#     'xgb': ['transform', 'clf_name', 'reg_name'],
+#     'gbm': ['transform', 'clf_name', 'reg_name'],
+#     'lgb': ['transform', 'clf_name', 'reg_name']
 
+# }
+
+PARA_DICT = {
+    'rf': ['transform', 'n_estimators', 'n_jobs', 'learning_rate'],
+    'xgb': ['transform', 'n_estimators', 'n_jobs', 'learning_rate'],
+    'gbm': ['transform', 'n_estimators', 'n_jobs', 'learning_rate'],
+    'lgb': ['transform', 'n_estimators', 'n_jobs', 'learning_rate']
 }
 
 
