@@ -217,6 +217,7 @@ def retrain_transformed_sweep(Datasets_transformed, sweep_paras):
     try:
         predictions_calib = pd.DataFrame.forecasts.read_store(run=run_id,
                                                               name=wandb.config[f'predstore_calib_{transform}'])
+        print(predictions_calib)
     except KeyError:
         print(wandb.config[f'predstore_calib_{transform}'],
               ', run', run_id, 'does not exist, predicting')
@@ -281,10 +282,12 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
     name = wandb.config[f'predstore_{target}_{transform}']
     df = pd.DataFrame.forecasts.read_store(run=run_id, name=name).replace([
         np.inf, -np.inf], 0)[stepcols]
+    print(df)
 # raw Outcomes evaluation - converting predictions to raw
     if retransform:
         if transform == 'log':
             df = np.exp(df) - 1
+            print(df)
         elif transform == 'normalize':
             df_para_model = para_transformed[transform][wandb.config['data_train']]
             if by_group:
@@ -309,6 +312,9 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
 
     df['mse'] = df.apply(lambda row: mean_squared_error([row['ged_sb_dep']] * 36,
                                                         [row[col] for col in pred_cols]), axis=1)
+    print(df['mse'])
+    print(df)
+    print(df['mse'].mean())
 
     df['tloss'] = df.apply(lambda row: tweedie_loss([row['ged_sb_dep']] * 36,
                                                     [row[col] for col in pred_cols], pow=1.5, eps=np.exp(-100)), axis=1)
@@ -335,6 +341,11 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
     # except Exception as e:
     #     traceback.print_exc()
 
+    #####
+    for step_number in [1, 3, 6, 9, 12, 36]:
+        wandb.log({f'mse_raw_step_{step_number}': mean_squared_error(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+    ####
     # +++++++++++++++++++LOG
     df = pd.DataFrame.forecasts.read_store(run=run_id, name=name).replace([
         np.inf, -np.inf], 0)[stepcols]
@@ -373,6 +384,12 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
     print(f'mse_log_{transform}', df['mse_log'].mean())
     wandb.log({'mse_log': df['mse_log'].mean()})
 
+    #####
+    for step_number in [1, 3, 6, 9, 12, 36]:
+        wandb.log({f'mse_log_step_{step_number}': mean_squared_error(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+    ####
+
 # ++++++++++++++++++++++++++++ STANDARDIZE
 
     df = pd.DataFrame.forecasts.read_store(run=run_id, name=name).replace([
@@ -409,6 +426,12 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
     print(f'mse_standardize_{transform}', df['mse_standardize'].mean())
     wandb.log({'mse_standardize': df['mse_standardize'].mean()})
 
+    #####
+    for step_number in [1, 3, 6, 9, 12, 36]:
+        wandb.log({f'mse_standardize_step_{step_number}': mean_squared_error(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+    ####
+
     # +++++++++++++++++Normalize
     df = pd.DataFrame.forecasts.read_store(run=run_id, name=name).replace([
         np.inf, -np.inf], 0)[stepcols]
@@ -443,3 +466,9 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
 
     print(f'mse_normalize_{transform}', df['mse_normalize'].mean())
     wandb.log({'mse_normalize': df['mse_normalize'].mean()})
+
+    #####
+    for step_number in [1, 3, 6, 9, 12, 36]:
+        wandb.log({f'mse_normalize_step_{step_number}': mean_squared_error(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+    ####
