@@ -340,12 +340,25 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
     #         [log_transform_raw_data(row[col]) for col in pred_cols]), axis=1)
     # except Exception as e:
     #     traceback.print_exc()
+    print('the transformed mse', df)
+    df.to_csv('raw.csv')
 
     #####
     for step_number in [1, 3, 6, 9, 12, 36]:
         wandb.log({f'mse_raw_step_{step_number}': mean_squared_error(
             df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        # add other metrics here too
+        wandb.log({f'tloss_step_{step_number}': tweedie_loss(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        wandb.log({f'kld_step_{step_number}': kl_divergence(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        wandb.log({f'jefd_step_{step_number}': jeffreys_divergence(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        wandb.log({f'jend_step_{step_number}': jenson_shannon_divergence(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+
     ####
+
     # +++++++++++++++++++LOG
     df = pd.DataFrame.forecasts.read_store(run=run_id, name=name).replace([
         np.inf, -np.inf], 0)[stepcols]
@@ -382,12 +395,38 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
         [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
 
     print(f'mse_log_{transform}', df['mse_log'].mean())
-    wandb.log({'mse_log': df['mse_log'].mean()})
+    # add other metrics here too
+    df['tloss_log'] = df.apply(lambda row: tweedie_loss(
+        [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
+    df['kld_log'] = df.apply(lambda row: kl_divergence(
+        [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
+    df['jefd_log'] = df.apply(lambda row: jeffreys_divergence(
+        [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
+    df['jend_log'] = df.apply(lambda row: jenson_shannon_divergence(
+        [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
 
+    wandb.log({'mse_log': df['mse_log'].mean()})
+    wandb.log({'tloss_log': df['tloss_log'].mean()})
+    wandb.log({'kld_log': df['kld_log'].mean()})
+    wandb.log({'jefd_log': df['jefd_log'].mean()})
+    wandb.log({'jend_log': df['jend_log'].mean()})
+
+    print('the transformed mse', df)
+    df.to_csv('log.csv')
     #####
     for step_number in [1, 3, 6, 9, 12, 36]:
         wandb.log({f'mse_log_step_{step_number}': mean_squared_error(
             df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+    # add other metrics here too
+        wandb.log({f'tloss_log_step_{step_number}': tweedie_loss(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        wandb.log({f'kld_log_step_{step_number}': kl_divergence(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        wandb.log({f'jefd_log_step_{step_number}': jeffreys_divergence(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        wandb.log({f'jend_log_step_{step_number}': jenson_shannon_divergence(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+
     ####
 
 # ++++++++++++++++++++++++++++ STANDARDIZE
@@ -424,12 +463,39 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
         [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
 
     print(f'mse_standardize_{transform}', df['mse_standardize'].mean())
+    # add other metrics here too
+    df['tloss_standardize'] = df.apply(lambda row: tweedie_loss(
+        [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
+    df['kld_standardize'] = df.apply(lambda row: kl_divergence(
+        [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
+    df['jefd_standardize'] = df.apply(lambda row: jeffreys_divergence(
+        [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
+    df['jend_standardize'] = df.apply(lambda row: jenson_shannon_divergence(
+        [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
+
     wandb.log({'mse_standardize': df['mse_standardize'].mean()})
+    wandb.log({'tloss_standardize': df['tloss_standardize'].mean()})
+    wandb.log({'kld_standardize': df['kld_standardize'].mean()})
+    wandb.log({'jefd_standardize': df['jefd_standardize'].mean()})
+    wandb.log({'jend_standardize': df['jend_standardize'].mean()})
+
+    print('the transformed mse', df)
+    df.to_csv('stan.csv')
 
     #####
     for step_number in [1, 3, 6, 9, 12, 36]:
         wandb.log({f'mse_standardize_step_{step_number}': mean_squared_error(
             df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        # add other metrics here too
+        wandb.log({f'tloss_standardize_step_{step_number}': tweedie_loss(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        wandb.log({f'kld_standardize_step_{step_number}': kl_divergence(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        wandb.log({f'jefd_standardize_step_{step_number}': jeffreys_divergence(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        wandb.log({f'jend_standardize_step_{step_number}': jenson_shannon_divergence(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+
     ####
 
     # +++++++++++++++++Normalize
@@ -465,10 +531,35 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
         [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
 
     print(f'mse_normalize_{transform}', df['mse_normalize'].mean())
+    # add other metrics here too
+    df['tloss_normalize'] = df.apply(lambda row: tweedie_loss(
+        [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
+    df['kld_normalize'] = df.apply(lambda row: kl_divergence(
+        [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
+    df['jefd_normalize'] = df.apply(lambda row: jeffreys_divergence(
+        [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
+    df['jend_normalize'] = df.apply(lambda row: jenson_shannon_divergence(
+        [row['ged_sb_dep']] * 36, [row[col] for col in pred_cols]), axis=1)
+
     wandb.log({'mse_normalize': df['mse_normalize'].mean()})
+    wandb.log({'tloss_normalize': df['tloss_normalize'].mean()})
+    wandb.log({'kld_normalize': df['kld_normalize'].mean()})
+    wandb.log({'jefd_normalize': df['jefd_normalize'].mean()})
+    wandb.log({'jend_normalize': df['jend_normalize'].mean()})
+    print('the transformed mse', df)
+    df.to_csv('norm.csv')
 
     #####
     for step_number in [1, 3, 6, 9, 12, 36]:
         wandb.log({f'mse_normalize_step_{step_number}': mean_squared_error(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        # add other metrics here too
+        wandb.log({f'tloss_normalize_step_{step_number}': tweedie_loss(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        wandb.log({f'kld_normalize_step_{step_number}': kl_divergence(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        wandb.log({f'jefd_normalize_step_{step_number}': jeffreys_divergence(
+            df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
+        wandb.log({f'jend_normalize_step_{step_number}': jenson_shannon_divergence(
             df['ged_sb_dep'], df[f'step_pred_{step_number}'])})
     ####
