@@ -15,13 +15,13 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
-# PARA_DICT = {
-#     'rf': ['transform', 'clf_name', 'reg_name'],
-#     'xgb': ['transform', 'clf_name', 'reg_name'],
-#     'gbm': ['transform', 'clf_name', 'reg_name'],
-#     'lgb': ['transform', 'clf_name', 'reg_name']
+PARA_DICT_h = {
+    'rf': ['transform', 'clf_name', 'reg_name'],
+    'xgb': ['transform', 'clf_name', 'reg_name'],
+    'gbm': ['transform', 'clf_name', 'reg_name'],
+    'lgb': ['transform', 'clf_name', 'reg_name']
 
-# }
+}
 
 PARA_DICT = {
     'rf': ['transform', 'n_estimators', 'n_jobs', 'learning_rate'],
@@ -81,10 +81,15 @@ if __name__ == '__main__':
             sweep_config = get_config_from_path(sweep_file, 'sweep')
             model_config = get_config_from_path(model_file, 'model')
 
-            # if sweep_file.stem.split('_')[-2] == 'hurdle':
-            #     continue  # Currently Hurdle models are not supported
-            model = sweep_file.stem.split('_')[-1]
-            sweep_paras = PARA_DICT[model]
-            sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
-                                   entity=wandb_config['entity'])
-            wandb.agent(sweep_id, function=train)
+            if sweep_file.stem.split('_')[-2] == 'hurdle':
+                model = sweep_file.stem.split('_')[-1]
+                sweep_paras = PARA_DICT_h[model]
+                sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+                                       entity=wandb_config['entity'])
+                wandb.agent(sweep_id, function=train)
+            else:
+                model = sweep_file.stem.split('_')[-1]
+                sweep_paras = PARA_DICT[model]
+                sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'],
+                                       entity=wandb_config['entity'])
+                wandb.agent(sweep_id, function=train)
