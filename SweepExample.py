@@ -32,6 +32,21 @@ PARA_DICT = {
 
 
 def train():
+    """
+    This function initializes a run with Weights & Biases (wandb), updates the configuration with the model configuration, 
+    constructs a run name based on the sweep parameters, retrains the model with transformed datasets, evaluates the model, 
+    and finally finishes the run.
+
+    The function uses the following global variables:
+    - common_config: A dictionary containing common configuration parameters for the wandb run.
+    - wandb_config: A dictionary containing the project and entity for the wandb run.
+    - model_config: A dictionary containing the model configuration parameters.
+    - sweep_paras: A list of parameters to be included in the sweep.
+    - Datasets_transformed: Transformed datasets to be used for retraining the model.
+    - para_transformed: Transformed parameters to be used for model evaluation.
+
+    Note: This function does not return anything. The results of the run are logged and managed by wandb.
+    """
     run = wandb.init(config=common_config,
                      project=wandb_config['project'], entity=wandb_config['entity'])
     wandb.config.update(model_config, allow_val_change=True)
@@ -43,6 +58,7 @@ def train():
     wandb.run.name = run_name
 
     retrain_transformed_sweep(Datasets_transformed, sweep_paras)
+
     evaluate('calib', para_transformed, by_group=True)
     run.finish()
 
