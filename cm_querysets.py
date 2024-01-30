@@ -1,7 +1,7 @@
 # # Specifying querysets for use in Predicting Fatalities project
 # Fatalities003 version
 # ## cm level
-# 
+#
 
 # ## Importing modules
 
@@ -91,63 +91,62 @@ def get_cm_querysets():
     #       )
 
     ###################################################################################################################
-    
 
     qs_baseline_nonlog = (Queryset("fatalities003_baseline_nonlog", "country_month")
 
-                   # target variable
-                   .with_column(Column("ged_sb_dep", from_table="ged2_cm", from_column="ged_sb_best_sum_nokgi")
-                                .transform.missing.fill()
-                                )
+                          # target variable
+                          .with_column(Column("ged_sb_dep", from_table="ged2_cm", from_column="ged_sb_best_sum_nokgi")
+                                       .transform.missing.fill()
+                                       )
 
-                   # timelag 0 of target variable
-                   .with_column(Column("ln_ged_sb", from_table="ged2_cm", from_column="ged_sb_best_sum_nokgi")
-                                .transform.ops.ln()
-                                .transform.missing.fill()
-                                )
-                   # Decay functions
-                   # sb
-                   .with_column(Column("decay_ged_sb_5", from_table="ged2_cm", from_column="ged_sb_best_sum_nokgi")
-                                .transform.missing.replace_na()
-                                .transform.bool.gte(5)
-                                .transform.temporal.time_since()
-                                .transform.temporal.decay(24)
-                                .transform.missing.replace_na()
-                                )
-                   # os
-                   .with_column(Column("decay_ged_os_5", from_table="ged2_cm", from_column="ged_os_best_sum_nokgi")
-                                .transform.missing.replace_na()
-                                .transform.bool.gte(5)
-                                .transform.temporal.time_since()
-                                .transform.temporal.decay(24)
-                                .transform.missing.replace_na()
-                                )
-                   # Spatial lag decay
-                   .with_column(Column("splag_1_decay_ged_sb_5", from_table="ged2_cm",
+                          # timelag 0 of target variable
+                          .with_column(Column("ln_ged_sb", from_table="ged2_cm", from_column="ged_sb_best_sum_nokgi")
+                                       .transform.ops.ln()
+                                       .transform.missing.fill()
+                                       )
+                          # Decay functions
+                          # sb
+                          .with_column(Column("decay_ged_sb_5", from_table="ged2_cm", from_column="ged_sb_best_sum_nokgi")
+                                       .transform.missing.replace_na()
+                                       .transform.bool.gte(5)
+                                       .transform.temporal.time_since()
+                                       .transform.temporal.decay(24)
+                                       .transform.missing.replace_na()
+                                       )
+                          # os
+                          .with_column(Column("decay_ged_os_5", from_table="ged2_cm", from_column="ged_os_best_sum_nokgi")
+                                       .transform.missing.replace_na()
+                                       .transform.bool.gte(5)
+                                       .transform.temporal.time_since()
+                                       .transform.temporal.decay(24)
+                                       .transform.missing.replace_na()
+                                       )
+                          # Spatial lag decay
+                          .with_column(Column("splag_1_decay_ged_sb_5", from_table="ged2_cm",
                                        from_column="ged_sb_best_sum_nokgi")
-                                .transform.missing.replace_na()
-                                .transform.bool.gte(5)
-                                .transform.temporal.time_since()
-                                .transform.temporal.decay(24)
-                                .transform.spatial.countrylag(1, 1, 0, 0)
-                                .transform.missing.replace_na()
-                                )
+                                       .transform.missing.replace_na()
+                                       .transform.bool.gte(5)
+                                       .transform.temporal.time_since()
+                                       .transform.temporal.decay(24)
+                                       .transform.spatial.countrylag(1, 1, 0, 0)
+                                       .transform.missing.replace_na()
+                                       )
 
-                   # From WDI
-                   .with_column(Column("wdi_sp_pop_totl", from_table="wdi_cy", from_column="wdi_sp_pop_totl")
-                                .transform.missing.fill()
-                                .transform.temporal.tlag(12)
-                                .transform.missing.fill()
-                                .transform.missing.replace_na()
-                                )
+                          # From WDI
+                          .with_column(Column("wdi_sp_pop_totl", from_table="wdi_cy", from_column="wdi_sp_pop_totl")
+                                       .transform.missing.fill()
+                                       .transform.temporal.tlag(12)
+                                       .transform.missing.fill()
+                                       .transform.missing.replace_na()
+                                       )
 
-                   .with_theme("fatalities")
-                   .describe("""Fatalities conflict history, cm level
+                          .with_theme("fatalities")
+                          .describe("""Fatalities conflict history, cm level
     
                    Predicting nonlog fatalities using conflict predictors, ultrashort
     
                              """)
-                   )
+                          )
 
     qs_baseline_nonlog.publish()
 
@@ -1037,19 +1036,19 @@ def get_cm_querysets():
                         .with_column(Column("ln_acled_sb", from_table="acled2_cm", from_column="acled_sb_fat")
                                      .transform.ops.ln()
                                      .transform.missing.fill()
-                                    .transform.missing.replace_na()
+                                     .transform.missing.replace_na()
                                      )
 
                         .with_column(Column("ln_acled_sb_count", from_table="acled2_cm", from_column="acled_sb_count")
                                      .transform.ops.ln()
                                      .transform.missing.fill()
-                                    .transform.missing.replace_na()
+                                     .transform.missing.replace_na()
                                      )
 
                         .with_column(Column("ln_acled_os", from_table="acled2_cm", from_column="acled_os_fat")
                                      .transform.ops.ln()
                                      .transform.missing.fill()
-                                    .transform.missing.replace_na()
+                                     .transform.missing.replace_na()
                                      )
 
                         # time-lagged by 0-2 independent variables
@@ -1059,7 +1058,7 @@ def get_cm_querysets():
                                      .transform.missing.fill()
                                      .transform.temporal.tlag(1)
                                      .transform.missing.fill()
-                                    .transform.missing.replace_na()
+                                     .transform.missing.replace_na()
                                      )
 
                         # 12-month decay dummy of independent variables
@@ -2207,7 +2206,7 @@ def get_cm_querysets():
                        # More conflict history [hh20]
                        .with_column(Column("ged_sb_tlag_1", from_table="ged2_cm",
                                            from_column="ged_sb_best_sum_nokgi")
-                                    .transform.ops.ln()
+                                    # .transform.ops.ln()
                                     .transform.missing.fill()
                                     .transform.temporal.tlag(1)
                                     .transform.missing.fill()
@@ -2216,7 +2215,7 @@ def get_cm_querysets():
 
                        .with_column(Column("ged_sb_tlag_2", from_table="ged2_cm",
                                            from_column="ged_sb_best_sum_nokgi")
-                                    .transform.ops.ln()
+                                    # .transform.ops.ln()
                                     .transform.missing.fill()
                                     .transform.temporal.tlag(2)
                                     .transform.missing.fill()
@@ -3841,7 +3840,8 @@ def get_cm_querysets():
                            """)
                  )
 
-    qs_topics.operations = qs_baseline.operations[0:] + qs_topics_stub.operations[0:]
+    qs_topics.operations = qs_baseline.operations[0:] + \
+        qs_topics_stub.operations[0:]
 
     qs_topics.publish()
 
@@ -3874,8 +3874,8 @@ def get_cm_querysets():
                              """)
                    )
 
-    
-    qs_conflict.operations = qs_baseline.operations[0:] + qs_conflict_stub.operations[0:]
+    qs_conflict.operations = qs_baseline.operations[0:] + \
+        qs_conflict_stub.operations[0:]
 
     qs_conflict.publish()
     
@@ -3883,20 +3883,18 @@ def get_cm_querysets():
     # Conflict history model and baseline, nonlog formulation
 
     qs_conflict_nonlog = (Queryset("fatalities003_conflict_history_nonlog", "country_month")
-                   .with_theme("fatalities003")
-                   .describe("""Predicting nonlog fatalities, cm level
+                          .with_theme("fatalities003")
+                          .describe("""Predicting nonlog fatalities, cm level
     
                              Queryset with baseline and first set of conflict history features
     
                              """)
-                   )
+                          )
 
-    
-    qs_conflict_nonlog.operations = qs_baseline_nonlog.operations[0:] + qs_conflict_stub.operations[0:]
+    qs_conflict_nonlog.operations = qs_baseline_nonlog.operations[0:] + \
+        qs_conflict_stub.operations[0:]
 
     qs_conflict_nonlog.publish()
-
-
 
     ###################################################################################################################
     # Conflict history model, extension, and baseline
@@ -3910,7 +3908,8 @@ def get_cm_querysets():
                                   """)
                         )
 
-    qs_conflict_long.operations = qs_conflict.operations[0:] + qs_conflict_ext.operations[0:]
+    qs_conflict_long.operations = qs_conflict.operations[0:] + \
+        qs_conflict_ext.operations[0:]
 
     qs_conflict_long.publish()
 
@@ -3926,7 +3925,8 @@ def get_cm_querysets():
                               """)
                      )
 
-    qs_vdem_short.operations = qs_baseline.operations[0:] + qs_vdem_short_stub.operations[0:]
+    qs_vdem_short.operations = qs_baseline.operations[0:] + \
+        qs_vdem_short_stub.operations[0:]
 
     qs_vdem_short.publish()
 
@@ -3942,7 +3942,8 @@ def get_cm_querysets():
                               """)
                     )
 
-    qs_wdi_short.operations = qs_baseline.operations[0:] + qs_wdi_short_stub.operations[0:]
+    qs_wdi_short.operations = qs_baseline.operations[0:] + \
+        qs_wdi_short_stub.operations[0:]
 
     qs_wdi_short.publish()
 
@@ -3958,7 +3959,8 @@ def get_cm_querysets():
                                 """)
                       )
 
-    qs_joint_broad.operations = qs_baseline.operations[0:] + qs_joint_broad_stub.operations[0:]
+    qs_joint_broad.operations = qs_baseline.operations[0:] + \
+        qs_joint_broad_stub.operations[0:]
 
     qs_joint_broad.publish()
      
@@ -3968,15 +3970,16 @@ def get_cm_querysets():
     # joint broad model and baseline
 
     qs_joint_broad_nonlog = (Queryset("fatalities003_joint_broad_nonlog", "country_month")
-                      .with_theme("fatalities003")
-                      .describe("""Predicting nonlog fatalities, cm level
+                             .with_theme("fatalities003")
+                             .describe("""Predicting nonlog fatalities, cm level
     
                                 Queryset with baseline and broad list of features from all sources
     
                                 """)
-                      )
+                             )
 
-    qs_joint_broad_nonlog.operations = qs_baseline_nonlog.operations[0:] + qs_joint_broad_stub.operations[0:]
+    qs_joint_broad_nonlog.operations = qs_baseline_nonlog.operations[0:] + \
+        qs_joint_broad_stub.operations[0:]
 
     qs_joint_broad_nonlog.publish()
      
@@ -3997,7 +4000,6 @@ def get_cm_querysets():
 
     #data = qs_faostat.publish().fetch()
     '''
-
 
     ###################################################################################################################
     # faoprices model and baseline
@@ -4028,9 +4030,10 @@ def get_cm_querysets():
 
                  )
 
-    qs_imfweo.operations = qs_baseline.operations[0:] + qs_imfweo_stub.operations[0:]
+    qs_imfweo.operations = qs_baseline.operations[0:] + \
+        qs_imfweo_stub.operations[0:]
 
-    #data = qs_imfweo.publish().fetch()
+    # data = qs_imfweo.publish().fetch()
 
     ###################################################################################################################
     # All features model
@@ -4057,21 +4060,21 @@ def get_cm_querysets():
     # Collecting combined queryset objects in a list
 
     qslist = [
-              qs_baseline,
-              qs_topics,
-#              qs_aquastat,
-              qs_conflict,
-              qs_conflict_nonlog,
-              qs_conflict_long,
-              qs_vdem_short,
-              qs_wdi_short,
-              qs_all_features,
-              qs_joint_narrow,
-              qs_joint_broad,
-              qs_joint_broad_nonlog,
-#              qs_faostat,
-#              qs_faoprices,
-              qs_imfweo
-              ]
+        qs_baseline,
+        qs_topics,
+        #              qs_aquastat,
+        qs_conflict,
+        qs_conflict_nonlog,
+        qs_conflict_long,
+        qs_vdem_short,
+        qs_wdi_short,
+        qs_all_features,
+        qs_joint_narrow,
+        qs_joint_broad,
+        qs_joint_broad_nonlog,
+        #              qs_faostat,
+        #              qs_faoprices,
+        qs_imfweo
+    ]
 
     return qslist
