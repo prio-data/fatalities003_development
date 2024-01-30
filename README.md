@@ -15,8 +15,9 @@ my_config
 ├── common_config.py
 └── wandb_config.py
 ```
+## 2. Add model configuration files to model_config & sweep_config
 
-## 2. Run the code
+## 3. Run the code
 ```console
 python sweep.py -l cm -c my_config
 ```
