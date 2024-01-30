@@ -1,9 +1,3 @@
-# To do
-# 1. Clean sweep_config
-# 2. Run on all models
-# 3. Try new sweep values if results are not satisfactory
-# 4. Find a way to store transformed datasets
-
 from utils import fetch_data, transform_data, get_config_path, get_config_from_path, retrain_transformed_sweep, evaluate
 from views_forecasts.extensions import *
 from pathlib import Path
@@ -13,7 +7,6 @@ import wandb
 import numpy as np
 import warnings
 warnings.filterwarnings("ignore")
-
 
 PARA_DICT_h = {
     'rf': ['transform', 'clf_name', 'reg_name'],
