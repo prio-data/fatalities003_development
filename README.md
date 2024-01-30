@@ -1,9 +1,9 @@
 # Weights-and-Biases
-Hyperparameter tuning for Fatalities003 models
+Logging Fatalities003 models on Weights-and-Biases
 
 ## 1. The configuration structure
 ```bash config folder structure
-config
+my_config
 ├── model_config
 │   ├── modelname1.py
 │   ├── modelname2.py
@@ -18,5 +18,5 @@ config
 
 ## 2. Run the code
 ```console
-python SweepExample.py -l cm -c config
+python sweep.py -l cm -c my_config
 ```
