@@ -42,7 +42,7 @@ Note: if there is an error similar to 'Booster' object has no attribute 'handle'
 
 
 ## 3. Evaluation
-The model will be trained on the dataset that is transformed using raw, log, standardize, and normalize (transform_1). Then we transform the outputs back to make them comparable to the actual ones (transform_2). Finally we do the evaluation of the four sets of prediction models (one for each transform) against all the four transforms of the outcome (transform_3). So, on W&B, you can expect to see:
+The model are trained on the dataset that is transformed using raw, log, standardize, and normalize (transform_1). Then we transform the outputs back to make them comparable to the actual ones (transform_2). Finally we do the evaluation of the four sets of prediction models (one for each transform) against all the four transforms of the outcome (transform_3). So, on W&B, you can expect to see:
 1. Metrics such as mse, tloss, kld, jefd, jend after transform_3.
 2. Same metrics for steps 1, 3, 6, 9, 12, 36 after transfrom_3.
 3. Plots of predicted fatalities, absolute error, squared error, and squared logarithmic error on cm/pgm level after transform_2. Now we only plot fatalities in the first predicted month with all steps.
