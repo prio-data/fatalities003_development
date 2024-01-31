@@ -45,7 +45,7 @@ To sweep over the specific model:
 python sweep.py -l cm -c config_cm -m fatalities003_nl_baseline_rf
 ```
 
-Note: if there is an error similar to 'Booster' object has no attribute 'handle', this is because the boost model version is different from the one used in your enviroment. Set 'force_retrain' in common_config.py to True and rerun the codes.
+Note: if there is an error similar to AttributeError("'Booster' object has no attribute 'handle'"), this is because the boost model version is different from the one used in your enviroment. Set 'force_retrain' in common_config.py to True and rerun the codes.
 
 
 ## 3. Evaluation
