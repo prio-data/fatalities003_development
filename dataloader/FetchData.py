@@ -4,9 +4,7 @@ import numpy as np
 import pandas as pd
 from sklearn import decomposition
 from sklearn.decomposition import PCA
-import cm_querysets
-import pgm_querysets
-import ModelDefinitions
+from dataloader import cm_querysets, pgm_querysets, ModelDefinitions
 
 
 def ReturnQsList(level):

@@ -1,27 +1,9 @@
 # The ModelList is a list of dictionaries that define a range of models for the project
 
-import sys
 # sys.path.append('../')
 # sys.path.append('../Tools')
 #sys.path.append('../Intermediates')
 # sklearn
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.ensemble import HistGradientBoostingRegressor
-from sklearn.ensemble import HistGradientBoostingClassifier
-from sklearn.ensemble import AdaBoostRegressor
-from sklearn import linear_model
-from sklearn.metrics import mean_squared_error
-from sklearn import preprocessing
-from sklearn.linear_model import ElasticNet
-from sklearn.datasets import make_regression
-
-from xgboost import XGBRegressor
-from xgboost import XGBClassifier
-from xgboost import XGBRFRegressor, XGBRFClassifier
-
-from lightgbm import LGBMClassifier, LGBMRegressor
 
 from ViewsEstimators import *
 
@@ -489,7 +471,7 @@ def DefineEnsembleModels(level):
         model = {
             'modelname': 'fatalities003_pgm_conflictlong_hurdle_lgbm',
             'algorithm': hur_lgbm_regressor,
-            'depvar': "ln_ged_sb_dep",
+            'depvar': "ged_sb_dep",
             'queryset': 'fatalities003_pgm_conflictlong',
             'data_train': 'conflictlong',
             'level':            'pgm',
@@ -594,7 +576,6 @@ def DefineEnsembleModels(level):
             'preprocessing': 'float_it',
             'description':      '',
             'long_description':      ''
-
         }
 
         ModelList.append(model)

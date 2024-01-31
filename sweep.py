@@ -1,11 +1,9 @@
-from utils import i_fetch_data, transform_data, get_config_path, get_config_from_path, retrain_transformed_sweep, evaluate
-from views_forecasts.extensions import *
+from util.utils import *
 from pathlib import Path
 import argparse
 import wandb
 import warnings
 warnings.filterwarnings("ignore")
-
 
 
 def train():
@@ -74,7 +72,6 @@ if __name__ == '__main__':
 
             sweep_config = get_config_from_path(sweep_file, 'sweep')
             model_config = get_config_from_path(model_file, 'model')
-
             
             model = sweep_file.stem.split('_')[-1]
             sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'], entity=wandb_config['entity'])
