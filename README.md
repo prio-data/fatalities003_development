@@ -3,7 +3,7 @@ Logging Fatalities003 models on Weights-and-Biases
 
 ## 1. The configuration structure
 ```bash config folder structure
-├── cm_config
+├── config_cm
 │   ├── model_config
 │   │   ├── modelname1.py
 │   │   ├── modelname2.py
@@ -15,7 +15,7 @@ Logging Fatalities003 models on Weights-and-Biases
 │   ├── common_config.py
 │   └── wandb_config.py
 │ 
-└── pgm_config
+└── config_pgm
     ├── model_config
     │   ├── modelname1.py
     │   ├── modelname2.py
