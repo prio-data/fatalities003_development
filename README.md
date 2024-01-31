@@ -31,11 +31,11 @@ Logging Fatalities003 models on Weights-and-Biases
 ## 2. Run the code
 To sweep over all the models in the config fold: 
 ```console
-python Sweep.py -l cm -c my_config_cm
+python sweep.py -l cm -c my_config_cm
 ```
 To sweep over the specific model: 
 ```console
-python Sweep.py -l cm -c my_config_cm -m fatalities003_nl_baseline_rf
+python sweep.py -l cm -c my_config_cm -m fatalities003_nl_baseline_rf
 ```
 
 Note: if there is an error similar to 'Booster' object has no attribute 'handle', this is because the boost model version is different from the one used in your enviroment. Set 'force_retrain' in common_config.py to True and rerun the codes.
