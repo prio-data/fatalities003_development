@@ -24,7 +24,18 @@ from stepshift import views
 #######################################################################################################################
 
 
-def get_cm_querysets():
+def get_cm_querysets() -> list:
+    """
+    This function generates a list of Queryset objects for the 'country_month' table. 
+
+    Each Queryset represents a specific query to be executed. The Queryset is defined with a name and a table. 
+    It includes several Columns, each representing a column in the database. 
+    The Column is defined with a name, a source table, and a source column. 
+    Each Column can have transformations applied to it, such as filling missing values.
+
+    Returns:
+        list: A list of Queryset objects.
+    """
 
     qs_baseline = (Queryset("fatalities003_baseline", "country_month")
 
@@ -3878,7 +3889,7 @@ def get_cm_querysets():
         qs_conflict_stub.operations[0:]
 
     qs_conflict.publish()
-    
+
     ###################################################################################################################
     # Conflict history model and baseline, nonlog formulation
 
@@ -3963,8 +3974,6 @@ def get_cm_querysets():
         qs_joint_broad_stub.operations[0:]
 
     qs_joint_broad.publish()
-     
-
 
     ###################################################################################################################
     # joint broad model and baseline
@@ -3982,7 +3991,6 @@ def get_cm_querysets():
         qs_joint_broad_stub.operations[0:]
 
     qs_joint_broad_nonlog.publish()
-     
 
     ###################################################################################################################
     # faostat model and baseline
