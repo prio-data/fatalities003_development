@@ -36,7 +36,7 @@ def train() -> None:
 
 
 if __name__ == '__main__':
-    # this is the main function that will be called when running the script from the command line with arguments
+    # this is the main block of code that will be called when running the script from the command line with arguments
 
     parser = argparse.ArgumentParser(description='Method for sweeping on W&B')
     parser.add_argument('-l', metavar='level', type=str,
