@@ -1,4 +1,4 @@
-# Weights-and-Biases
+# Fatalities003_development
 Logging Fatalities003 models on Weights-and-Biases
 
 ## 1. The configuration structure
