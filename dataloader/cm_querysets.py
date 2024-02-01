@@ -3,23 +3,8 @@
 # ## cm level
 #
 
-# ## Importing modules
-
-# Basics
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib.cbook as cbook
-# sklearn
-from sklearn.ensemble import RandomForestRegressor
-from sklearn import linear_model
-# Views 3
-from viewser.operations import fetch
 from viewser import Queryset, Column
-import views_runs
-from views_partitioning import data_partitioner, legacy
-from stepshift import views
-# import views_dataviz
+
 
 #######################################################################################################################
 
