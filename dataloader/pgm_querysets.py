@@ -1,29 +1,22 @@
 # # Specifying querysets for use in Predicting Fatalities project
 # ## pgm level
-# 
-# 
 
-# ## Importing modules
-
-# Basics
-import numpy as np
 from viewser import Queryset, Column
 
 
-def report(df):
-    print()
-    print(f"A dataset with {len(df.columns)} columns, with "
-          f"data between t {min(df.index.get_level_values(0))} "
-          f"and {max(df.index.get_level_values(0))}. "
-          f"({len(np.unique(df.index.get_level_values(1)))} units)"
-          )
-    return
+def get_pgm_querysets() -> list:
+    """
+    This function generates a Queryset object for the 'priogrid_month' table. 
 
-# GED, baseline, ln versions of predictors
+    The Queryset represents a specific query to be executed. It is defined with a name and a table. 
+    It includes several Columns, each representing a column in the database. 
+    The Column is defined with a name, a source table, and a source column. 
+    Each Column can have transformations applied to it, such as replacing missing values, applying a natural logarithm, 
+    applying a boolean condition, calculating the time since an event, applying a decay function, etc.
 
-
-def get_pgm_querysets():
-
+    Returns:
+        Queryset: A Queryset object.
+    """
     qs_baseline = (Queryset("fatalities003_pgm_baseline", "priogrid_month")
 
                    # target variable
@@ -1181,14 +1174,14 @@ def get_pgm_querysets():
     # report(data)
 
     qslist = [
-              qs_baseline,
-              qs_conflict_long,
-              qs_escwa_drought,
-              qs_natsoc,
-              qs_broad,
-              qs_conf_history,
-              qs_treelag,
-              qs_sptime_dist
-              ]
+        qs_baseline,
+        qs_conflict_long,
+        qs_escwa_drought,
+        qs_natsoc,
+        qs_broad,
+        qs_conf_history,
+        qs_treelag,
+        qs_sptime_dist
+    ]
 
     return qslist
