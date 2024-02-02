@@ -3,7 +3,6 @@ from pathlib import Path
 import argparse
 import wandb
 import os
-from diskcache import Cache
 import warnings
 warnings.filterwarnings("ignore")
 
