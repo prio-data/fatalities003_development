@@ -2,6 +2,10 @@ from util.utils import *
 from pathlib import Path
 import argparse
 import wandb
+import os
+from diskcache import Cache
+import warnings
+warnings.filterwarnings("ignore")
 
 
 def train() -> None:
@@ -37,6 +41,7 @@ def train() -> None:
 
 if __name__ == '__main__':
     # this is the main block of code that will be called when running the script from the command line with arguments
+    os.environ['WANDB_SILENT'] = 'true'
 
     parser = argparse.ArgumentParser(description='Method for sweeping on W&B')
     parser.add_argument('-l', metavar='level', type=str,
