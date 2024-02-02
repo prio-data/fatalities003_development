@@ -1,6 +1,6 @@
+from ViewsEstimators import *
 from util.new_metrics import *
 from util.utils_map import GeoPlotter
-from dataloader.ViewsEstimators import *
 from dataloader.FetchData import *
 from views_forecasts.extensions import *
 from views_runs.run_result import RunResult

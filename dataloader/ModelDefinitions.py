@@ -1,4 +1,4 @@
-from dataloader.ViewsEstimators import *
+from ViewsEstimators import *
 
 
 class FixedFirstSplitRegression(BaseEstimator):
