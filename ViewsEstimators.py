@@ -16,8 +16,6 @@ from xgboost import XGBClassifier
 from xgboost import XGBRFRegressor, XGBRFClassifier
 from lightgbm import LGBMClassifier, LGBMRegressor
 
-#from lightgbm import LGBMClassifier, LGBMRegressor
-
 
 class HurdleRegression(BaseEstimator):
     """ Regression model which handles excessive zeros by fitting a two-part model and combining predictions:
@@ -35,7 +33,7 @@ class HurdleRegression(BaseEstimator):
                  clf_name: str = 'logistic',
                  reg_name: str = 'linear',
                  clf_params: Optional[dict] = None,
-                 reg_params: Optional[dict] = None):
+                 reg_params: Optional[dict] = None) -> None:
 
         self.clf_name = clf_name
         self.reg_name = reg_name
@@ -44,31 +42,29 @@ class HurdleRegression(BaseEstimator):
         self.clf_fi = []
         self.reg_fi = []
 
-    @staticmethod
-    def _resolve_estimator(func_name: str):
-        """ Lookup table for supported estimators.
-        This is necessary because sklearn estimator default arguments
-        must pass equality test, and instantiated sub-estimators are not equal. """
-
-        funcs = {'linear': LinearRegression(),
-                 'logistic': LogisticRegression(solver='liblinear'),
-                 'LGBMRegressor': LGBMRegressor(n_estimators=250),
-                 'LGBMClassifier': LGBMClassifier(n_estimators=250),
-                 'RFRegressor': XGBRFRegressor(n_estimators=250,n_jobs=-2),
-                 'RFClassifier': XGBRFClassifier(n_estimators=250,n_jobs=-2),
-                 'GBMRegressor': GradientBoostingRegressor(n_estimators=200),
-                 'GBMClassifier': GradientBoostingClassifier(n_estimators=200),
-                 'XGBRegressor': XGBRegressor(n_estimators=100,learning_rate=0.05,n_jobs=-2),
-                 'XGBClassifier': XGBClassifier(n_estimators=100,learning_rate=0.05,n_jobs=-2),
-                 'HGBRegressor': HistGradientBoostingRegressor(max_iter=200),
-                 'HGBClassifier': HistGradientBoostingClassifier(max_iter=200),
-                }
-
-        return funcs[func_name]
-
     def fit(self,
             X: Union[np.ndarray, pd.DataFrame],
-            y: Union[np.ndarray, pd.Series]):
+            y: Union[np.ndarray, pd.Series]) -> BaseEstimator:
+        """
+        Fit the model using the provided features and target.
+
+        Parameters:
+        - X (Union[np.ndarray, pd.DataFrame]): Features for training the model.
+        - y (Union[np.ndarray, pd.Series]): Target variable.
+
+        Raises:
+        - ValueError: If the number of features in X is less than 2.
+
+        Returns:
+        - self: The fitted model.
+
+        The `fit` method trains both a classification (`clf_`) and regression (`reg_`) model.
+        The classification model is used to predict whether y is greater than 0, while the regression
+        model is trained on instances where y is greater than 0. Feature importances for both models
+        are stored in `clf_fi` and `reg_fi`, respectively.
+
+        Note: The provided features and target are checked for validity, and the fitted status is updated.
+        """
         X, y = check_X_y(X, y, dtype=None,
                          accept_sparse=False,
                          accept_large_sparse=False,
@@ -92,32 +88,36 @@ class HurdleRegression(BaseEstimator):
         self.is_fitted_ = True
         return self
 
-
-#    def predict(self, X: Union[np.ndarray, pd.DataFrame]):
-    def predict_bck(self, X: Union[np.ndarray, pd.DataFrame]):
+    def predict_bck(self, X: Union[np.ndarray, pd.DataFrame]) -> np.ndarray:
         """ Predict combined response using binary classification outcome """
         X = check_array(X, accept_sparse=False, accept_large_sparse=False)
         check_is_fitted(self, 'is_fitted_')
         return self.clf_.predict(X) * self.reg_.predict(X)
 
-    def predict(self, X: Union[np.ndarray, pd.DataFrame]):
-#    def predict_expected_value(self, X: Union[np.ndarray, pd.DataFrame]):
+    def predict(self, X: Union[np.ndarray, pd.DataFrame]) -> np.ndarray:
         """ Predict combined response using probabilistic classification outcome """
         X = check_array(X, accept_sparse=False, accept_large_sparse=False)
         check_is_fitted(self, 'is_fitted_')
         return self.clf_.predict_proba(X)[:, 1] * self.reg_.predict(X)
 
-def manual_test():
-    """ Validate estimator using sklearn's provided utility and ensure it can fit and predict on fake dataset. """
-    check_estimator(HurdleRegression)
-    from sklearn.datasets import make_regression
-    X, y = make_regression()
-    reg = HurdleRegression()
-    reg.fit(X, y)
-    reg.predict(X)
-    
+    @staticmethod
+    def _resolve_estimator(func_name: str) -> BaseEstimator:
+        """ Lookup table for supported estimators.
+        This is necessary because sklearn estimator default arguments
+        must pass equality test, and instantiated sub-estimators are not equal. """
 
+        funcs = {'linear': LinearRegression(),
+                 'logistic': LogisticRegression(solver='liblinear'),
+                 'LGBMRegressor': LGBMRegressor(n_estimators=250),
+                 'LGBMClassifier': LGBMClassifier(n_estimators=250),
+                 'RFRegressor': XGBRFRegressor(n_estimators=250, n_jobs=-2),
+                 'RFClassifier': XGBRFClassifier(n_estimators=250, n_jobs=-2),
+                 'GBMRegressor': GradientBoostingRegressor(n_estimators=200),
+                 'GBMClassifier': GradientBoostingClassifier(n_estimators=200),
+                 'XGBRegressor': XGBRegressor(n_estimators=100, learning_rate=0.05, n_jobs=-2),
+                 'XGBClassifier': XGBClassifier(n_estimators=100, learning_rate=0.05, n_jobs=-2),
+                 'HGBRegressor': HistGradientBoostingRegressor(max_iter=200),
+                 'HGBClassifier': HistGradientBoostingClassifier(max_iter=200),
+                 }
 
-
-#if __name__ == '__main__':
-#    manual_test()
+        return funcs[func_name]

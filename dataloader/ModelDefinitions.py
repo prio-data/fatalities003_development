@@ -1,11 +1,5 @@
-# The ModelList is a list of dictionaries that define a range of models for the project
-
-# sys.path.append('../')
-# sys.path.append('../Tools')
-#sys.path.append('../Intermediates')
-# sklearn
-
 from ViewsEstimators import *
+
 
 class FixedFirstSplitRegression(BaseEstimator):
     """ Regression model which makes the first split according to a specified feature and then splits according to other 
@@ -25,7 +19,7 @@ class FixedFirstSplitRegression(BaseEstimator):
                  zeros_name: str = 'RFRegressor',
                  ones_indicator: str = '',
                  ones_params: Optional[dict] = None,
-                 zeros_params: Optional[dict] = None):
+                 zeros_params: Optional[dict] = None) -> None:
 
         self.ones_name = ones_name
         self.zeros_name = zeros_name
@@ -36,7 +30,7 @@ class FixedFirstSplitRegression(BaseEstimator):
         self.zeros_fi = []
 
     @staticmethod
-    def _resolve_estimator(func_name: str):
+    def _resolve_estimator(func_name: str) -> BaseEstimator:
         """ Lookup table for supported estimators.
         This is necessary because sklearn estimator default arguments
         must pass equality test, and instantiated sub-estimators are not equal. """
@@ -45,22 +39,22 @@ class FixedFirstSplitRegression(BaseEstimator):
                  'logistic': LogisticRegression(solver='liblinear'),
                  'LGBMRegressor': LGBMRegressor(n_estimators=250),
                  'LGBMClassifier': LGBMClassifier(n_estimators=250),
-                 'RFRegressor': XGBRFRegressor(n_estimators=250,n_jobs=-2),
-                 'RFClassifier': XGBRFClassifier(n_estimators=250,n_jobs=-2),
+                 'RFRegressor': XGBRFRegressor(n_estimators=250, n_jobs=-2),
+                 'RFClassifier': XGBRFClassifier(n_estimators=250, n_jobs=-2),
                  'GBMRegressor': GradientBoostingRegressor(n_estimators=200),
                  'GBMClassifier': GradientBoostingClassifier(n_estimators=200),
-                 'XGBRegressor': XGBRegressor(n_estimators=100,learning_rate=0.05,n_jobs=-2),
-                 'XGBClassifier': XGBClassifier(n_estimators=100,learning_rate=0.05,n_jobs=-2),
+                 'XGBRegressor': XGBRegressor(n_estimators=100, learning_rate=0.05, n_jobs=-2),
+                 'XGBClassifier': XGBClassifier(n_estimators=100, learning_rate=0.05, n_jobs=-2),
                  'HGBRegressor': HistGradientBoostingRegressor(max_iter=200),
                  'HGBClassifier': HistGradientBoostingClassifier(max_iter=200),
-                }
+                 }
 
         return funcs[func_name]
 
     def fit(self,
             X: Union[np.ndarray, pd.DataFrame],
             y: Union[np.ndarray, pd.Series],
-            z: Union[np.ndarray, pd.Series]):
+            z: Union[np.ndarray, pd.Series]) -> BaseEstimator:
         X, y = check_X_y(X, y, dtype=None,
                          accept_sparse=False,
                          accept_large_sparse=False,
@@ -73,46 +67,42 @@ class FixedFirstSplitRegression(BaseEstimator):
         self.ones_ = self._resolve_estimator(self.ones_name)
         if self.ones_params:
             self.ones_.set_params(**self.ones_params)
-        self.ones_.fit(X[z==1], y[z==1])
+        self.ones_.fit(X[z == 1], y[z == 1])
         self.ones_fi = self.ones_.feature_importances_
 
         self.zeros_ = self._resolve_estimator(self.zeros_name)
         if self.zeros_params:
             self.zeros_.set_params(**self.zeros_params)
-        self.zeros_.fit(X[z==0], y[z==0])
+        self.zeros_.fit(X[z == 0], y[z == 0])
         self.zeros_fi = self.zeros_.feature_importances_
 
         self.is_fitted_ = True
         return self
 
-
-    def predict(self, X: Union[np.ndarray, pd.DataFrame]):
-#    def predict_expected_value(self, X: Union[np.ndarray, pd.DataFrame]):
+    def predict(self, X: Union[np.ndarray, pd.DataFrame]) -> np.ndarray:
+        #    def predict_expected_value(self, X: Union[np.ndarray, pd.DataFrame]):
         """ Predict combined response using probabilistic classification outcome """
         X = check_array(X, accept_sparse=False, accept_large_sparse=False)
         check_is_fitted(self, 'is_fitted_')
-#        predict = 
+#        predict =
         return self.clf_.predict_proba(X)[:, 1] * self.reg_.predict(X)
 
-def manual_test():
-    """ Validate estimator using sklearn's provided utility and ensure it can fit and predict on fake dataset. """
-    check_estimator(HurdleRegression)
-    from sklearn.datasets import make_regression
-    X, y = make_regression()
-    reg = FixedFirstSplitRegression()
-    reg.fit(X, y)
-    reg.predict(X)
-    
 
+def DefineEnsembleModels(level) -> list:
+    """
+    This function defines an ensemble of models for VIEWS ensembling. 
 
+    An ensemble model is a predictive model that combines the predictions from multiple other models. 
+    It is used to reduce the variance, bias, or improve predictions.
 
-
-def DefineEnsembleModels(level):
+    Returns:
+        list: a list object based on level of analysis (cm or pgm)
+    """
     ModelList = []
 
     if level == 'cm':
         nj = 12
-        
+
         model = {
             'modelname':        'fatalities003_nl_baseline_rf',
             'algorithm':        XGBRFRegressor(n_estimators=300, n_jobs=nj),
@@ -134,11 +124,10 @@ def DefineEnsembleModels(level):
             'queryset':         "fatalities003_conflict_history",
             'preprocessing':    'float_it',
             'level':            'cm',
-            'description':      'A collection of variables that together map the conflict history of a country, random forests regression model.' ,
+            'description':      'A collection of variables that together map the conflict history of a country, random forests regression model.',
             'long_description': 'A collection of variables that together map the conflict history of a country. The features include lagged dependent variables for each conflict type as coded by the UCDP (state-based, one-sided, or non-state) for up to each of the preceding six months, decay functions of time since conflict caused 5, 100, and 500 deaths in a month, for each type of violence, whether ACLED (https://doi.org/10.1177/0022343310378914 recorded similar violence, and whether there was recent violence in any neighboring countries.'
         }
         ModelList.append(model)
-        
 
         # Model: GED logged dependent variable, logged conflict history variables, gradient boosting
         model = {
@@ -152,7 +141,7 @@ def DefineEnsembleModels(level):
             'description':      'A collection of variables that together map the conflict history of a country, scikit gradient boosting regression model.',
             'long_description': ''
         }
-        #ModelList.append(model)
+        # ModelList.append(model)
 
         model = {
             'modelname': 'fatalities003_nl_conflicthistory_hurdle_lgb',
@@ -179,9 +168,7 @@ def DefineEnsembleModels(level):
             'long_description':      ''
         }
         ModelList.append(model)
-        
-        
-        
+
         model = {
             'modelname':        'fatalities003_nl_conflicthistory_nonlog_hurdle_lgb',
             'algorithm': HurdleRegression(clf_name='LGBMClassifier', reg_name='LGBMRegressor'),
@@ -190,10 +177,10 @@ def DefineEnsembleModels(level):
             'queryset':         "fatalities003_conflict_history_nonlog",
             'preprocessing':    'float_it',
             'level':            'cm',
-            'description':      'A collection of variables that together map the conflict history of a country, random forests regression model.' ,
+            'description':      'A collection of variables that together map the conflict history of a country, random forests regression model.',
             'long_description': 'A collection of variables that together map the conflict history of a country. The features include lagged dependent variables for each conflict type as coded by the UCDP (state-based, one-sided, or non-state) for up to each of the preceding six months, decay functions of time since conflict caused 5, 100, and 500 deaths in a month, for each type of violence, whether ACLED (https://doi.org/10.1177/0022343310378914 recorded similar violence, and whether there was recent violence in any neighboring countries.'
         }
-        #ModelList.append(model)
+        # ModelList.append(model)
 
         model = {
             'modelname':  'fatalities003_nl_vdem_hurdle_xgb',
@@ -285,7 +272,7 @@ def DefineEnsembleModels(level):
             'long_description':      ''
         }
         ModelList.append(model)
-        
+
         model = {
             'modelname':  'fatalities003_joint_narrow_xgb',
             'algorithm':  XGBRFRegressor(n_estimators=250, n_jobs=nj),
@@ -350,7 +337,7 @@ def DefineEnsembleModels(level):
             'description':      '',
             'long_description':      ''
         }
-        #ModelList.append(model)
+        # ModelList.append(model)
 
         model = {
             'modelname':     'fatalities003_nl_faostat_rf',
@@ -363,7 +350,7 @@ def DefineEnsembleModels(level):
             'description':      '',
             'long_description':      ''
         }
-        #ModelList.append(model)
+        # ModelList.append(model)
 
         model = {
             'modelname':        'fatalities003_faoprices_rf',
@@ -376,7 +363,7 @@ def DefineEnsembleModels(level):
             'description':      '',
             'long_description': ''
         }
-        #ModelList.append(model)
+        # ModelList.append(model)
 
         model = {
             'modelname':        'fatalities003_imfweo_rf',
@@ -389,7 +376,7 @@ def DefineEnsembleModels(level):
             'description':      '',
             'long_description': ''
         }
-        #ModelList.append(model)
+        # ModelList.append(model)
 
         model = {
             'modelname':        'fat_hh20_Markov_glm',
@@ -402,7 +389,7 @@ def DefineEnsembleModels(level):
             'description':      '',
             'long_description': ''
         }
-        #ModelList.append(model)
+        # ModelList.append(model)
 
         model = {
             'modelname':        'fat_hh20_Markov_rf',
@@ -415,16 +402,18 @@ def DefineEnsembleModels(level):
             'description':      '',
             'long_description': ''
         }
-        #ModelList.append(model)
+        # ModelList.append(model)
 
     elif level == 'pgm':
 
         nj = 12
         n_estimators = 200
 
-        rf_regressor = RandomForestRegressor(n_estimators=n_estimators, n_jobs=nj)
+        rf_regressor = RandomForestRegressor(
+            n_estimators=n_estimators, n_jobs=nj)
 
-        xgb_regressor = XGBRegressor(n_estimators=n_estimators, tree_method='hist', n_jobs=nj)
+        xgb_regressor = XGBRegressor(
+            n_estimators=n_estimators, tree_method='hist', n_jobs=nj)
 
         lgbm_regressor = LGBMRegressor(n_estimators=n_estimators)
 
@@ -608,11 +597,11 @@ def DefineEnsembleModels(level):
         }
         ModelList.append(model)
     else:
-        raise Exception(f"Unrecognised level {level}: allowed values are cm or pgm")
+        raise Exception(
+            f"Unrecognised level {level}: allowed values are cm or pgm")
 
     for model in ModelList:
         model['predstore_calib'] = level + '_' + model['modelname'] + '_calib'
         model['predstore_test'] = level + '_' + model['modelname'] + '_test'
 
     return ModelList
-
