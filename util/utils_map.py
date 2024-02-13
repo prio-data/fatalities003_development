@@ -6,7 +6,9 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 import matplotlib
 matplotlib.pyplot.switch_backend('Agg') # Important! Disable GUI windows so that thread won't break down
 import matplotlib.colors as colors
+from matplotlib.colors import ListedColormap, SymLogNorm
 import matplotlib.ticker as ticker
+from matplotlib.ticker import ScalarFormatter
 import requests
 from PIL import Image
 from pathlib import Path
@@ -92,7 +94,7 @@ class GeoPlotter:
     def choose_scale_colormap_pgm_plot(self, vmin, vmax, title):
         #note that the function should be standardized to pick up only Fatality type values
         
-        if title = 'Predicted Fatalities':
+        if title == 'Predicted Fatalities':
             standard_scale = [0,100,300,1000,3000]
             standard_labels = ['0','100', '300', '1000', '3000']
             map_dictionary = dict(zip(standard_scale, standard_labels))
@@ -116,7 +118,7 @@ class GeoPlotter:
 
     def add_pgm_plot(self, gdf, column, vmin, vmax, ax, title):
             
-        vmin, vmax, cmap, map_dictionary = choose_scale_colormap_pgm_plot(self, vmin, vmax, title)
+        vmin, vmax, cmap, map_dictionary = self.choose_scale_colormap_pgm_plot(vmin, vmax, title)
 
         norm = SymLogNorm(linthresh=1, vmin=vmin, vmax=vmax)
 
@@ -147,7 +149,7 @@ class GeoPlotter:
             colorbar = plot.get_figure().get_axes()[1]
             colorbar.xaxis.set_major_formatter(formatter)
             colorbar.set_norm(norm) 
-            colorbar.set_ticks(list(custom_dict.values())) 
+            colorbar.set_ticks(list(map_dictionary.values()))
 
     def plot_fatality(self, gdf_m, ax, step, level):
         pred_min = gdf_m[step].min()
