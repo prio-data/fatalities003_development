@@ -90,10 +90,17 @@ class GeoPlotter:
         colorbar.xaxis.set_major_formatter(ticker.ScalarFormatter())
 
     def add_pgm_plot(self, gdf, column, vmin, vmax, ax, title):
+        standard_scale = [0,100,300,1000,3000]
+        standard_labels = ['0','100', '300', '1000', '3000']
+        map_dictionary = dict(zip(labels, values))
+
+        vmin=min(map_dictionary)
+        vmax=max(map_dictionary)
+
         cax = self.add_cax(ax)
         self.pgm_file.boundary.plot(ax=ax, linewidth=0.2)  # Plot pgm boundaries
         self.cm_file.boundary.plot(ax=ax, linewidth=1.1, color='grey')  # use cm unit map
-        plot = gdf.plot(column=column, cmap='viridis', legend=True,
+        plot = gdf.plot(column=column, cmap='rainbow', legend=True,
                         norm=colors.SymLogNorm(linthresh=1, vmin=vmin,vmax=vmax), cax=cax,
                         legend_kwds={"label": " ", "orientation": "horizontal"}, ax=ax,
                         linewidth=0.2, edgecolor='#FF000000')

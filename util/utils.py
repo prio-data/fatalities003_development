@@ -318,6 +318,11 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
 
     name = wandb.config[f'predstore_{target}_{transform}']
     df = pd.DataFrame.forecasts.read_store(run=run_id, name=name).replace([np.inf, -np.inf], 0)[stepcols]
+    #adding the panel with ROC/PR curve
+    for step in pred_cols:
+        wandb.log({"pr":wandb.plot.pr_curve(ground_truth = df[wandb.config['depvar']], predictons = df[step], 
+		labels=None, classes_to_plot=None)})
+
 
     # Retransform the data (save for HH's idea)
     df_retransform = retransform_data(df, transform, para_transformed, by_group, b, a)
@@ -338,6 +343,7 @@ def evaluate(target, para_transformed, retransform=True, by_group=False, b=1, a=
                 elif level == 'pgm':
                     fig = plotter.plot_pgm_map(df, month, step, transform)
                 wandb.log({f'month_{month}_{step}': wandb.Image(fig)})
+                
 
     metrics_evaluation(df, pred_cols)
     steps_evaluation(df, step_eval)
