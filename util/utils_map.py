@@ -89,19 +89,42 @@ class GeoPlotter:
         colorbar = plot.get_figure().get_axes()[1]
         colorbar.xaxis.set_major_formatter(ticker.ScalarFormatter())
 
-    def add_pgm_plot(self, gdf, column, vmin, vmax, ax, title):
-        standard_scale = [0,100,300,1000,3000]
-        standard_labels = ['0','100', '300', '1000', '3000']
-        map_dictionary = dict(zip(labels, values))
+    def choose_scale_colormap_pgm_plot(self, vmin, vmax, title):
+        #note that the function should be standardized to pick up only Fatality type values
+        
+        if title = 'Predicted Fatalities':
+            standard_scale = [0,100,300,1000,3000]
+            standard_labels = ['0','100', '300', '1000', '3000']
+            map_dictionary = dict(zip(standard_scale, standard_labels))
 
-        vmin=min(map_dictionary)
-        vmax=max(map_dictionary)
+            vmin=min(map_dictionary)
+            vmax=max(map_dictionary)
+
+            #ensure that the custom colormap is made
+            color_list = [plt.cm.jet(key/max(map_dictionary.keys())) for key in map_dictionary.keys()]
+            custom_cmap = ListedColormap(color_list)
+            cmap = custom_cmap
+
+        else: 
+            vmin=vmin
+            vmax=vmax
+            cmap = 'viridis'
+            map_dictionary = 'ignore'
+
+
+        return vmin, vmax, cmap, map_dictionary
+
+    def add_pgm_plot(self, gdf, column, vmin, vmax, ax, title):
+            
+        vmin, vmax, cmap, map_dictionary = choose_scale_colormap_pgm_plot(self, vmin, vmax, title)
+
+        norm = SymLogNorm(linthresh=1, vmin=vmin, vmax=vmax)
 
         cax = self.add_cax(ax)
         self.pgm_file.boundary.plot(ax=ax, linewidth=0.2)  # Plot pgm boundaries
         self.cm_file.boundary.plot(ax=ax, linewidth=1.1, color='grey')  # use cm unit map
-        plot = gdf.plot(column=column, cmap='rainbow', legend=True,
-                        norm=colors.SymLogNorm(linthresh=1, vmin=vmin,vmax=vmax), cax=cax,
+        plot = gdf.plot(column=column, cmap=cmap, legend=True,
+                        norm=norm, cax=cax,
                         legend_kwds={"label": " ", "orientation": "horizontal"}, ax=ax,
                         linewidth=0.2, edgecolor='#FF000000')
         ax.set_title(title, fontsize=15, y=1)
@@ -111,8 +134,20 @@ class GeoPlotter:
         ax.set_xlim(self.XMIN, self.XMAX)
         ax.set_ylim(self.YMIN, self.YMAX)
 
-        colorbar = plot.get_figure().get_axes()[1]
-        colorbar.xaxis.set_major_formatter(ticker.ScalarFormatter())  # Customize tick labels
+        #use the custom cmap but only for fatalities
+        if map_dictionary == 'ignore':
+            colorbar = plot.get_figure().get_axes()[1]
+            colorbar.xaxis.set_major_formatter(ticker.ScalarFormatter())
+        else:
+            #Customize tick labels but have the same SymLogNorm as above
+            formatter = ScalarFormatter()
+            formatter.set_locs(list(map_dictionary.values()))
+            formatter.set_ticklabels(list(map_dictionary.keys()))
+
+            colorbar = plot.get_figure().get_axes()[1]
+            colorbar.xaxis.set_major_formatter(formatter)
+            colorbar.set_norm(norm) 
+            colorbar.set_ticks(list(custom_dict.values())) 
 
     def plot_fatality(self, gdf_m, ax, step, level):
         pred_min = gdf_m[step].min()
