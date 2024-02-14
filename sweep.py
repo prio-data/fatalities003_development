@@ -1,4 +1,5 @@
 from util.utils import *
+from util.ms_visual_tools_pgm import *
 from pathlib import Path
 import argparse
 import wandb
@@ -34,15 +35,19 @@ def train():
     wandb.config.update(model_config, allow_val_change=True)
 
     retrain_transformed_sweep(Datasets_transformed, model_paras)
-    evaluate('calib', para_transformed, by_group=True, plot_map=True)
+    # evaluate('calib', para_transformed, by_group=True, plot_map=True)
+    visualize('calib', para_transformed, by_group=False, plot_additional=True)
     run.finish()
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Method for sweeping on W&B')
-    parser.add_argument('-l', metavar='level', type=str, required=True, choices=['cm', 'pgm'])
-    parser.add_argument('-c', metavar='config', type=str, required=True, help='Path to the configuration directory')
-    parser.add_argument('-m', metavar='modelname', help='Name of the model to implement')
+    parser.add_argument('-l', metavar='level', type=str,
+                        required=True, choices=['cm', 'pgm'])
+    parser.add_argument('-c', metavar='config', type=str,
+                        required=True, help='Path to the configuration directory')
+    parser.add_argument('-m', metavar='modelname',
+                        help='Name of the model to implement')
     args = parser.parse_args()
 
     level = args.l
@@ -53,28 +58,33 @@ if __name__ == '__main__':
     Datasets_transformed = {}
     para_transformed = {}
     qslist, Datasets = i_fetch_data(level)
-    Datasets_transformed, para_transformed = transform_data(Datasets, transforms, level=level, by_group=True)
+    Datasets_transformed, para_transformed = transform_data(
+        Datasets, transforms, level=level, by_group=True)
 
-    common_config_path, wandb_config_path, model_config_path, sweep_config_path = get_config_path(config_path)
+    common_config_path, wandb_config_path, model_config_path, sweep_config_path = get_config_path(
+        config_path)
     common_config = get_config_from_path(common_config_path, 'common')
     wandb_config = get_config_from_path(wandb_config_path, 'wandb')
 
     for sweep_file in sweep_config_path.iterdir():
         if sweep_file.is_file():
+
             # Skip if a specific model name is provided and it doesn't match the file
             model_name_from_file = sweep_file.stem
-            if model_name and model_name != model_name_from_file:
+            if model_name and (model_name != model_name_from_file):
                 continue
 
             model_file = model_config_path / sweep_file.name
             if not model_file.is_file():
-                raise FileNotFoundError(f'The corresponding model configuration file {model_file} does not exist.')
+                raise FileNotFoundError(
+                    f'The corresponding model configuration file {model_file} does not exist.')
 
             sweep_config = get_config_from_path(sweep_file, 'sweep')
             model_config = get_config_from_path(model_file, 'model')
-            
+
             model = sweep_file.stem.split('_')[-1]
-            sweep_id = wandb.sweep(sweep_config, project=wandb_config['project'], entity=wandb_config['entity'])
+            sweep_id = wandb.sweep(
+                sweep_config, project=wandb_config['project'], entity=wandb_config['entity'])
             wandb.agent(sweep_id, function=train)
 
             print(f'Finish sweeping over model {sweep_file.stem}')
