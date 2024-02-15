@@ -115,6 +115,20 @@ def map_fatality_specific(data, column, month, step):
     return (fig)
 
 
+def getPolyCoords(row, geom, coord_type):
+    """Returns the coordinates ('x' or 'y') of edges of a Polygon exterior"""
+
+    # Parse the exterior of the coordinate
+    exterior = row[geom].exterior
+
+    if coord_type == 'x':
+        # Get the x coordinates of the exterior
+        return list(exterior.coords.xy[0])
+    elif coord_type == 'y':
+        # Get the y coordinates of the exterior
+        return list(exterior.coords.xy[1])
+
+
 def visualize(target, para_transformed, by_group=False, b=1, a=0, plot_additional=False):
     '''
     :param target: 'calib' or 'test'
@@ -133,13 +147,9 @@ def visualize(target, para_transformed, by_group=False, b=1, a=0, plot_additiona
     level = wandb.config['level']
     stepcols = [wandb.config['depvar']]
 
-    print('i successfully fetched run definitions')
-
     for step in steps:
         stepcols.append('step_pred_' + str(step))
     pred_cols = [f'step_pred_{str(i)}' for i in steps]
-
-    print(pred_cols)
 
     name = wandb.config[f'predstore_{target}_{transform}']
 
@@ -148,8 +158,6 @@ def visualize(target, para_transformed, by_group=False, b=1, a=0, plot_additiona
         np.inf, -np.inf], 0)[stepcols]
     months = df.index.levels[0].tolist()
     df = df.reset_index()
-
-    print('i fetched the data')
 
     gdf_pid, gdf_ci_master = get_the_geom()
 
