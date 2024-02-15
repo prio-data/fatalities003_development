@@ -25,6 +25,8 @@ from matplotlib.colors import SymLogNorm
 
 
 def get_the_geom():
+
+    #####replace with queryset pull when it becomes available###
     engine = sa.create_engine(source_db_path)
     gdf_pid = gpd.GeoDataFrame.from_postgis(
         "SELECT id as priogrid_gid, in_africa, in_me, geom FROM prod.priogrid",
